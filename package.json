@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/paradocx96/Conference-Application-React#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.0",
