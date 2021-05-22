@@ -1,0 +1,1 @@
+{"mappings":"AAAA;AACA;AACA;AACA","sources":["src/components/Navbar/Navbar.css"],"sourcesContent":[".NavbarItems {\r\n    background: linear-gradient(90deg, rgb(110,94, 254) 0%, rgba(73,63,252,1) 100%);\r\n    height: 80px;\r\n}"],"names":[],"version":3,"file":"index.HASH_REF_ac15a6b91c183badf17dd1cd3ca53ad3.css.map","sourceRoot":"/__parcel_source_root/"}

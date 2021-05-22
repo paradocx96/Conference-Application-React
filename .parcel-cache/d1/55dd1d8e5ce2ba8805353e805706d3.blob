@@ -1,0 +1,34 @@
+var helpers = require("./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactBootstrap = require("react-bootstrap");
+function App() {
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Projects\\WebStorm\\Conference-Application-React\\App.jsx",
+            lineNumber: 9
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h1", {
+        __source: {
+            fileName: "C:\\Projects\\WebStorm\\Conference-Application-React\\App.jsx",
+            lineNumber: 10
+        },
+        __self: this
+    }, "Homepage")));
+}
+_c = App;
+var _c;
+$RefreshReg$(_c, "App");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

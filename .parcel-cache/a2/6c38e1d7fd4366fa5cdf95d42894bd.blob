@@ -1,0 +1,79 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _menuItems = require("./MenuItems");
+var _navbarCss = require("./Navbar.css");
+class Navbar extends _react.Component {
+    state = {
+        clicked: false
+    };
+    render() {
+        return(/*#__PURE__*/ _reactDefault.default.createElement("nav", {
+            className: "NavbarItems",
+            __source: {
+                fileName: "C:\\Projects\\WebStorm\\Conference-Application-React\\src\\components\\Navbar\\Navbar.jsx",
+                lineNumber: 15
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h1", {
+            className: "navbar-logo",
+            __source: {
+                fileName: "C:\\Projects\\WebStorm\\Conference-Application-React\\src\\components\\Navbar\\Navbar.jsx",
+                lineNumber: 16
+            },
+            __self: this
+        }, "RHNA Conference"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "menu-icon",
+            onClick: this.handleClick,
+            __source: {
+                fileName: "C:\\Projects\\WebStorm\\Conference-Application-React\\src\\components\\Navbar\\Navbar.jsx",
+                lineNumber: 17
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("i", {
+            className: this.state.clicked ? 'fas fa-times' : 'fas fa-bars',
+            __source: {
+                fileName: "C:\\Projects\\WebStorm\\Conference-Application-React\\src\\components\\Navbar\\Navbar.jsx",
+                lineNumber: 18
+            },
+            __self: this
+        })), /*#__PURE__*/ _reactDefault.default.createElement("ul", {
+            __source: {
+                fileName: "C:\\Projects\\WebStorm\\Conference-Application-React\\src\\components\\Navbar\\Navbar.jsx",
+                lineNumber: 20
+            },
+            __self: this
+        }, _menuItems.MenuItems.map((item, index)=>{
+            return(/*#__PURE__*/ _reactDefault.default.createElement("li", {
+                key: index,
+                __source: {
+                    fileName: "C:\\Projects\\WebStorm\\Conference-Application-React\\src\\components\\Navbar\\Navbar.jsx",
+                    lineNumber: 23
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement("a", {
+                className: item.cName,
+                href: item.url,
+                __source: {
+                    fileName: "C:\\Projects\\WebStorm\\Conference-Application-React\\src\\components\\Navbar\\Navbar.jsx",
+                    lineNumber: 24
+                },
+                __self: this
+            }, item.title)));
+        }))));
+    }
+}
+exports.default = Navbar;
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
