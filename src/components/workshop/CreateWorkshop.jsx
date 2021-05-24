@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Card, Form, Button, Col} from "react-bootstrap";
+import {IoMdCloseCircleOutline} from "react-icons/io";
 
 export default class CreateWorkshop extends Component {
 
@@ -7,7 +8,7 @@ export default class CreateWorkshop extends Component {
         super(props)
         this.state = {
             isShowForm: false,
-            validated: false,
+            isValidated: false,
             workshop: {
                 title: '',
                 courseCode: '',
@@ -23,7 +24,19 @@ export default class CreateWorkshop extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state)
+        this.setState({isValidated: true});
+        if (
+            this.state.workshop.title === '' ||
+            this.state.workshop.venue === '' ||
+            this.state.workshop.date === '' ||
+            this.state.workshop.startingTime === '' ||
+            this.state.workshop.description === ''
+        ) {
+            return;
+        }
+
+        //TODO: Use username as primary key.
+        console.log(this.state);
     }
 
     render() {
@@ -39,10 +52,13 @@ export default class CreateWorkshop extends Component {
                 {
                     this.state.isShowForm &&
                     <Card className="mx-2 my-5 p-4">
-                        <h3>Create new workshop</h3>
-                        <Form noValidate validated={this.validated} onSubmit={this.handleSubmit}>
+                        <h3>Create new workshop
+                            <IoMdCloseCircleOutline style={{cursor: 'pointer'}} className="float-right"
+                                                    onClick={() => this.setState({isShowForm: false})}/>
+                        </h3>
+                        <Form noValidate validated={this.state.isValidated} onSubmit={this.handleSubmit}>
 
-                            <Form.Group controlId="validationCustom01">
+                            <Form.Group controlId="validationTitle">
                                 <Form.Label>Workshop title</Form.Label>
                                 <Form.Control
                                     required
@@ -59,7 +75,7 @@ export default class CreateWorkshop extends Component {
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
 
-                            <Form.Group controlId="validationCustom02">
+                            <Form.Group controlId="validationCourseCode">
                                 <Form.Label>Course code</Form.Label>
                                 <Form.Control
                                     type="text"
@@ -75,7 +91,7 @@ export default class CreateWorkshop extends Component {
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
 
-                            <Form.Group controlId="validationCustom02">
+                            <Form.Group controlId="validationVenue">
                                 <Form.Label>Venue</Form.Label>
                                 <Form.Control
                                     required
@@ -94,7 +110,7 @@ export default class CreateWorkshop extends Component {
 
                             <Form.Row>
 
-                                <Form.Group as={Col} xs={12} md={6} controlId="validationCustom02">
+                                <Form.Group as={Col} xs={12} md={6} controlId="validationDate">
                                     <Form.Label>Date</Form.Label>
                                     <Form.Control
                                         required
@@ -111,7 +127,7 @@ export default class CreateWorkshop extends Component {
                                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                                 </Form.Group>
 
-                                <Form.Group as={Col} xs={12} sm={6} md={3} controlId="validationCustom02">
+                                <Form.Group as={Col} xs={12} sm={6} md={3} controlId="validationStart">
                                     <Form.Label>Start</Form.Label>
                                     <Form.Control
                                         required
@@ -128,7 +144,7 @@ export default class CreateWorkshop extends Component {
                                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                                 </Form.Group>
 
-                                <Form.Group as={Col} xs={12} sm={6} md={3} controlId="validationCustom02">
+                                <Form.Group as={Col} xs={12} sm={6} md={3} controlId="validationEnd">
                                     <Form.Label>End</Form.Label>
                                     <Form.Control
                                         type="time"
@@ -146,7 +162,7 @@ export default class CreateWorkshop extends Component {
 
                             </Form.Row>
 
-                            <Form.Group controlId="validationCustom01">
+                            <Form.Group controlId="validationDescription">
                                 <Form.Label>Description</Form.Label>
                                 <Form.Control
                                     required
@@ -163,7 +179,7 @@ export default class CreateWorkshop extends Component {
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
 
-                            <Form.Group controlId="validationCustom01">
+                            <Form.Group controlId="validationDocuments">
                                 <Form.Label>Documents and materials</Form.Label>
                                 <Form.Control
                                     type="file"
