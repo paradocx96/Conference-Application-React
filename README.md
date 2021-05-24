@@ -5,9 +5,9 @@
 
 ### > Git Clone  
 git clone https://github.com/paradocx96/Conference-Application-React.git  
-cd Conference-Application-React  
+cd Conference-Application-Spring-Boot  
 
-### > Create a Brach and Commit from that Branch  
+### > Create a Branch and Commit from that Branch  
 git checkout -b BranchName  
 git add .  
 git commit -m "Commit Message"  
@@ -20,7 +20,7 @@ git commit -m "Commit Message"
 git branch -M BranchName  
 git push -u origin BranchName
 
-### > Check available Braches  
+### > Check available Branches  
 git branch  
 
 ### > Switch between Branches  
@@ -28,3 +28,15 @@ git checkout BranchName
 
 ### > Create New Branch  
 git checkout -b BranchName  
+
+### > Update current Branch  
+git pull  
+
+### > Check commit history  
+git log  
+
+### > Check availability for commit  
+git status  
+
+### > Check Git Repository Details  
+git remote show origin  
