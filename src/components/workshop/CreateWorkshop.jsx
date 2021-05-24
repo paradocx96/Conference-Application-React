@@ -7,9 +7,24 @@ export default class CreateWorkshop extends Component {
         super(props)
         this.state = {
             isShowForm: false,
-            validated: false
+            validated: false,
+            workshop: {
+                title: '',
+                courseCode: '',
+                venue: '',
+                date: '',
+                startingTime: '',
+                endTime: '',
+                description: '',
+                documents: null
+            }
         }
     };
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(this.state)
+    }
 
     render() {
         return (
@@ -25,7 +40,7 @@ export default class CreateWorkshop extends Component {
                     this.state.isShowForm &&
                     <Card className="mx-2 my-5 p-4">
                         <h3>Create new workshop</h3>
-                        <Form noValidate validated={this.validated}>
+                        <Form noValidate validated={this.validated} onSubmit={this.handleSubmit}>
 
                             <Form.Group controlId="validationCustom01">
                                 <Form.Label>Workshop title</Form.Label>
@@ -34,6 +49,12 @@ export default class CreateWorkshop extends Component {
                                     type="text"
                                     placeholder="Workshop title"
                                     title="Add the workshop title here"
+                                    onChange={event => this.setState({
+                                        workshop: {
+                                            ...this.state.workshop,
+                                            title: event.target.value
+                                        }
+                                    })}
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
@@ -44,6 +65,12 @@ export default class CreateWorkshop extends Component {
                                     type="text"
                                     placeholder="Course code"
                                     title="Add the course code if has. Not necessary"
+                                    onChange={event => this.setState({
+                                        workshop: {
+                                            ...this.state.workshop,
+                                            courseCode: event.target.value
+                                        }
+                                    })}
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
@@ -55,6 +82,12 @@ export default class CreateWorkshop extends Component {
                                     type="text"
                                     placeholder="Venue"
                                     title="Add the workshop will conducting place."
+                                    onChange={event => this.setState({
+                                        workshop: {
+                                            ...this.state.workshop,
+                                            venue: event.target.value
+                                        }
+                                    })}
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
@@ -68,6 +101,12 @@ export default class CreateWorkshop extends Component {
                                         type="date"
                                         placeholder="Date"
                                         title="Add the workshop conducting date"
+                                        onChange={event => this.setState({
+                                            workshop: {
+                                                ...this.state.workshop,
+                                                date: event.target.value
+                                            }
+                                        })}
                                     />
                                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                                 </Form.Group>
@@ -79,6 +118,12 @@ export default class CreateWorkshop extends Component {
                                         type="time"
                                         placeholder="start at"
                                         title="Add the workshop starting time"
+                                        onChange={event => this.setState({
+                                            workshop: {
+                                                ...this.state.workshop,
+                                                startingTime: event.target.value
+                                            }
+                                        })}
                                     />
                                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                                 </Form.Group>
@@ -89,6 +134,12 @@ export default class CreateWorkshop extends Component {
                                         type="time"
                                         placeholder="end at"
                                         title="Add the workshop approximate ending time. Not required."
+                                        onChange={event => this.setState({
+                                            workshop: {
+                                                ...this.state.workshop,
+                                                endTime: event.target.value
+                                            }
+                                        })}
                                     />
                                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                                 </Form.Group>
@@ -102,6 +153,12 @@ export default class CreateWorkshop extends Component {
                                     type="text"
                                     placeholder="Description"
                                     title="Add brief description about the workshop"
+                                    onChange={event => this.setState({
+                                        workshop: {
+                                            ...this.state.workshop,
+                                            description: event.target.value
+                                        }
+                                    })}
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
@@ -112,6 +169,12 @@ export default class CreateWorkshop extends Component {
                                     type="file"
                                     placeholder="Documents and materials"
                                     title="pre-giving workshop materials and documents"
+                                    onChange={event => this.setState({
+                                        workshop: {
+                                            ...this.state.workshop,
+                                            documents: event.target.value
+                                        }
+                                    })}
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
