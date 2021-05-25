@@ -48,6 +48,7 @@ export default class AddKeyNote extends Component {
                 }).then(() => {
                 console.log('KEYNOTE ADDED TO DATABASE!');
                 console.log('KeyNote => ' + JSON.stringify(keynote));
+                this.resetForm();
             });
         }
     }

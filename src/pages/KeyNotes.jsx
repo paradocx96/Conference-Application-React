@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import AddKeyNote from "../components/KeyNotes/AddKeyNote";
+import ViewKeyNote from "../components/KeyNotes/ViewKeyNote";
 
 export default class KeyNotes extends Component {
 
@@ -8,6 +9,7 @@ export default class KeyNotes extends Component {
             <div>
                 <h1>KeyNotes</h1>
                 <AddKeyNote/>
+                <ViewKeyNote/>
             </div>
         )
     }
