@@ -8,7 +8,7 @@ export default new class KeyNoteService {
 
     // TODO: Method for add new Keynote to database
     postKeyNote(keynote) {
-        return axios.post(KEYNOTE_API_BASE_URL_AWS, keynote);
+        return axios.post(KEYNOTE_API_BASE_URL, keynote);
     }
 
     getKeyNotes() {
