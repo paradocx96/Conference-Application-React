@@ -1,11 +1,12 @@
 import React, {Component} from "react";
 import {Card, Form, Button, Col} from "react-bootstrap";
 import {IoMdCloseCircleOutline} from "react-icons/io";
+import {createWorkshop} from "../../services/WorkshopService";
 
 export default class CreateWorkshop extends Component {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             isShowForm: false,
             isValidated: false,
@@ -22,21 +23,26 @@ export default class CreateWorkshop extends Component {
         }
     };
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
+        console.log(this.state.workshop);
         this.setState({isValidated: true});
         if (
             this.state.workshop.title === '' ||
             this.state.workshop.venue === '' ||
             this.state.workshop.date === '' ||
-            this.state.workshop.startingTime === '' ||
             this.state.workshop.description === ''
         ) {
             return;
         }
 
-        //TODO: Use username as primary key.
-        console.log(this.state);
+        /**
+         * call to create new workshop axios function.
+         */
+        await createWorkshop(this.state.workshop);
+
+        this.setState({isValidated: false});
+
     }
 
     render() {
@@ -130,7 +136,6 @@ export default class CreateWorkshop extends Component {
                                 <Form.Group as={Col} xs={12} sm={6} md={3} controlId="validationStart">
                                     <Form.Label>Start</Form.Label>
                                     <Form.Control
-                                        required
                                         type="time"
                                         placeholder="start at"
                                         title="Add the workshop starting time"
@@ -188,7 +193,7 @@ export default class CreateWorkshop extends Component {
                                     onChange={event => this.setState({
                                         workshop: {
                                             ...this.state.workshop,
-                                            documents: event.target.value
+                                            documents: event.target.files[0]
                                         }
                                     })}
                                 />
