@@ -5,6 +5,9 @@ import {BrowserRouter as Router, Redirect, Switch, Route} from 'react-router-dom
 import NavigationBar from "./src/components/Navbar/NavigationBar";
 import FooterBar from "./src/components/Foobar/FooterBar";
 import Homepage from "./src/pages/Homepage";
+import ResearchPaperUpload from "./src/components/ResearchPaper/ResearchPaperUpload";
+import ResearchPaperDownload from "./src/components/ResearchPaper/ResearchPaperDownload";
+import Research from "./src/components/ResearchPaper/Research";
 
 function App() {
 
@@ -16,6 +19,9 @@ function App() {
                     <Route exact path="/">
                         <Homepage/>
                     </Route>
+                    <Route path={'/research'} exact component={Research} />
+                    <Route path={'/research/upload'} exact component={ResearchPaperUpload} />
+                    <Route path={'/research/download'} exact component={ResearchPaperDownload} />
                 </Switch>
             </Router>
             <FooterBar/>

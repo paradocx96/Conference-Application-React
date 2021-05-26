@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Navbar, NavDropdown, Nav} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Link} from "react-router-dom";
 
 class NavigationBar extends Component {
 
@@ -16,10 +17,13 @@ class NavigationBar extends Component {
                             <Nav.Link href="/keynotes">Keynotes</Nav.Link>
                             <Nav.Link href="/news">News</Nav.Link>
                             <Nav.Link href="/workshop">Workshops</Nav.Link>
+
                             <Nav.Link href="/research">Research</Nav.Link>
+                           {/* <Link to={'/research'} className={'nav-link'}>Research</Link>*/}
 
                             <NavDropdown title="Authors" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="/research">Research</NavDropdown.Item>
+                                {/*<NavDropdown.Item href="/research">Research</NavDropdown.Item>*/}
+                                <Link to={'/research'} className={'dropdown-item'}>Research</Link>
                                 <NavDropdown.Divider/>
                                 <NavDropdown.Item href="/downloads">Downloads</NavDropdown.Item>
                             </NavDropdown>
