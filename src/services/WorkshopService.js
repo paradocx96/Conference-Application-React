@@ -12,3 +12,8 @@ export function createWorkshop(workshop) {
             }
         }).catch(error => alert(error));
 }
+
+
+export function getAllWorkshops() {
+    return axios.get(WORKSHOP_API_URL);
+}
