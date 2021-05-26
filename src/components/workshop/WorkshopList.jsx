@@ -1,17 +1,25 @@
 import React, {Component} from "react";
 import WorkshopUnit from "./WorkshopUnit";
 import {Card} from "react-bootstrap";
+import {getAllWorkshops} from "../../services/WorkshopService";
 
 export default class WorkshopList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            workshopList: []
+        }
+    };
 
     renderWorkshopList = () => {
-        let ccs = [{name: "Works 1"}, {name: "Works 2"}, {name: "Works 3"}];
-        return ccs.map((item, index) => <WorkshopUnit workshop={item} key={index}/>)
+        getAllWorkshops().then(value => this.setState({workshopList: value.data}));
+        return this.state.workshopList.map((item, index) => <WorkshopUnit workshop={item} key={index}/>)
     }
 
     render() {
         return (
-            <Card className="mx-2 my-3 p-2 pt-5">
+            <Card className="mx-2 my-3 p-2 pt-4">
+                <h2 className="px-2">Scheduled Meetings</h2>
                 {
                     this.renderWorkshopList()
                 }

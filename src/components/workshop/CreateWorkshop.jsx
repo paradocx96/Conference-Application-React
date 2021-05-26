@@ -1,8 +1,11 @@
 import React, {Component} from "react";
-import {Card, Form, Button, Col} from "react-bootstrap";
+import {Card, Form, Button, Col, Spinner} from "react-bootstrap";
 import {IoMdCloseCircleOutline} from "react-icons/io";
 import {createWorkshop} from "../../services/WorkshopService";
 
+/**
+ * render create workshop component.
+ */
 export default class CreateWorkshop extends Component {
 
     constructor(props) {
@@ -10,6 +13,7 @@ export default class CreateWorkshop extends Component {
         this.state = {
             isShowForm: false,
             isValidated: false,
+            isUploading: false,
             workshop: {
                 title: '',
                 courseCode: '',
@@ -22,6 +26,7 @@ export default class CreateWorkshop extends Component {
             }
         }
     };
+
 
     handleSubmit = async (event) => {
         event.preventDefault();
@@ -36,13 +41,8 @@ export default class CreateWorkshop extends Component {
             return;
         }
 
-        /**
-         * call to create new workshop axios function.
-         */
-        await createWorkshop(this.state.workshop);
-
-        this.setState({isValidated: false});
-
+        this.setState({isUploading: true});
+        createWorkshop(this.state.workshop).then(() => this.setState({isUploading: false, isValidated: false}));
     }
 
     render() {
@@ -52,7 +52,7 @@ export default class CreateWorkshop extends Component {
                     !this.state.isShowForm &&
                     <Card style={{cursor: 'pointer'}} className="m-2 py-2 px-4"
                           onClick={() => this.setState({isShowForm: true})}>
-                        Create Workshop
+                        Create WorkshopUnit
                     </Card>
                 }
                 {
@@ -65,11 +65,11 @@ export default class CreateWorkshop extends Component {
                         <Form noValidate validated={this.state.isValidated} onSubmit={this.handleSubmit}>
 
                             <Form.Group controlId="validationTitle">
-                                <Form.Label>Workshop title</Form.Label>
+                                <Form.Label>WorkshopUnit title</Form.Label>
                                 <Form.Control
                                     required
                                     type="text"
-                                    placeholder="Workshop title"
+                                    placeholder="WorkshopUnit title"
                                     title="Add the workshop title here"
                                     onChange={event => this.setState({
                                         workshop: {
@@ -193,19 +193,17 @@ export default class CreateWorkshop extends Component {
                                     onChange={event => this.setState({
                                         workshop: {
                                             ...this.state.workshop,
-                                            documents: event.target.files[0]
-                                        }
+                                        documents: event.target.files}
                                     })}
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
 
-                            <Button type="submit">Submit form</Button>
+                            <Button type="submit" disabled={this.state.isUploading}> Submit form&nbsp;
+                                {this.state.isUploading && <Spinner animation={"border"} size={"sm"}/>}</Button>
                         </Form>
                     </Card>
                 }
-
-
             </React.Fragment>
         )
     }
