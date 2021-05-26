@@ -8,13 +8,16 @@ import Homepage from "./src/pages/Homepage";
 import ResearchPaperUpload from "./src/components/ResearchPaper/ResearchPaperUpload";
 import ResearchPaperDownload from "./src/components/ResearchPaper/ResearchPaperDownload";
 import Research from "./src/components/ResearchPaper/Research";
+import NavigationBar2 from "./src/components/Navbar/NavigationBar2";
 
 function App() {
 
     return (
         <div>
-            <NavigationBar/>
+            {/*<NavigationBar/>*/}
+
             <Router>
+                <NavigationBar2 />
                 <Switch>
                     <Route exact path="/">
                         <Homepage/>
