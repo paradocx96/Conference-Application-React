@@ -19,7 +19,8 @@ class Research extends React.Component{
             <div>
                 <h1>Research</h1>  <br />
                 <Link to={'/research/upload'} >Upload Research Paper</Link> <br />
-                <Link to={'/research/download'} >Download Research Paper</Link>
+                <Link to={'/research/download'} >Download Research Paper</Link> <br />
+                <Link to={'/research/viewAll'} >View All  Research Papers</Link> <br />
             </div>
         );
     }

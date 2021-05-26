@@ -9,6 +9,7 @@ import ResearchPaperUpload from "./src/components/ResearchPaper/ResearchPaperUpl
 import ResearchPaperDownload from "./src/components/ResearchPaper/ResearchPaperDownload";
 import Research from "./src/components/ResearchPaper/Research";
 import NavigationBar2 from "./src/components/Navbar/NavigationBar2";
+import ViewAllResearchPapers from "./src/components/ResearchPaper/ViewAllResearchPapers";
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
                     <Route path={'/research'} exact component={Research} />
                     <Route path={'/research/upload'} exact component={ResearchPaperUpload} />
                     <Route path={'/research/download'} exact component={ResearchPaperDownload} />
+                    <Route path={'/research/viewAll'} exact component={ViewAllResearchPapers} />
                 </Switch>
             </Router>
             <FooterBar/>
