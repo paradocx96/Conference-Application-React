@@ -10,6 +10,8 @@ import ResearchPaperDownload from "./src/components/ResearchPaper/ResearchPaperD
 import Research from "./src/components/ResearchPaper/Research";
 import NavigationBar2 from "./src/components/Navbar/NavigationBar2";
 import ViewAllResearchPapers from "./src/components/ResearchPaper/ViewAllResearchPapers";
+import DeleteResearchPapers from "./src/components/ResearchPaper/DeleteResearchPapers";
+import UpdateResearchPaper from "./src/components/ResearchPaper/UpdateResearchPaper";
 
 function App() {
 
@@ -27,6 +29,9 @@ function App() {
                     <Route path={'/research/upload'} exact component={ResearchPaperUpload} />
                     <Route path={'/research/download'} exact component={ResearchPaperDownload} />
                     <Route path={'/research/viewAll'} exact component={ViewAllResearchPapers} />
+                    <Route path={'/research/deleteEntries'} exact component={DeleteResearchPapers} />
+                    <Route path={'/research/updatePaper'} exact component={UpdateResearchPaper} />
+
                 </Switch>
             </Router>
             <FooterBar/>

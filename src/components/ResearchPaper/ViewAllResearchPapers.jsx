@@ -62,6 +62,7 @@ class ViewAllResearchPapers extends React.Component{
 
     }
 
+    //performs approving
     handleApprove = async (id) => {
         //id.preventDefault();
 
@@ -84,6 +85,7 @@ class ViewAllResearchPapers extends React.Component{
         await this.componentDidMount();
     }
 
+    //performs rejecting
     handleReject = async (id) => {
         //id.preventDefault();
 
@@ -106,6 +108,7 @@ class ViewAllResearchPapers extends React.Component{
         await this.componentDidMount();
     }
 
+    //performs revoking
     handleRevoke = async (id) => {
         //id.preventDefault();
 
