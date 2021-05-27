@@ -12,8 +12,11 @@ export default class WorkshopList extends Component {
     };
 
     renderWorkshopList = () => {
-        getAllWorkshops().then(value => this.setState({workshopList: value.data}));
         return this.state.workshopList.map((item, index) => <WorkshopUnit workshop={item} key={index}/>)
+    }
+
+    componentDidMount() {
+        getAllWorkshops().then(value => this.setState({workshopList: value.data}));
     }
 
     render() {
