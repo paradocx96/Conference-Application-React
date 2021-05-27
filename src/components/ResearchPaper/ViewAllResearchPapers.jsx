@@ -15,6 +15,7 @@ class ViewAllResearchPapers extends React.Component{
         this.handleDownload = this.handleDownload.bind(this);
         this.handleApprove = this.handleApprove.bind(this);
         this.handleReject = this.handleReject.bind(this);
+        this.handleRevoke = this.handleRevoke.bind(this);
 
     }
 
@@ -61,12 +62,70 @@ class ViewAllResearchPapers extends React.Component{
 
     }
 
-    handleApprove = (event) => {
-        event.preventDefault();
+    handleApprove = async (id) => {
+        //id.preventDefault();
+
+        const COMMON_URL= "http://localhost:8080/";
+        const UPDATE_PATH = "researchpaper/updateStatus/";
+        const DOWNLOAD_URL_FUL = COMMON_URL+UPDATE_PATH;
+
+        const formData = new FormData();
+        formData.append("id",id);
+        formData.append("status","approved");
+
+        await axios.put(DOWNLOAD_URL_FUL,formData)
+            .then(response => response.data)
+            .then( (data) => {
+                alert("Approved research paper : " +data.id);
+            }).catch( error => {
+                console.log(error);
+            })
+
+        await this.componentDidMount();
     }
 
-    handleReject = (event) => {
-        event.preventDefault();
+    handleReject = async (id) => {
+        //id.preventDefault();
+
+        const COMMON_URL= "http://localhost:8080/";
+        const UPDATE_PATH = "researchpaper/updateStatus/";
+        const DOWNLOAD_URL_FUL = COMMON_URL+UPDATE_PATH;
+
+        const formData = new FormData();
+        formData.append("id",id);
+        formData.append("status","rejected");
+
+        await axios.put(DOWNLOAD_URL_FUL,formData)
+            .then(response => response.data)
+            .then( (data) => {
+                alert("Rejected research paper : "+ data.id);
+            }).catch(error => {
+                console.log(error);
+            })
+
+        await this.componentDidMount();
+    }
+
+    handleRevoke = async (id) => {
+        //id.preventDefault();
+
+        const COMMON_URL= "http://localhost:8080/";
+        const UPDATE_PATH = "researchpaper/updateStatus/";
+        const DOWNLOAD_URL_FUL = COMMON_URL+UPDATE_PATH;
+
+        const formData = new FormData();
+        formData.append("id",id);
+        formData.append("status","pending");
+
+        await axios.put(DOWNLOAD_URL_FUL,formData)
+            .then(response => response.data)
+            .then( (data) => {
+                alert("Revoked research paper : "+ data.id);
+            }).catch(error => {
+                console.log(error);
+            })
+
+        await this.componentDidMount();
     }
 
     render() {
@@ -105,8 +164,20 @@ class ViewAllResearchPapers extends React.Component{
                                         Download
                                         </Button>
                                     </td>
-                                    <td><Button className={'btn btn-success'}>Approve</Button> </td>
-                                    <td><Button className={'btn btn-danger'}>Reject</Button> </td>
+                                    <td><Button className={'btn btn-success'}
+                                                onClick={this.handleApprove.bind(this,e.id)}>
+                                        Approve
+                                    </Button> </td>
+
+                                    <td><Button className={'btn btn-danger'}
+                                    onClick={this.handleReject.bind(this,e.id)}>
+                                        Reject
+                                    </Button> </td>
+
+                                    <td><Button className={'btn btn-secondary'}
+                                    onClick={this.handleRevoke.bind(this,e.id)}>
+                                        Revoke to pending
+                                    </Button> </td>
                                 </tr>
                             ))
                     }
