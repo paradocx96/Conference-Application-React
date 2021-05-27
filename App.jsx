@@ -12,6 +12,8 @@ import NavigationBar2 from "./src/components/Navbar/NavigationBar2";
 import ViewAllResearchPapers from "./src/components/ResearchPaper/ViewAllResearchPapers";
 import DeleteResearchPapers from "./src/components/ResearchPaper/DeleteResearchPapers";
 import UpdateResearchPaper from "./src/components/ResearchPaper/UpdateResearchPaper";
+import ViewSingleResearchPaper from "./src/components/ResearchPaper/ViewSingleResearchPaper";
+
 
 function App() {
 
@@ -31,6 +33,7 @@ function App() {
                     <Route path={'/research/viewAll'} exact component={ViewAllResearchPapers} />
                     <Route path={'/research/deleteEntries'} exact component={DeleteResearchPapers} />
                     <Route path={'/research/updatePaper'} exact component={UpdateResearchPaper} />
+                    <Route path={'research/viewSinglePaper'} exact component={ViewSingleResearchPaper} />
 
                 </Switch>
             </Router>

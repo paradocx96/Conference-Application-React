@@ -23,6 +23,7 @@ class Research extends React.Component{
                 <Link to={'/research/viewAll'} >View All  Research Papers</Link> <br />
                 <Link to={'/research/deleteEntries'} >Delete research paper entries</Link> <br />
                 <Link to={'research/updatePaper'}>Update Paper</Link> <br />
+                <Link to={'research/viewSinglePaper'}>View Single Paper</Link> <br />
             </div>
         );
     }
