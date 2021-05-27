@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Form, Button, Col, Row, Container} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import KeyNoteService from "../../services/KeyNoteService";
+import ViewKeyNote from "./ViewKeyNote";
 
 export default class AddKeyNote extends Component {
 
@@ -15,6 +16,7 @@ export default class AddKeyNote extends Component {
         this.assignDescriptionHandler = this.assignDescriptionHandler.bind();
         this.submitKeyNote = this.submitKeyNote.bind(this);
         this.resetForm = this.resetForm.bind(this);
+        this.callGetViewMethod = ViewKeyNote.bind(this);
     }
 
     // TODO: Initializing default values
@@ -51,6 +53,8 @@ export default class AddKeyNote extends Component {
                 this.resetForm();
             });
         }
+
+        this.callGetViewMethod.getKeyNotes();
     }
 
     // TODO: Reset form values
