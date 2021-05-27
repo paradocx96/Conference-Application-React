@@ -8,7 +8,7 @@ import FooterBar from "./src/components/Foobar/FooterBar";
 import KeyNotes from "./src/pages/KeyNotes";
 import Dashboard from "./src/pages/Dashboard";
 import ViewKeyNoteDashboard from "./src/components/KeyNotes/ViewKeyNoteDashboard";
-
+import Registration from "./src/components/Registration/Registration";
 
 function App() {
 
@@ -29,6 +29,7 @@ function App() {
                     <Route path="/dashboard-keynotes">
                         <ViewKeyNoteDashboard/>
                     </Route>
+                    <Route path="/sign-up" component={Registration}/>
                 </Switch>
             </Router>
             <FooterBar/>
