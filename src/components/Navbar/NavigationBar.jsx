@@ -7,8 +7,8 @@ class NavigationBar extends Component {
     render() {
         return (
             <div>
-                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                    <Navbar.Brand href="/">RHNA Conference</Navbar.Brand>
+                <Navbar collapseOnSelect fixed="top" expand="lg" bg="dark" variant="dark">
+                    <Navbar.Brand href="/">RHNA CONFERENCE 2021</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
