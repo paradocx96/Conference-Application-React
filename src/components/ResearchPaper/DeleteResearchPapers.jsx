@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import {Button, Table} from "react-bootstrap";
 import {confirmAlert} from "react-confirm-alert";
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import Toast1 from "../Toasts/Toast1";
 
 class DeleteResearchPapers extends React.Component{
