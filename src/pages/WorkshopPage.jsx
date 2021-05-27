@@ -11,7 +11,7 @@ export default class WorkshopPage extends Component {
                 <h1>Workshop Page</h1>
                 <WorkshopCommonGuide/>
                 <CreateWorkshop/>
-                {/*<WorkshopList/>*/}
+                <WorkshopList/>
             </div>
         )
     }
