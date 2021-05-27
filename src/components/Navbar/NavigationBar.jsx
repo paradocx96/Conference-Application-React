@@ -1,32 +1,36 @@
 import React, {Component} from "react";
 import {Navbar, NavDropdown, Nav} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Link} from "react-router-dom";
 
 class NavigationBar extends Component {
 
     render() {
         return (
             <div>
-                <Navbar collapseOnSelect fixed="top" expand="lg" bg="dark" variant="dark">
-                    <Navbar.Brand href="/">RHNA CONFERENCE 2021</Navbar.Brand>
+                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                        <Link to={'/'} className={'navbar-brand'}>ICAF</Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-
-                            <Nav.Link href="/keynotes">Keynotes</Nav.Link>
-                            <Nav.Link href="/news">News</Nav.Link>
-                            <Nav.Link href="/workshop">Workshops</Nav.Link>
-                            <Nav.Link href="/research">Research</Nav.Link>
-
+                            <Link to={'/keynotes'} className={'nav-link'} >Keynotes</Link>
+                            <Link to={'/news'} className={'nav-link'} >News</Link>
+                            <Link to={'/workshop'} className={'nav-link'} >Workshop</Link>
+                            <Link to={'/research'} className={'nav-link'} >Research</Link>
                             <NavDropdown title="Authors" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="/research">Research</NavDropdown.Item>
+                                <Link to={'/research'} className={'dropdown-item'}>Research</Link>
                                 <NavDropdown.Divider/>
-                                <NavDropdown.Item href="/downloads">Downloads</NavDropdown.Item>
+                                <Link to={'/downloads'} className={'dropdown-item'}>Downloads</Link>
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="/contactus">Contact Us</Nav.Link>
-                            <Nav.Link eventKey={2} href="/signin">Sign in</Nav.Link>
+                            <Link to={'/contactus'} className={'nav-link'} >Contact Us</Link>
+                            <Link to={'/sign-in'} className={'nav-link'} >Sign in</Link>
+                            <NavDropdown title="" id="collasible-nav-dropdown">
+                                <Link to={'/dashboard'} className={'dropdown-item'}>Dashboard</Link>
+                                <NavDropdown.Divider/>
+                                <Link to={'/sign-out'} className={'dropdown-item'}>Sign Out</Link>
+                            </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
