@@ -1,0 +1,33 @@
+#dashboard {
+    background-color: white;
+    padding-left: 50px;
+}
+
+#dashboard-example {
+    background-color: palegreen;
+    margin: 100px;
+    min-height: 500px;
+    border: solid;
+    border-color: white;
+    border-radius: 10px;
+
+}
+
+#keynote {
+    background-color: white;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-bottom: 20px;
+}
+
+#keynote .addkeynote {
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: red;
+    width: 60%;
+}
+
+#keynote .viewkeynote {
+    margin-top: 20px;
+    background-color: rebeccapurple;
+}
