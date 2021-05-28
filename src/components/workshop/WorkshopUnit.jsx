@@ -1,10 +1,17 @@
 import React, {Component} from "react";
-import {Card} from "react-bootstrap";
+import {Button, Card} from "react-bootstrap";
+import {downloadDocumentByUserName} from "../../services/WorkshopService";
 
 export default class WorkshopUnit extends Component {
     constructor(props) {
         super(props);
         console.log(this.props)
+    }
+
+    async handleDownload(username) {
+        const formData = new FormData();
+        formData.append("username",username);
+        await downloadDocumentByUserName(formData);
     }
 
     render() {
@@ -18,6 +25,8 @@ export default class WorkshopUnit extends Component {
                 <span>{this.props.workshop.startingTime}</span><br/>
                 {this.props.workshop.endTime !== '' && <><span>{this.props.workshop.endTime}</span><br/></>}
                 {this.props.workshop.description !== '' && <><span>{this.props.workshop.description}</span><br/></>}
+
+                <Button onClick={() => this.handleDownload(this.props.workshop.username)}>Download</Button>
             </Card>
         )
     }
