@@ -1,15 +1,22 @@
 import React, {Component} from "react";
-import AddKeyNote from "../components/KeyNotes/AddKeyNote";
-import ViewKeyNote from "../components/KeyNotes/ViewKeyNote";
+
+import './../assets/styles/Keynote.css';
+import ViewKeyNoteSection from "../components/KeyNotes/ViewKeyNoteSection";
 
 export default class KeyNotes extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+    }
+
 
     render() {
         return(
             <div>
-                <h1>KeyNotes</h1>
-                <AddKeyNote/>
-                <ViewKeyNote/>
+                <ViewKeyNoteSection/>
             </div>
         )
     }

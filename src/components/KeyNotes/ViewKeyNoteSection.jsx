@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import {Form, Button, Col, Row, Container, Table, Image} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+import './../../assets/styles/Keynote.css';
 import KeyNoteService from "../../services/KeyNoteService";
 
-export default class ViewKeyNoteHomepage extends Component {
+export default class ViewKeyNoteSection extends Component {
 
     constructor(props) {
         super(props);
@@ -15,10 +15,10 @@ export default class ViewKeyNoteHomepage extends Component {
     }
 
     componentDidMount() {
-        this.getKeyNotes();
+        this.getKeyNotesByStatus();
     }
 
-    getKeyNotes() {
+    getKeyNotesByStatus() {
         KeyNoteService.getKeyNotesByStatus("Active")
             .then(response =>
                 response.data.map(
@@ -48,27 +48,28 @@ export default class ViewKeyNoteHomepage extends Component {
 
     render() {
         const {isLoading, keynotes} = this.state;
-        return (
+        return(
             <div>
-                <div className="row">
-                    {!isLoading ? (
-                        keynotes.map(keynote => {
-                            const {id, speakername, speakertype, organization, description, status, user} = keynote;
-                            return (
-                                <div className="col-md-4 border-primary border" key={id}>
-                                    <Image src="https://www.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg"
-                                           height="200px"
-                                           width="auto"
-                                           rounded />
-                                    <h3>{speakername}</h3>
-                                    <p>{speakertype}</p>
-                                </div>
-                            );
-                        })
-                    ) : (
-                        <p>Loading...</p>
-                    )}
-                </div>
+                <section id="keynote-main">
+                    <h1>KEYNOTES</h1>
+                    <div className="keynotespeaker">
+                        {!isLoading ? (
+                            keynotes.map(keynote => {
+                                const {id, speakername, speakertype, organization, description} = keynote;
+                                return (
+                                    <div key={id} className="speaker-list">
+                                        <h2>{speakername}</h2>
+                                        <h3>{speakertype}</h3>
+                                        <h4>{organization}</h4>
+                                        <h5>{description}</h5>
+                                    </div>
+                                );
+                            })
+                        ) : (
+                            <p>Loading...</p>
+                        )}
+                    </div>
+                </section>
             </div>
         )
     }

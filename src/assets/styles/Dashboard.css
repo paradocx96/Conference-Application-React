@@ -12,22 +12,3 @@
     border-radius: 10px;
 
 }
-
-#keynote {
-    background-color: white;
-    padding-top: 20px;
-    padding-left: 50px;
-    padding-bottom: 20px;
-}
-
-#keynote .addkeynote {
-    border-radius: 5px;
-    margin-top: 20px;
-    background-color: red;
-    width: 60%;
-}
-
-#keynote .viewkeynote {
-    margin-top: 20px;
-    background-color: rebeccapurple;
-}
