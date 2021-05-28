@@ -33,7 +33,7 @@ function App() {
                     <Route path={'/research/viewAll'} exact component={ViewAllResearchPapers} />
                     <Route path={'/research/deleteEntries'} exact component={DeleteResearchPapers} />
                     <Route path={'/research/updatePaper'} exact component={UpdateResearchPaper} />
-                    <Route path={'research/viewSinglePaper'} exact component={ViewSingleResearchPaper} />
+                    <Route path={'/research/viewSinglePaper'} exact component={ViewSingleResearchPaper} />
 
                 </Switch>
             </Router>
