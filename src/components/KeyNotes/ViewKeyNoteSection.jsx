@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import './../../assets/styles/Keynote.css';
 import KeyNoteService from "../../services/KeyNoteService";
 
-export default class ViewKeyNoteList extends Component {
+export default class ViewKeyNoteSection extends Component {
 
     constructor(props) {
         super(props);

@@ -1,8 +1,11 @@
 import React, {Component} from "react";
+
 import {Form, Button, Col, Row, Container} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './../../assets/styles/Keynote.css'
+
 import KeyNoteService from "../../services/KeyNoteService";
-import ViewKeyNote from "./ViewKeyNote";
+import DashboardPanel from "../Dashboard/DashboardPanel";
 
 export default class AddKeyNote extends Component {
 
@@ -16,7 +19,7 @@ export default class AddKeyNote extends Component {
         this.assignDescriptionHandler = this.assignDescriptionHandler.bind();
         this.submitKeyNote = this.submitKeyNote.bind(this);
         this.resetForm = this.resetForm.bind(this);
-        this.callGetViewMethod = ViewKeyNote.bind(this);
+        // this.callGetViewMethod = ViewKeyNote.bind(this);
     }
 
     // TODO: Initializing default values
@@ -44,7 +47,7 @@ export default class AddKeyNote extends Component {
             }
 
             // TODO: Save new Keynote in database
-            KeyNoteService.postKeyNote(keynote)
+           KeyNoteService.postKeyNote(keynote)
                 .catch(function (error) {
                     console.log(error);
                 }).then(() => {
@@ -53,8 +56,7 @@ export default class AddKeyNote extends Component {
                 this.resetForm();
             });
         }
-
-        this.callGetViewMethod.getKeyNotes();
+        // this.callGetViewMethod.getKeyNotes();
     }
 
     // TODO: Reset form values
@@ -82,7 +84,8 @@ export default class AddKeyNote extends Component {
     render() {
         return (
             <div>
-                <Container>
+                <DashboardPanel/>
+                <section id="keynote">
                     <Form onSubmit={this.submitKeyNote.bind(this)}
                           onReset={this.resetForm.bind(this)}>
                         <Form.Group as={Row} controlId="SpeakerName">
@@ -136,7 +139,7 @@ export default class AddKeyNote extends Component {
                             </Col>
                         </Form.Group>
                     </Form>
-                </Container>
+                </section>
             </div>
         )
     }

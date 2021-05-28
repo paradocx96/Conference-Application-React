@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 
 import './../assets/styles/Keynote.css';
-import ViewKeyNoteList from "../components/KeyNotes/ViewKeyNoteList";
+import ViewKeyNoteSection from "../components/KeyNotes/ViewKeyNoteSection";
 
 export default class KeyNotes extends Component {
 
@@ -16,7 +16,7 @@ export default class KeyNotes extends Component {
     render() {
         return(
             <div>
-                <ViewKeyNoteList/>
+                <ViewKeyNoteSection/>
             </div>
         )
     }

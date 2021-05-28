@@ -24,7 +24,7 @@ export default new class KeyNoteService {
     }
 
     updateKeyNoteStatus(id, status) {
-        return axios.put(KEYNOTE_API_BASE_URL + id, status)
+        return axios.put(KEYNOTE_API_BASE_URL +"update-status/"+ id, status)
     }
 
     deleteKeyNoteById(id) {
