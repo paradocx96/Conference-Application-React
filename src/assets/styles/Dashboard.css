@@ -1,0 +1,14 @@
+#dashboard {
+    background-color: white;
+    padding-left: 50px;
+}
+
+#dashboard-example {
+    background-color: palegreen;
+    margin: 100px;
+    min-height: 500px;
+    border: solid;
+    border-color: white;
+    border-radius: 10px;
+
+}

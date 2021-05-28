@@ -6,16 +6,8 @@
   "scripts": {
     "start": "parcel index.html"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/paradocx96/Conference-Application-React.git"
-  },
   "author": "RHNA",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/paradocx96/Conference-Application-React/issues"
-  },
-  "homepage": "https://github.com/paradocx96/Conference-Application-React#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",

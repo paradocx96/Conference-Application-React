@@ -7,16 +7,15 @@ export default class FooterBar extends Component {
     render() {
         return (
             <div>
-                <Card className="text-center">
-                    <Card.Header>Footer Start</Card.Header>
-                    <Card.Body>
-                        <Card.Title>Special title treatment Footer</Card.Title>
-                        <Card.Text>
-                            With supporting text below as a natural lead-in to additional content.
-                        </Card.Text>
-                        <Button variant="primary">Subscribe</Button>
+                <Card>
+                    <Card.Header className="text-left">Contact Us</Card.Header>
+                    <Card.Body className="text-left">
+                        <Card.Title>Faculty of Computing, Sri Lanka Institute of Information Technology, Sri Lanka</Card.Title>
+                        <Card.Text>Telephone: +94 11 754 4801</Card.Text>
+                        <Card.Text>Fax: +94 11 241 3901</Card.Text>
+                        <Card.Text>Email: info@sliit.lk</Card.Text>
                     </Card.Body>
-                    <Card.Footer className="text-muted">Footer End</Card.Footer>
+                    <Card.Footer className="text-center">©2021 SLIIT, developed by RHNA. All Rights Reserved.</Card.Footer>
                 </Card>
             </div>
         )
