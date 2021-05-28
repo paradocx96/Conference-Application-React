@@ -9,7 +9,7 @@ class NavigationBar extends Component {
         return (
             <div>
                 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                        <Link to={'/'} className={'navbar-brand'}>ICAF</Link>
+                        <Link to={'/'} className={'navbar-brand'}>ICAF - 2021</Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
