@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import {Card, Form, Button, Col, Spinner} from "react-bootstrap";
 import {IoMdCloseCircleOutline} from "react-icons/io";
 import {createWorkshop} from "../../services/WorkshopService";
-import axios from "axios";
+
+
 /**
  * render create workshop component.
  */
@@ -42,18 +43,18 @@ export default class CreateWorkshop extends Component {
         }
 
         let formData = new FormData();
-        formData.append("username",this.state.username);
-        formData.append("title",this.state.workshop.title);
-        formData.append("courseCode",this.state.workshop.courseCode);
-        formData.append("venue",this.state.workshop.venue);
-        formData.append("date",this.state.workshop.date);
-        formData.append("startingTime",this.state.workshop.startingTime);
-        formData.append("endTime",this.state.workshop.endTime);
-        formData.append("description",this.state.workshop.description);
-        formData.append("documents",this.state.workshop.documents);
+        formData.append("username", this.state.username);
+        formData.append("title", this.state.workshop.title);
+        formData.append("courseCode", this.state.workshop.courseCode);
+        formData.append("venue", this.state.workshop.venue);
+        formData.append("date", this.state.workshop.date);
+        formData.append("startingTime", this.state.workshop.startingTime);
+        formData.append("endTime", this.state.workshop.endTime);
+        formData.append("description", this.state.workshop.description);
+        formData.append("documents", this.state.workshop.documents);
 
         this.setState({isUploading: true});
-        createWorkshop(formData).then(() => this.setState({isUploading: false, isValidated: false}));
+        createWorkshop(formData).then(() => this.setState({isUploading: false, isValidated: false, isShowForm: false}));
     }
 
     render() {
@@ -204,7 +205,8 @@ export default class CreateWorkshop extends Component {
                                     onChange={event => this.setState({
                                         workshop: {
                                             ...this.state.workshop,
-                                        documents: event.target.files[0]}
+                                            documents: event.target.files[0]
+                                        }
                                     })}
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
