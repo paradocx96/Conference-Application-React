@@ -1,12 +1,6 @@
 import React, {Component} from "react";
-import {Button, Card, Col, Form, Spinner} from "react-bootstrap";
-import {
-    approveWorkshop,
-    deleteWorkshop,
-    downloadDocumentByWorkshop,
-    updateWorkshop
-} from "../../services/WorkshopService";
-import {IoMdCloseCircleOutline} from "react-icons/io";
+import {Button, Card} from "react-bootstrap";
+import {approveWorkshop, deleteWorkshop, downloadDocumentByWorkshop} from "../../services/WorkshopService";
 import UpdateWorkshop from "./UpdateWorkshop";
 
 export default class WorkshopUnit extends Component {
@@ -35,28 +29,13 @@ export default class WorkshopUnit extends Component {
         await approveWorkshop(formData);
     }
 
-    // async handleUpdate() {
-    //     const formData = new FormData();
-    //     formData.append("id", this.props.workshop.id);
-    //     formData.append("username", this.state.username);
-    //     formData.append("title", this.state.workshop.title);
-    //     formData.append("courseCode", this.state.workshop.courseCode);
-    //     formData.append("venue", this.state.workshop.venue);
-    //     formData.append("date", this.state.workshop.date);
-    //     formData.append("startingTime", this.state.workshop.startingTime);
-    //     formData.append("endTime", this.state.workshop.endTime);
-    //     formData.append("description", this.state.workshop.description);
-    //     formData.append("documents", this.state.workshop.documents);
-    //     await updateWorkshop(formData);
-    // }
-
-    async handleOnClickUpdate() {
+    handleOnClickUpdate() {
         this.setState({isShowUpdate: !this.state.isShowUpdate});
     }
 
-    handleUpdateCancel() {
-        console.log(this.state.isShowUpdate)
-        this.setState({isShowUpdate: false});
+    handleUpdateCancel(value) {
+        // console.log(this.state.isShowUpdate)
+        this.setState({isShowUpdate: value});
     }
 
     render() {
@@ -94,13 +73,13 @@ export default class WorkshopUnit extends Component {
                             {
                                 // this.props.workshop.hasDocuments &&
                                 <Button variant="success"
-                                        onClick={() => this.handleOnClickApprove(this.props.workshop.id)}>
+                                        onClick={() => this.handleApprove(this.props.workshop.id)}>
                                     Approve</Button>
                             }
 
                         </Card>
                         :
-                        <UpdateWorkshop workshop={this.props.workshop} handleUpdateCancle={() =>this.handleUpdateCancel()}/>
+                        <UpdateWorkshop workshop={this.props.workshop} handleUpdateCancel={() => this.handleUpdateCancel()}/>
                 }
             </React.Fragment>
 

@@ -55,7 +55,7 @@ export default class UpdateWorkshop extends Component {
     }
 
     handleCancel = () => {
-
+        this.props.handleUpdateCancel(false);
     }
 
     render() {
