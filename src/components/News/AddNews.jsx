@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './../../assets/styles/News.css'
 
 import NewsService from "../../services/NewsService";
-import DashboardPanel from "../Dashboard/DashboardPanel";
 
 export default class AddNews extends Component {
 
@@ -65,7 +64,6 @@ export default class AddNews extends Component {
     render() {
         return (
             <div>
-                <DashboardPanel/>
                 <section id="news">
                     <h2>Add News</h2>
                     <Form onSubmit={this.submitNews.bind(this)}

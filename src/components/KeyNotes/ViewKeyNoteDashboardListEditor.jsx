@@ -53,7 +53,7 @@ export default class ViewKeyNoteDashboardListEditor extends Component {
         const {isLoading, keynotes} = this.state;
         return (
             <div>
-                <h1>KeyNotes List</h1>
+                <h3>KeyNotes List</h3>
                 <div>
                     <Table striped bordered hover variant="dark" size="sm">
                         <thead>
@@ -97,6 +97,7 @@ export default class ViewKeyNoteDashboardListEditor extends Component {
                             })
                         ) : (
                             <tr>
+                                <td>Loading...</td>
                                 <td>Loading...</td>
                                 <td>Loading...</td>
                                 <td>Loading...</td>

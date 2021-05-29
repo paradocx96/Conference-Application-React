@@ -12,3 +12,8 @@
     border-radius: 10px;
 
 }
+
+#dashboardEditor {
+    background-color: white;
+    padding-left: 50px;
+}

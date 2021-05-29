@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import DashboardPanel from "../Dashboard/DashboardPanel";
 import NewsDashboardList from "./NewsDashboardList";
-import NewsDashboardListEditor from "./NewsDashboardListEditor";
 
 
 export default class NewsDashboard extends Component {
@@ -21,9 +20,6 @@ export default class NewsDashboard extends Component {
                     </div>
                     <div className="viewnews">
                         <NewsDashboardList/>
-                    </div>
-                    <div className="viewnews">
-                        <NewsDashboardListEditor/>
                     </div>
                 </section>
             </div>

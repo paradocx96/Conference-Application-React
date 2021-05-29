@@ -48,7 +48,7 @@ export default class NewsDashboardListEditor extends Component {
         const {isLoading, newsList} = this.state;
         return (
             <div>
-                <h1>News List</h1>
+                <h3>News List</h3>
                 <div>
                     <Table striped bordered hover variant="dark" size="sm">
                         <thead>

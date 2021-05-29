@@ -6,7 +6,6 @@ import '/src/assets/styles/Dashboard.css';
 
 import DashboardPanel from "../Dashboard/DashboardPanel";
 import ViewKeyNoteDashboardList from "./ViewKeyNoteDashboardList";
-import ViewKeyNoteDashboardListEditor from "./ViewKeyNoteDashboardListEditor";
 
 export default class ViewKeyNoteDashboard extends Component {
 
@@ -21,9 +20,6 @@ export default class ViewKeyNoteDashboard extends Component {
                     </div>
                     <div className="viewkeynote">
                         <ViewKeyNoteDashboardList/>
-                    </div>
-                    <div className="viewkeynote">
-                        <ViewKeyNoteDashboardListEditor/>
                     </div>
                 </section>
             </div>
