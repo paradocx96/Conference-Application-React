@@ -106,12 +106,21 @@ class ResearchPaperUpload extends React.Component{
     }
 
     render() {
+
+        const padding={
+            padding:'10px'
+        }
+
+        const padding2={
+            padding:'20px'
+        }
         return (
-            <div>
+            <div style={padding}>
 
-                <h3>Upload research paper and your details</h3>
+                <h3 className={'text-white'}>Upload your research paper and your details</h3>
 
-                <Form onSubmit={this.submitResearchPaper.bind(this)} onReset={this.resetResearch.bind(this)}>
+
+                <Form style={padding2} className={'bg-dark text-white'} onSubmit={this.submitResearchPaper.bind(this)} onReset={this.resetResearch.bind(this)}>
 
                     <Form.Group>
                         <Form.Label>Enter Username</Form.Label>
@@ -120,6 +129,7 @@ class ResearchPaperUpload extends React.Component{
                             type={'text'}
                             name={'username'}
                             onChange={this.changeUsername.bind(this)}
+                            className={'bg-dark text-white'}
                         />
                     </Form.Group>
 
@@ -130,6 +140,7 @@ class ResearchPaperUpload extends React.Component{
                             type={'text'}
                             name={'title'}
                             onChange={this.changeTitle.bind(this)}
+                            className={'bg-dark text-white'}
                         />
                     </Form.Group>
 
@@ -140,6 +151,7 @@ class ResearchPaperUpload extends React.Component{
                             type={'text'}
                             name={'email'}
                             onChange={this.changeEmail.bind(this)}
+                            className={'bg-dark text-white'}
                         />
                     </Form.Group>
 
@@ -155,8 +167,8 @@ class ResearchPaperUpload extends React.Component{
                         />
                     </Form.Group>
 
-                    <Button type={'submit'} className={'btn btn-primary btn-lg'}>Upload</Button>
-                    <Button type={'reset'} className={'btn btn-secondary btn-lg'}>Reset</Button>
+                    <Button type={'submit'} className={'btn btn-primary'}>Upload</Button>
+                    <Button type={'reset'} className={'btn btn-secondary'}>Reset</Button>
                 </Form>
 
 

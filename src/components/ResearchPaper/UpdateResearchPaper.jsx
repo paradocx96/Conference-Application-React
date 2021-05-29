@@ -78,11 +78,23 @@ class UpdateResearchPaper extends React.Component{
     }
 
     render() {
-        return (
-            <div>
-                <h1>Update File</h1>
+        const padding={
+            padding:'10px'
+        }
+        const padding2={
+            padding:'50px'
+        }
 
-                <Card>
+        const padding3={
+            padding:'20px'
+        }
+        return (
+            <div style={padding}>
+                <h2 className={'text-white'}>Update File</h2>
+
+                <div style={padding2}>
+
+                <Card className={'bg-dark text-white'}>
                     <Card.Header>
                         <Card.Title>
                             Upload id: {this.state.id}
@@ -94,7 +106,12 @@ class UpdateResearchPaper extends React.Component{
                     </Card.Body>
                 </Card>
 
-                <Form onSubmit={this.handleUpload.bind(this)}>
+                </div>
+
+                <p className={'text-white'}>Re Upload your file only if it is rejected.</p>
+                <p className={'text-white'}>Once re-uploaded it will be revoked to pending</p>
+
+                <Form style={padding3} className={'bg-dark text-white'} onSubmit={this.handleUpload.bind(this)}>
                     <Form.Group>
                         <Form.File
 

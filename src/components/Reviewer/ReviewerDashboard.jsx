@@ -18,7 +18,7 @@ class ReviewerDashboard extends React.Component{
         return (
             <div style={padding}>
 
-                <Jumbotron>
+                <Jumbotron className={'bg-dark text-white'}>
                     <h2>Reviewer Dashboard</h2>
                     <div>
                         <Row>

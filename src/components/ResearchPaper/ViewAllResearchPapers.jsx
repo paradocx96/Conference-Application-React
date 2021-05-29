@@ -134,7 +134,8 @@ class ViewAllResearchPapers extends React.Component{
     render() {
         return (
             <div>
-                <Table striped bordered hover variant={'light'}>
+                <h3 className={'bg-dark text-white'}>All research papers uploaded</h3>
+                <Table striped bordered hover variant={'dark'}>
 
                     <thead>
                     <tr>
