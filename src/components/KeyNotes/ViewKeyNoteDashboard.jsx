@@ -4,8 +4,9 @@ import {Link} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '/src/assets/styles/Dashboard.css';
 
-import ViewKeyNoteListDashboard from "./ViewKeyNoteListDashboard";
 import DashboardPanel from "../Dashboard/DashboardPanel";
+import ViewKeyNoteDashboardList from "./ViewKeyNoteDashboardList";
+import ViewKeyNoteDashboardListEditor from "./ViewKeyNoteDashboardListEditor";
 
 export default class ViewKeyNoteDashboard extends Component {
 
@@ -19,7 +20,10 @@ export default class ViewKeyNoteDashboard extends Component {
                         <Link to={'/dashboard-keynotes-add'} className={'btn btn-primary'} >Add Keynote</Link>
                     </div>
                     <div className="viewkeynote">
-                        <ViewKeyNoteListDashboard/>
+                        <ViewKeyNoteDashboardList/>
+                    </div>
+                    <div className="viewkeynote">
+                        <ViewKeyNoteDashboardListEditor/>
                     </div>
                 </section>
             </div>

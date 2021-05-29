@@ -1,10 +1,13 @@
 import React, {Component} from "react";
 
+import {Image} from "react-bootstrap";
 import './../../assets/styles/Keynote.css';
+
 import KeyNoteService from "../../services/KeyNoteService";
 
 export default class ViewKeyNoteSection extends Component {
 
+    // TODO: Initializing state values
     constructor(props) {
         super(props);
         this.state = {
@@ -14,12 +17,9 @@ export default class ViewKeyNoteSection extends Component {
         };
     }
 
-    componentDidMount() {
-        this.getKeyNotesByStatus();
-    }
-
-    getKeyNotesByStatus() {
-        KeyNoteService.getKeyNotesByStatus("Active")
+    //TODO: Function for get all activated Keynotes data from database
+    componentDidMount = async () => {
+        await KeyNoteService.getKeyNotesByStatus("Active")
             .then(response =>
                 response.data.map(
                     keynote => ({
@@ -58,6 +58,9 @@ export default class ViewKeyNoteSection extends Component {
                                 const {id, speakername, speakertype, organization, description} = keynote;
                                 return (
                                     <div key={id} className="speaker-list">
+                                        <Image
+                                            src="https://i.pinimg.com/originals/a7/0e/16/a70e1675c7bc001f1578aa76bb0a7819.png"
+                                            height="250px" width="auto" rounded />
                                         <h2>{speakername}</h2>
                                         <h3>{speakertype}</h3>
                                         <h4>{organization}</h4>

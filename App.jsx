@@ -14,13 +14,13 @@ import DeleteResearchPapers from "./src/components/ResearchPaper/DeleteResearchP
 import UpdateResearchPaper from "./src/components/ResearchPaper/UpdateResearchPaper";
 import ViewSingleResearchPaper from "./src/components/ResearchPaper/ViewSingleResearchPaper";
 
-import KeyNotes from "./src/pages/KeyNotes";
 import Dashboard from "./src/pages/Dashboard";
 import ViewKeyNoteDashboard from "./src/components/KeyNotes/ViewKeyNoteDashboard";
 import AddKeyNote from "./src/components/KeyNotes/AddKeyNote";
 import AddNews from "./src/components/News/AddNews";
 import NewsDashboard from "./src/components/News/NewsDashboard";
 import NewsSection from "./src/components/News/NewsSection";
+import ViewKeyNoteSection from "./src/components/KeyNotes/ViewKeyNoteSection";
 
 
 
@@ -35,7 +35,7 @@ function App() {
       
                     <Route path={'/dashboard'} exact component={Dashboard} />
                     
-                    <Route path={'/keynotes'} exact component={KeyNotes} />
+                    <Route path={'/keynotes'} exact component={ViewKeyNoteSection} />
                     <Route path={'/dashboard-keynotes'} exact component={ViewKeyNoteDashboard} />
                     <Route path={'/dashboard-keynotes-add'} exact component={AddKeyNote} />
       
