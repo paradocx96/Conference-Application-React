@@ -18,6 +18,9 @@ import KeyNotes from "./src/pages/KeyNotes";
 import Dashboard from "./src/pages/Dashboard";
 import ViewKeyNoteDashboard from "./src/components/KeyNotes/ViewKeyNoteDashboard";
 import AddKeyNote from "./src/components/KeyNotes/AddKeyNote";
+import AddNews from "./src/components/News/AddNews";
+import NewsDashboard from "./src/components/News/NewsDashboard";
+import NewsSection from "./src/components/News/NewsSection";
 
 
 
@@ -29,10 +32,16 @@ function App() {
                 <NavigationBar/>
                 <Switch>
                     <Route exact path="/"><Homepage/></Route>
-                    <Route path="/dashboard"><Dashboard/></Route>
-                    <Route path="/keynotes"><KeyNotes/></Route>
-                    <Route path="/dashboard-keynotes"><ViewKeyNoteDashboard/></Route>
-                    <Route path="/dashboard-keynotes-add"><AddKeyNote/></Route>
+      
+                    <Route path={'/dashboard'} exact component={Dashboard} />
+                    
+                    <Route path={'/keynotes'} exact component={KeyNotes} />
+                    <Route path={'/dashboard-keynotes'} exact component={ViewKeyNoteDashboard} />
+                    <Route path={'/dashboard-keynotes-add'} exact component={AddKeyNote} />
+      
+                    <Route path={'/news'} exact component={NewsSection} />
+                    <Route path={'/dashboard-news'} exact component={NewsDashboard} />
+                    <Route path={'/dashboard-news-add'} exact component={AddNews} />
 
                     <Route path={'/research'} exact component={Research} />
                     <Route path={'/research/upload'} exact component={ResearchPaperUpload} />
