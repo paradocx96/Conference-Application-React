@@ -9,6 +9,9 @@ import KeyNotes from "./src/pages/KeyNotes";
 import Dashboard from "./src/pages/Dashboard";
 import ViewKeyNoteDashboard from "./src/components/KeyNotes/ViewKeyNoteDashboard";
 import AddKeyNote from "./src/components/KeyNotes/AddKeyNote";
+import AddNews from "./src/components/News/AddNews";
+import NewsDashboard from "./src/components/News/NewsDashboard";
+import NewsSection from "./src/components/News/NewsSection";
 
 
 function App() {
@@ -33,6 +36,16 @@ function App() {
                     <Route path="/dashboard-keynotes-add">
                         <AddKeyNote/>
                     </Route>
+                    <Route path="/news">
+                        <NewsSection/>
+                    </Route>
+                    <Route path="/dashboard-news">
+                        <NewsDashboard/>
+                    </Route>
+                    <Route path="/dashboard-news-add">
+                        <AddNews/>
+                    </Route>
+
                 </Switch>
             </Router>
             <FooterBar/>
