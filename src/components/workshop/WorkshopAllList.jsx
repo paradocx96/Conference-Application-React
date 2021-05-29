@@ -3,7 +3,7 @@ import WorkshopUnit from "./WorkshopUnit";
 import {Card} from "react-bootstrap";
 import {getAllWorkshops} from "../../services/WorkshopService";
 
-export default class WorkshopList extends Component {
+export default class WorkshopAllList extends Component {
     constructor(props) {
         super(props);
         this.state = {
