@@ -3,6 +3,8 @@ import CreateWorkshop from "../components/workshop/CreateWorkshop";
 import WorkshopCommonGuide from "../components/workshop/WorkshopCommonGuide";
 import WorkshopAllList from "../components/workshop/WorkshopAllList";
 import {Container} from "react-bootstrap";
+import WorkshopAllPendingList from "../components/workshop/WorkshopAllPendingList";
+import WorkshopAllScheduledList from "../components/workshop/WorkshopAllScheduledList";
 
 export default class WorkshopPage extends Component {
 
