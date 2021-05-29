@@ -1,12 +1,14 @@
 import React, {Component} from "react";
-import {Form, Button, Col, Row, Container, Table, Modal} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import KeyNoteService from "../../services/KeyNoteService";
-import {Link} from "react-router-dom";
+
+import {Button, Table} from 'react-bootstrap';
 import {confirmAlert} from "react-confirm-alert";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default class ViewKeyNoteListDashboard extends Component {
+import KeyNoteService from "../../services/KeyNoteService";
 
+export default class ViewKeyNoteDashboardList extends Component {
+
+    // TODO: Initializing state values and functions
     constructor(props) {
         super(props);
         this.state = {
@@ -22,8 +24,9 @@ export default class ViewKeyNoteListDashboard extends Component {
         this.handleDeleteProcess = this.handleDeleteProcess.bind(this);
     }
 
+    //TODO: Function for get all Keynotes data from database
     componentDidMount = async () => {
-        // this.getKeyNotes();
+
         await KeyNoteService.getKeyNotes()
             .then(response =>
                 response.data.map(
@@ -52,9 +55,7 @@ export default class ViewKeyNoteListDashboard extends Component {
             );
     }
 
-    // getKeyNotes() {
-    // }
-
+    //TODO: Function for activate a Keynote
     handleActivate = async (id) => {
         let value = {
             status: 'Active'
@@ -71,6 +72,7 @@ export default class ViewKeyNoteListDashboard extends Component {
         await this.componentDidMount();
     }
 
+    //TODO: Function for deactivate a Keynote
     handleDeactivate = async (id) => {
         let value = {
             status: 'Deactive'
@@ -87,6 +89,7 @@ export default class ViewKeyNoteListDashboard extends Component {
         await this.componentDidMount();
     }
 
+    //TODO: Function for confirm popup
     handleDelete = (id) => {
         confirmAlert({
             title: 'Do you want to delete Keynote?',
@@ -105,6 +108,11 @@ export default class ViewKeyNoteListDashboard extends Component {
 
     }
 
+    handleDeleteCancel = () => {
+        alert("Deletion Cancelled.");
+    }
+
+    //TODO: Function for delete a Keynote
     handleDeleteProcess = async (id) => {
         await KeyNoteService.deleteKeyNoteById(id)
             .then(response => response.data)
@@ -117,18 +125,12 @@ export default class ViewKeyNoteListDashboard extends Component {
         await this.componentDidMount();
     }
 
-    handleDeleteCancel = () => {
-        alert("Deletion Cancelled.");
-    }
-
     render() {
         const {isLoading, keynotes} = this.state;
         return (
             <div>
                 <h1>KeyNotes List</h1>
                 <div>
-                    {/*<Button onClick={this.componentDidMount()}>Refresh</Button>*/}
-                    {/*<Button onClick={this.componentDidMount()}>Add Keynote</Button>*/}
                     <Table striped bordered hover variant="dark" size="sm">
                         <thead>
                         <tr>
@@ -164,23 +166,17 @@ export default class ViewKeyNoteListDashboard extends Component {
                                         <td>{user}</td>
                                         <td>{datetime}</td>
                                         <td>
-                                            <Button>Edit</Button>
+                                            <Button className="btn-success">Edit</Button>
                                         </td>
                                         <td>
-                                            <tr>
-                                                <Button
-                                                    onClick={this.handleActivate.bind(this, keynote.id)}>Activate</Button>
-                                            </tr>
-                                            <tr>
-                                                {'_______________'}
-                                            </tr>
-                                            <tr>
-                                                <Button
-                                                    onClick={this.handleDeactivate.bind(this, keynote.id)}>Deactivate</Button>
-                                            </tr>
+                                            <Button onClick={this.handleActivate.bind(this, keynote.id)}
+                                                    className="btn-secondary">Activate</Button><br/><br/>
+                                            <Button onClick={this.handleDeactivate.bind(this, keynote.id)}
+                                                    className="btn-warning">Deactivate</Button>
                                         </td>
                                         <td>
-                                            <Button onClick={this.handleDeleteProcess.bind(this, keynote.id)}>Delete</Button>
+                                            <Button onClick={this.handleDeleteProcess.bind(this, keynote.id)}
+                                                    className="btn-danger">Delete</Button>
                                         </td>
                                     </tr>
                                 );

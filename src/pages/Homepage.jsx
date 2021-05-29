@@ -1,10 +1,8 @@
 import React, {Component} from "react";
 
-import {Form, Button, Col, Row, Container} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '/src/assets/styles/Homepage.css';
 
-import ViewKeyNoteHomepage from "../components/KeyNotes/ViewKeyNoteHomepage";
 import About from "../components/Homepage/About";
 import Gallery from "../components/Homepage/Gallery";
 import ConferenceTracks from "../components/Homepage/ConferenceTracks";
@@ -12,6 +10,7 @@ import Organise from "../components/Homepage/Organise";
 import Sponsored from "../components/Homepage/Sponsored";
 import ImportantDates from "../components/Homepage/ImportantDates";
 import News from "../components/Homepage/News";
+import KeyNotes from "../components/Homepage/KeyNotes";
 
 export default class Homepage extends Component {
 
@@ -41,7 +40,7 @@ export default class Homepage extends Component {
                         <h2>KEY NOTE SPEAKERS</h2>
                         <br/>
                         <div>
-                            <ViewKeyNoteHomepage/>
+                            <KeyNotes/>
                         </div>
                     </div>
                 </section>
