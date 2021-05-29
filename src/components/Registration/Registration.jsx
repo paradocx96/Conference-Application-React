@@ -230,8 +230,20 @@ export default class Register extends Component {
                                     <select value={this.state.userType} onChange={this.onChangeUserType} className="dropdown">
                                         <option> </option>
                                         <option value={"user"}>Attendee</option>
-                                        <option value={"reviewer"}>Presenter</option>
+                                        <option value={"researcher"}>Researcher</option>
+                                        <option value={"workshop"}>Workshop Presenter</option>
                                     </select>
+                                </div>
+
+                                <div className="form-group">
+                                    {
+                                        this.state.userType.toString() === "researcher"?
+                                            <label> You're in Research paper</label>:
+                                            this.state.userType.toString() === "workshop"?
+                                                <label>You're in Workshop</label>:
+                                                    <label> </label>
+
+                                    }
                                 </div>
 
                                 <div className="form-group">
