@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, Card} from "react-bootstrap";
+import {Button, Card, Row, Col} from "react-bootstrap";
 import {approveWorkshop, deleteWorkshop, downloadDocumentByWorkshop} from "../../services/WorkshopService";
 import UpdateWorkshop from "./UpdateWorkshop";
 
@@ -7,7 +7,8 @@ export default class WorkshopUnit extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isShowUpdate: false
+            isShowUpdate: false,
+            signRole: props.signRole
         }
     }
 
@@ -56,30 +57,50 @@ export default class WorkshopUnit extends Component {
                                 <span>{this.props.workshop.description}</span><br/></>}
 
                             {
-                                // this.props.workshop.hasDocuments &&
+                                this.state.signRole !== "ADMIN" && this.state.signRole !== "REVIEWER" &&
                                 <Button onClick={() => this.handleDownload(this.props.workshop.id)}>Download</Button>
                             }
+
                             {
-                                // this.props.workshop.hasDocuments &&
-                                <Button variant="danger" onClick={() => this.handleDelete(this.props.workshop.id)}>
-                                    Delete</Button>
+                                this.state.signRole === "ADMIN" &&
+                                <Row>
+                                    <Col xs={12} sm={4} className="py-1 text-center">
+                                        <Button className="px-5 py-2"
+                                                onClick={() => this.handleDownload(this.props.workshop.id)}>Download</Button>
+                                    </Col>
+                                    <Col xs={12} sm={4} className="py-1 text-center">
+                                        <Button variant="danger" className="px-5 py-2"
+                                                onClick={() => this.handleDelete(this.props.workshop.id)}>
+                                            Delete</Button>
+                                    </Col>
+                                    <Col xs={12} sm={4} className="py-1 text-center">
+                                        <Button variant="warning" className="px-5 py-2"
+                                                onClick={() => this.handleOnClickUpdate()}>
+                                            Update</Button>
+                                    </Col>
+                                </Row>
+
+
                             }
                             {
-                                // this.props.workshop.hasDocuments &&
-                                <Button variant="warning"
-                                        onClick={() => this.handleOnClickUpdate()}>
-                                    Update</Button>
-                            }
-                            {
-                                // this.props.workshop.hasDocuments &&
-                                <Button variant="success"
-                                        onClick={() => this.handleApprove(this.props.workshop.id)}>
-                                    Approve</Button>
+                                this.state.signRole === "REVIEWER" &&
+                                <Row>
+                                    <Col xs={6}>
+                                        <Button className="px-3 px-sm-5 py-2"
+                                                onClick={() => this.handleDownload(this.props.workshop.id)}>Download</Button>
+                                    </Col>
+                                    <Col xs={6}>
+                                        <Button variant="success" className="px-3 px-sm-5 py-2"
+                                                onClick={() => this.handleApprove(this.props.workshop.id)}>
+                                            Approve</Button>
+                                    </Col>
+                                </Row>
                             }
 
                         </Card>
                         :
-                        <UpdateWorkshop workshop={this.props.workshop} handleUpdateCancel={() => this.handleUpdateCancel()}/>
+                        <UpdateWorkshop workshop={this.props.workshop}
+                                        handleUpdateCancel={() => this.handleUpdateCancel()}/>
                 }
             </React.Fragment>
 

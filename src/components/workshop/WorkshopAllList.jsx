@@ -12,7 +12,8 @@ export default class WorkshopAllList extends Component {
     };
 
     renderWorkshopList = () => {
-        return this.state.workshopList.map((item, index) => <WorkshopUnit workshop={item} key={index}/>)
+        return this.state.workshopList.map((item, index) =>
+            <WorkshopUnit workshop={item} key={index} signRole={"ADMIN"}/>)
     }
 
     componentDidMount() {
