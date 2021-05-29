@@ -7,26 +7,52 @@ import WorkshopAllScheduledList from "../components/workshop/WorkshopAllSchedule
 import WorkshopAllPendingList from "../components/workshop/WorkshopAllPendingList";
 
 export default class WorkshopPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            signRole: "SIGNED_USER" // ADMIN, REVIEWER, SIGNED_USER, WORKSHOP_CONDUCTOR
+        }
+        console.log(this.state)
+    }
+
+    componentDidMount() {
+        this.setState({signRole: "ADMIN"}); // TODO: SET THE SIGN ROLE HERE.
+    }
 
     render() {
-        return(
+        return (
             <Container>
                 <h1 className="mt-5 mb-4">Workshop Page</h1>
 
-                {/**  Only for sign as workshop conductor **/}
-                <WorkshopCommonGuide/>
+                {
+                    /**
+                     * Only for sign as workshop conductor
+                     */
+                    this.state.signRole === "WORKSHOP_CONDUCTOR" &&
+                    <React.Fragment>
+                        <WorkshopCommonGuide/>
+                        <CreateWorkshop/>
+                    </React.Fragment>
+                }
 
-                {/**  Only for sign as workshop conductor **/}
-                <CreateWorkshop/>
-
-                {/**  Only for sign as admin. - view, download, update/reschedule, delete **/}
-                <WorkshopAllList/>
-
-                {/**  Only for sign as reviewer - view, download, approve **/}
-                <WorkshopAllPendingList/>
+                {
+                    /**
+                     * Only for sign as reviewer - view, download, approve
+                     */
+                    this.state.signRole === "REVIEWER" &&
+                    <WorkshopAllPendingList/>
+                }
 
                 {/**  All signed users - view, download **/}
                 <WorkshopAllScheduledList/>
+
+                {
+                    /**
+                     * Only for sign as admin. - view, download, update/reschedule, delete
+                     */
+                    this.state.signRole === "ADMIN" &&
+                    <WorkshopAllList/>
+                }
             </Container>
         )
     }
