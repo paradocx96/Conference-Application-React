@@ -3,6 +3,7 @@ import {Button, Table} from "react-bootstrap";
 
 import DownloadService from "../../services/DownloadService";
 import {confirmAlert} from "react-confirm-alert";
+import FileDownload from "js-file-download";
 
 export default class DownloadDashboardList extends Component {
 
@@ -20,6 +21,7 @@ export default class DownloadDashboardList extends Component {
         this.handleDeactivate = this.handleDeactivate.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleDeleteProcess = this.handleDeleteProcess.bind(this);
+        this.handleDownload = this.handleDownload.bind(this);
     }
 
     //TODO: Function for get all News data from database
@@ -128,6 +130,31 @@ export default class DownloadDashboardList extends Component {
         await this.componentDidMount();
     }
 
+    //TODO: Function for Download file
+    handleDownload = async (id) => {
+
+        const formValue = new FormData();
+        formValue.append("id", id);
+
+        await DownloadService.getDownloadFileByParamId(formValue)
+            .then((response) => {
+                //get content disposition
+                let headerLine = response.request.getResponseHeader('Content-Disposition')
+
+                //set start at '=' sign of 'filename=' phrase
+                let startFileNameIndex = headerLine.indexOf('=') + 1;
+
+                //set the last index at the end of the content disposition
+                let endFileNameIndex = headerLine.lastIndexOf('"');
+
+                //get the substring filename
+                let filename = headerLine.substring(startFileNameIndex, endFileNameIndex);
+
+                FileDownload(response.data, filename + ".pdf");
+            });
+
+    }
+
     render() {
         const {isLoading, downloadItemList} = this.state;
         return (
@@ -161,10 +188,15 @@ export default class DownloadDashboardList extends Component {
                                         <td>
                                             <Button
                                                 onClick={this.handleActivate.bind(this, item.id)}
-                                                className="btn-secondary">Activate</Button>
+                                                className="btn-secondary">Activate</Button><br/><br/>
                                             <Button
                                                 onClick={this.handleDeactivate.bind(this, item.id)}
                                                 className="btn-warning">Deactivate</Button>
+                                        </td>
+                                        <td>
+                                            <Button
+                                                onClick={this.handleDownload.bind(this, item.id)}
+                                                className="btn-info">Download</Button>
                                         </td>
                                         <td>
                                             <Button

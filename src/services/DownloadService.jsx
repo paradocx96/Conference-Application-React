@@ -27,6 +27,21 @@ export default new class DownloadService {
 
     //TODO: Method for Download file by Id
     getDownloadFileById(id) {
-        return axios.post("http://localhost:8080/download/download-id/" + id, {responseType:'blob'})
+        return axios.post(DOWNLOAD_API_BASE_URL + "/download-id/" + id, {responseType: 'blob'})
+    }
+
+    // TODO: Method for get Download Items by Status from database
+    getDownloadItemsListByStatus(status) {
+        return axios.get(DOWNLOAD_API_BASE_URL + "/get-by-status/" + status);
+    }
+
+    //TODO: Method for update Download item details
+    putDownloadDetails(values) {
+        return axios.put(DOWNLOAD_API_BASE_URL + "/update-file", values);
+    }
+
+    //TODO: Method for get File from database by param Id
+    getDownloadFileByParamId(value) {
+        return axios.post(DOWNLOAD_API_BASE_URL + "/download-id-param", value, {responseType: 'blob'});
     }
 }

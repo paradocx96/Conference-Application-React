@@ -22,7 +22,7 @@ export default class DownloadSection extends Component {
 
     //TODO: Function for get all activated News data from database
     componentDidMount = async () => {
-        await DownloadService.getDownloadItems()
+        await DownloadService.getDownloadItemsListByStatus('Active')
             .then(response => response.data)
             .then((data) => {
                 this.setState({itemList: data});
@@ -34,7 +34,10 @@ export default class DownloadSection extends Component {
     //TODO: Function for Download file
     handleDownload = async (id) => {
 
-        await DownloadService.getDownloadFileById(id)
+        const formValue = new FormData();
+        formValue.append("id", id);
+
+        await DownloadService.getDownloadFileByParamId(formValue)
             .then((response) => {
                 //get content disposition
                 let headerLine = response.request.getResponseHeader('Content-Disposition')
