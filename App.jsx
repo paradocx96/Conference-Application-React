@@ -23,6 +23,9 @@ import AddKeyNote from "./src/components/KeyNotes/AddKeyNote";
 import AddNews from "./src/components/News/AddNews";
 import NewsSection from "./src/components/News/NewsSection";
 import ViewKeyNoteSection from "./src/components/KeyNotes/ViewKeyNoteSection";
+import DownloadSection from "./src/components/Download/DownloadSection";
+import AddDownload from "./src/components/Download/AddDownload";
+import DownloadDashboard from "./src/components/Download/DownloadDashboard";
 
 
 function App() {
@@ -43,6 +46,10 @@ function App() {
                     <Route path={'/news'} exact component={NewsSection} />
                     <Route path={'/dashboard-news'} exact component={NewsDashboard} />
                     <Route path={'/dashboard-news-add'} exact component={AddNews} />
+
+                    <Route path={'/downloads'} exact component={DownloadSection} />
+                    <Route path={'/dashboard-download'} exact component={DownloadDashboard} />
+                    <Route path={'/dashboard-download-add'} exact component={AddDownload} />
 
                     <Route path={'/research'} exact component={Research} />
                     <Route path={'/research/upload'} exact component={ResearchPaperUpload} />
