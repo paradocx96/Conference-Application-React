@@ -18,6 +18,7 @@ import KeyNotes from "./src/pages/KeyNotes";
 import Dashboard from "./src/pages/Dashboard";
 import ViewKeyNoteDashboard from "./src/components/KeyNotes/ViewKeyNoteDashboard";
 import AddKeyNote from "./src/components/KeyNotes/AddKeyNote";
+import ReviewerDashboard from "./src/components/Reviewer/ReviewerDashboard";
 
 
 
@@ -41,6 +42,8 @@ function App() {
                     <Route path={'/research/deleteEntries'} exact component={DeleteResearchPapers} />
                     <Route path={'/research/updatePaper'} exact component={UpdateResearchPaper} />
                     <Route path={'/research/viewSinglePaper'} exact component={ViewSingleResearchPaper} />
+
+                    <Route path={'/reviewer/dashboard'} exact component={ReviewerDashboard}/>
 
                 </Switch>
             </Router>
