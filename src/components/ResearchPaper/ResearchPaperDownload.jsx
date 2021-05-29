@@ -55,9 +55,12 @@ class ResearchPaperDownload extends React.Component{
     }
 
     render() {
+        const padding={
+            padding:'10px'
+        }
         return (
             <div>
-                <Form onSubmit={this.retrieveFile.bind(this)}>
+                <Form style={padding} className={'bg-dark text-white'} onSubmit={this.retrieveFile.bind(this)}>
 
                     <Form.Group>
                         <Form.Label>Enter your username</Form.Label>
@@ -70,7 +73,7 @@ class ResearchPaperDownload extends React.Component{
                         />
                     </Form.Group>
 
-                    <Button type={'submit'} className={'btn btn-primary btn-lg'}>Download</Button>
+                    <Button type={'submit'} className={'btn btn-primary'}>Download</Button>
                 </Form>
 
             </div>

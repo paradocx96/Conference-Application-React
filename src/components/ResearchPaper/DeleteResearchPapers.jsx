@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {Button, Table} from "react-bootstrap";
+import {Button, Jumbotron, Table} from "react-bootstrap";
 import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import Toast1 from "../Toasts/Toast1";
@@ -86,6 +86,10 @@ class DeleteResearchPapers extends React.Component{
     }
 
     render() {
+
+        const padding={
+            padding:'30px'
+        }
         return (
             <div>
                 <div style={{"display":this.state.show ? "block" :"none" }}>
@@ -98,7 +102,14 @@ class DeleteResearchPapers extends React.Component{
                     />
 
                 </div>
-                <Table striped bordered hover variant={'light'}>
+
+                <div style={padding}>
+                    <Jumbotron>
+                        <h3>Activities in this section are potentially destructive! Proceed with caution </h3>
+                    </Jumbotron>
+
+                </div>
+                <Table striped bordered hover variant={'dark'}>
 
                     <thead>
                     <tr>

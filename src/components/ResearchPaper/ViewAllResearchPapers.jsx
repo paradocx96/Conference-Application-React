@@ -5,12 +5,16 @@ import React from "react";
 import axios from "axios";
 import {Button, Table} from "react-bootstrap";
 import FileDownload from "js-file-download";
+import Toast1 from "../Toasts/Toast1";
 
 class ViewAllResearchPapers extends React.Component{
     constructor(props) {
         super(props);
 
         this.state = this.initialState;
+        this.state.showApproved = false;
+        this.state.showRejected =false;
+        this.state.showRevoke = false;
 
         this.handleDownload = this.handleDownload.bind(this);
         this.handleApprove = this.handleApprove.bind(this);
@@ -77,8 +81,13 @@ class ViewAllResearchPapers extends React.Component{
         await axios.put(DOWNLOAD_URL_FUL,formData)
             .then(response => response.data)
             .then( (data) => {
-                alert("Approved research paper : " +data.id);
+                //alert("Approved research paper : " +data.id);
+
+                this.setState({"showApproved":true});
+                setTimeout(() => this.setState({"showApproved":false}),3000);
+
             }).catch( error => {
+                this.setState({"showApproved":false});
                 console.log(error);
             })
 
@@ -100,8 +109,13 @@ class ViewAllResearchPapers extends React.Component{
         await axios.put(DOWNLOAD_URL_FUL,formData)
             .then(response => response.data)
             .then( (data) => {
-                alert("Rejected research paper : "+ data.id);
+                //alert("Rejected research paper : "+ data.id);
+
+                this.setState({"showRejected":true});
+                setTimeout(() => this.setState({"showRejected":false}),3000);
+
             }).catch(error => {
+                this.setState({"showRejected":false});
                 console.log(error);
             })
 
@@ -123,8 +137,14 @@ class ViewAllResearchPapers extends React.Component{
         await axios.put(DOWNLOAD_URL_FUL,formData)
             .then(response => response.data)
             .then( (data) => {
-                alert("Revoked research paper : "+ data.id);
+                //alert("Revoked research paper : "+ data.id);
+
+                this.setState({"showRevoke":true});
+                setTimeout(() => this.setState({"showRevoke":false}),3000);
+
+
             }).catch(error => {
+                this.setState({"showRevoke":false});
                 console.log(error);
             })
 
@@ -134,7 +154,47 @@ class ViewAllResearchPapers extends React.Component{
     render() {
         return (
             <div>
-                <Table striped bordered hover variant={'light'}>
+                <div style={{"display":this.state.showApproved ? "block" : "none"}}>
+                    <Toast1
+
+                        children={{
+                            show:this.state.showApproved,
+                            message:"Research Paper Approved",
+                            type:"success",
+                        }}
+
+                    />
+
+                </div>
+
+                <div style={{"display":this.state.showRejected ? "block" : "none"}}>
+                    <Toast1
+
+                        children={{
+                            show:this.state.showRejected,
+                            message:"Research Paper Rejected",
+                            type:"warning",
+                        }}
+
+                    />
+
+                </div>
+
+                <div style={{"display":this.state.showRevoke ? "block" : "none"}}>
+                    <Toast1
+
+                        children={{
+                            show:this.state.showRevoke,
+                            message:"Research Paper Status Revoked",
+                            type:"warning",
+                        }}
+
+                    />
+
+                </div>
+
+                <h3 className={'bg-dark text-white'}>All research papers uploaded</h3>
+                <Table striped bordered hover variant={'dark'}>
 
                     <thead>
                     <tr>

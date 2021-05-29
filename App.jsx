@@ -15,13 +15,14 @@ import UpdateResearchPaper from "./src/components/ResearchPaper/UpdateResearchPa
 import ViewSingleResearchPaper from "./src/components/ResearchPaper/ViewSingleResearchPaper";
 
 import Dashboard from "./src/pages/Dashboard";
+import ReviewerDashboard from "./src/components/Reviewer/ReviewerDashboard";
+
+import NewsDashboard from "./src/components/News/NewsDashboard";
 import ViewKeyNoteDashboard from "./src/components/KeyNotes/ViewKeyNoteDashboard";
 import AddKeyNote from "./src/components/KeyNotes/AddKeyNote";
 import AddNews from "./src/components/News/AddNews";
-import NewsDashboard from "./src/components/News/NewsDashboard";
 import NewsSection from "./src/components/News/NewsSection";
 import ViewKeyNoteSection from "./src/components/KeyNotes/ViewKeyNoteSection";
-
 
 
 function App() {
@@ -50,6 +51,8 @@ function App() {
                     <Route path={'/research/deleteEntries'} exact component={DeleteResearchPapers} />
                     <Route path={'/research/updatePaper'} exact component={UpdateResearchPaper} />
                     <Route path={'/research/viewSinglePaper'} exact component={ViewSingleResearchPaper} />
+
+                    <Route path={'/reviewer/dashboard'} exact component={ReviewerDashboard}/>
 
                 </Switch>
             </Router>
