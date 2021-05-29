@@ -62,9 +62,9 @@ export default class CreateWorkshop extends Component {
             <React.Fragment>
                 {
                     !this.state.isShowForm &&
-                    <Card style={{cursor: 'pointer'}} className="m-2 py-2 px-4"
+                    <Card style={{cursor: 'pointer'}} className="mx-2 mt-4 mb-3 py-4 px-4 h4"
                           onClick={() => this.setState({isShowForm: true})}>
-                        Create WorkshopUnit
+                        Create new Workshop
                     </Card>
                 }
                 {
