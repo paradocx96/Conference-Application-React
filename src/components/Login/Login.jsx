@@ -67,8 +67,8 @@ export default class Login extends Component {
                     window.location.reload();
                 },
                 error => {
-                    const resMessage = "Username or password incorrect!";
-                    (error.response && error.response.data.message && error.response.data && resMessage) || error.message || error.toString();
+                    const userMessage = "Username or password incorrect!";
+                    const resMessage = (error.response && error.response.data.message && error.response.data) || userMessage || error.message || error.toString();
 
                     this.setState({
                         loading: false,

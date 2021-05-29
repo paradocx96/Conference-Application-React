@@ -30,6 +30,15 @@ class UserService extends Component{
         });
     }
 
+
+    // TODO: Function for login user
+     login(username, password) {
+        return axios.post(API_BACKEND_URL + "signin",{
+            username,
+            password
+        });
+    }
+
 }
 
 export default new UserService();
