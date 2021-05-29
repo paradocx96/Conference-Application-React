@@ -7,6 +7,7 @@ import { isEmail } from "validator";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../assets/styles/Registration.css";
+import UserService from "../../services/UserService";
 
 // TODO: Validating registration form fields
 const requiredField = data => {
@@ -128,6 +129,34 @@ export default class Register extends Component {
 
         // TODO: Validate register form fields
         this.form.validateAll();
+
+        // TODO: Calling Registration Service function and check if there is any error
+        if (this.checkBtn.context._errors.length === 0) {
+            UserService.register(
+                this.state.username,
+                this.state.contactNo,
+                this.state.email,
+                this.state.password,
+                this.state.userType,
+            ).then(
+                response => {
+                    this.setState({
+                        message: response.data.message,
+                        successful: true
+                    });
+                },
+                error => {
+                    const resMessage =
+                        (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+
+                    this.setState({
+                        successful: false,
+                        message: resMessage
+                    });
+                }
+            );
+
+        }
 
     }
 
