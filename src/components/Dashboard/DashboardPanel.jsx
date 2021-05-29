@@ -11,7 +11,7 @@ export default class DashboardPanel extends Component {
         return (
             <div>
                 <section id="dashboard">
-                    <h1>DASHBOARD</h1>
+                    <h1>ADMIN DASHBOARD</h1>
                     <div className="dashboard-container">
 
                         {/*<Link className="btn btn-outline-light btn-group-lg btn-secondary" role="button" to="/dashboard">Dashboard</Link>*/}
@@ -30,8 +30,7 @@ export default class DashboardPanel extends Component {
                                 <Link to={'/dashboard-keynotes'} className={'nav-link'} >Keynote</Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Link to={'/dashboard'} className={'nav-link'} >News</Link>
-
+                                <Link to={'/dashboard-news'} className={'nav-link'} >News</Link>
                             </Nav.Item>
                         </Nav>
 

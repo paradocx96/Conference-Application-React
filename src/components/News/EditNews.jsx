@@ -3,7 +3,7 @@ import {Form, Button, Col, Row, Container, Table} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NewsService from "../../services/NewsService";
 
-export default class ViewNewsHomepage extends Component {
+export default class EditNews extends Component {
 
     constructor(props) {
         super(props);
