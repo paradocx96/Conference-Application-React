@@ -22,9 +22,6 @@ export default class DownloadDashboard extends Component {
                     <div className="viedownload">
                         <DownloadDashboardList/>
                     </div>
-                    <div className="viedownload">
-                        <DownloadDashboardListEditor/>
-                    </div>
                 </section>
             </div>
         )

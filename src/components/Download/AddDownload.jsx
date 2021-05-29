@@ -79,7 +79,6 @@ export default class AddDownload extends Component {
     render() {
         return (
             <div>
-                <DashboardPanel/>
                 <section id="download">
                     <h2>Add Download Items</h2>
                     <Form onSubmit={this.submitDownload.bind(this)}

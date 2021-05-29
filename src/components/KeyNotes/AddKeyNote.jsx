@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './../../assets/styles/Keynote.css'
 
 import KeyNoteService from "../../services/KeyNoteService";
-import DashboardPanel from "../Dashboard/DashboardPanel";
 
 export default class AddKeyNote extends Component {
 
@@ -84,8 +83,8 @@ export default class AddKeyNote extends Component {
     render() {
         return (
             <div>
-                <DashboardPanel/>
                 <section id="keynote">
+                    <h2>Add Keynote</h2>
                     <Form onSubmit={this.submitKeyNote.bind(this)}
                           onReset={this.resetForm.bind(this)}>
                         <Form.Group as={Row} controlId="SpeakerName">

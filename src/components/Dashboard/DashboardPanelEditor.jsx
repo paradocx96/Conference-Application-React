@@ -1,34 +1,32 @@
 import React, {Component} from "react";
-import {Link} from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '/src/assets/styles/Dashboard.css';
+import './../../assets/styles/Dashboard.css'
 import {Nav} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
-export default class DashboardPanel extends Component {
+export default class DashboardPanelEditor extends Component {
 
     render() {
         return (
             <div>
                 <section id="dashboard">
-                    <h1>ADMIN DASHBOARD</h1>
+                    <h1>EDITOR DASHBOARD</h1>
                     <div className="dashboard-container">
-
-                        <Nav variant="tabs" defaultActiveKey="/dashboard">
+                        <Nav variant="tabs" defaultActiveKey="#">
                             <Nav.Item>
-                                <Link to={'/dashboard'} className={'nav-link'} >Dashboard</Link>
+                                <Link to="/editor-dashboard" className={'nav-link'} >Dashboard</Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Link to={'/dashboard-keynotes'} className={'nav-link'} >Keynote</Link>
+                                <a href="#keynote" className={'nav-link'} >Keynote</a>
                             </Nav.Item>
                             <Nav.Item>
-                                <Link to={'/dashboard-news'} className={'nav-link'} >News</Link>
+                                <a href="#news" className={'nav-link'} >News</a>
                             </Nav.Item>
                             <Nav.Item>
-                                <Link to={'/dashboard-download'} className={'nav-link'} >Download</Link>
+                                <a href="#download" className={'nav-link'} >Download</a>
                             </Nav.Item>
                         </Nav>
-
                     </div>
                 </section>
             </div>
