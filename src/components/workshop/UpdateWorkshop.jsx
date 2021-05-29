@@ -13,21 +13,26 @@ export default class UpdateWorkshop extends Component {
         this.state = {
             isValidated: false,
             isUploading: false,
-            username: props.workshop.username,
-            title: props.workshop.title,
-            courseCode: props.workshop.courseCode,
-            venue: props.workshop.venue,
-            date: props.workshop.date,
-            startingTime: props.workshop.startingTime,
-            endTime: props.workshop.endTime,
-            description: props.workshop.description,
-            documents: null
+            workshop: {
+                id: props.workshop.id,
+                username: props.workshop.username,
+                title: props.workshop.title,
+                courseCode: props.workshop.courseCode,
+                venue: props.workshop.venue,
+                date: props.workshop.date,
+                startingTime: props.workshop.startingTime,
+                endTime: props.workshop.endTime,
+                description: props.workshop.description,
+                documents: null
+            }
+
         }
+        console.log(this.state);
     }
 
     handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(this.state.workshop);
+        console.log(this.state);
         this.setState({isValidated: true});
         if (
             this.state.workshop.title === '' ||
@@ -75,7 +80,7 @@ export default class UpdateWorkshop extends Component {
                                 type="text"
                                 placeholder="WorkshopUnit title"
                                 title="Add the workshop title here"
-                                // value={this.state.workshop.title ? this.state.title : ""}
+                                defaultValue={this.state.workshop.title}
                                 onChange={event => this.setState({
                                     workshop: {
                                         ...this.state.workshop,
@@ -92,6 +97,7 @@ export default class UpdateWorkshop extends Component {
                                 type="text"
                                 placeholder="Course code"
                                 title="Add the course code if has. Not necessary"
+                                defaultValue={this.state.workshop.courseCode}
                                 onChange={event => this.setState({
                                     workshop: {
                                         ...this.state.workshop,
@@ -109,13 +115,10 @@ export default class UpdateWorkshop extends Component {
                                 type="text"
                                 placeholder="Venue"
                                 title="Add the workshop will conducting place."
+                                defaultValue={this.state.workshop.venue}
                                 onChange={event => this.setState({
-                                    workshop: {
-                                        ...this.state.workshop,
-                                        venue: event.target.value
-                                    }
-                                })}
-                            />
+                                    workshop: {...this.state.workshop, venue: event.target.value}
+                                })}/>
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
 
@@ -128,13 +131,10 @@ export default class UpdateWorkshop extends Component {
                                     type="date"
                                     placeholder="Date"
                                     title="Add the workshop conducting date"
+                                    defaultValue={this.state.workshop.date}
                                     onChange={event => this.setState({
-                                        workshop: {
-                                            ...this.state.workshop,
-                                            date: event.target.value
-                                        }
-                                    })}
-                                />
+                                        workshop: {...this.state.workshop, date: event.target.value}
+                                    })}/>
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
 
@@ -144,13 +144,10 @@ export default class UpdateWorkshop extends Component {
                                     type="time"
                                     placeholder="start at"
                                     title="Add the workshop starting time"
+                                    defaultValue={this.state.workshop.startingTime}
                                     onChange={event => this.setState({
-                                        workshop: {
-                                            ...this.state.workshop,
-                                            startingTime: event.target.value
-                                        }
-                                    })}
-                                />
+                                        workshop: {...this.state.workshop, startingTime: event.target.value}
+                                    })}/>
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
 
@@ -160,13 +157,10 @@ export default class UpdateWorkshop extends Component {
                                     type="time"
                                     placeholder="end at"
                                     title="Add the workshop approximate ending time. Not required."
+                                    defaultValue={this.state.workshop.endTime}
                                     onChange={event => this.setState({
-                                        workshop: {
-                                            ...this.state.workshop,
-                                            endTime: event.target.value
-                                        }
-                                    })}
-                                />
+                                        workshop: {...this.state.workshop, endTime: event.target.value}
+                                    })}/>
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
 
@@ -179,13 +173,10 @@ export default class UpdateWorkshop extends Component {
                                 type="text"
                                 placeholder="Description"
                                 title="Add brief description about the workshop"
+                                defaultValue={this.state.workshop.description}
                                 onChange={event => this.setState({
-                                    workshop: {
-                                        ...this.state.workshop,
-                                        description: event.target.value
-                                    }
-                                })}
-                            />
+                                    workshop: {...this.state.workshop, description: event.target.value}
+                                })}/>
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
 
@@ -196,18 +187,16 @@ export default class UpdateWorkshop extends Component {
                                 placeholder="Documents and materials"
                                 title="pre-giving workshop materials and documents"
                                 onChange={event => this.setState({
-                                    workshop: {
-                                        ...this.state.workshop,
-                                        documents: event.target.files[0]
-                                    }
-                                })}
-                            />
+                                    workshop: {...this.state.workshop, documents: event.target.files[0]}
+                                })}/>
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
 
-                        <Button className="m-2 px-5 py-2" type="submit" disabled={this.state.isUploading}> Update&nbsp;
+                        <Button variant="success" className="m-2 px-5 py-2" type="submit"
+                                disabled={this.state.isUploading}> Update&nbsp;
                             {this.state.isUploading && <Spinner animation={"border"} size={"sm"}/>}</Button>
-                        <Button className="m-2 px-5 py-2" onClick={this.handleCancel}> Cancel </Button>
+
+                        <Button variant="warning" className="m-2 px-5 py-2" onClick={this.handleCancel}> Cancel </Button>
                     </Form>
                 </Card>
             </React.Fragment>

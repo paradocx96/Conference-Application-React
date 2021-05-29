@@ -51,11 +51,16 @@ export function approveWorkshop(formData) {
     return  axios.post(WORKSHOP_API_URL + '/approve',formData,{})
         .then(response => {
             if(response.status === 201){
-                alert("Successfully successfully approved the workshop");
+                alert("Successfully approved the workshop");
             }
         }).catch(error => alert(error));
 }
 
-export function updateWorkshop() {
-    return axios.get(WORKSHOP_API_URL + '/update');
+export function updateWorkshop(formData) {
+    return axios.put(WORKSHOP_API_URL + '/update',formData,{})
+        .then(response => {
+            if(response.status === 201){
+                alert("Successfully updated the workshop");
+            }
+        }).catch(error => alert(error));
 }
