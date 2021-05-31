@@ -4,13 +4,9 @@
 }
 
 #dashboard-example {
-    background-color: palegreen;
-    margin: 100px;
-    min-height: 500px;
-    border: solid;
-    border-color: white;
-    border-radius: 10px;
-
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: white;
 }
 
 #dashboardEditor {
