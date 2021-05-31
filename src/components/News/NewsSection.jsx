@@ -1,7 +1,7 @@
+// TODO: IT19180526 - Chandrasiri S A N L D
+
 import React, {Component} from "react";
-
 import './../../assets/styles/News.css'
-
 import NewsService from "../../services/NewsService";
 
 export default class NewsSection extends Component {
