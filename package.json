@@ -4,7 +4,8 @@
   "description": "RHNA Conference Application Front-End",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "author": "RHNA",
   "license": "ISC",
