@@ -4,7 +4,8 @@
   "description": "RHNA Conference Application Front-End",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "test": "jest --watch"
   },
   "author": "RHNA",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
+    "jest": "^27.0.3",
     "parcel": "^2.0.0-beta.3.1"
   }
 }
