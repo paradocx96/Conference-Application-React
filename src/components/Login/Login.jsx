@@ -138,7 +138,7 @@ export default class Login extends Component {
 
                         {this.state.message && (
                             <div className="form-group">
-                                <div className="alert alert-danger" role="alert">
+                                <div className="alert alert-danger text-center" role="alert">
                                     {this.state.message}
                                 </div>
                             </div>
