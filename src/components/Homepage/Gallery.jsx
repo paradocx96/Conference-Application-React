@@ -1,19 +1,20 @@
-import React, {Component} from "react";
-import {Form, Button, Col, Row, Container, Table} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import NewsService from "../../services/NewsService";
+// TODO: IT19180526 - Chandrasiri S A N L D
 
-export default class ViewNewsHomepage extends Component {
+import React, {Component} from "react";
+
+import {Button} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+export default class Gallery extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {}
     }
 
     render() {
         return (
             <div>
-
+                <h1>Sample Data</h1>
             </div>
         )
     }

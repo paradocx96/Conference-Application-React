@@ -1,3 +1,5 @@
+/* TODO: IT19180526 - Chandrasiri S A N L D */
+
 #introduction .introduction-container {
     height:100vh;
     color: white;
@@ -34,7 +36,50 @@
     /*overflow-x: hidden;*/
 }
 
+#about .about-container {
+    padding: 50px;
+    background-color: white;
+    text-align: center;
+    /*overflow-x: hidden;*/
+}
+
 #news .news-container {
+    padding: 50px;
+    background-color: white;
+    text-align: center;
+    /*overflow-x: hidden;*/
+}
+
+#gallery .gallery-container {
+    padding: 50px;
+    background-color: white;
+    text-align: center;
+    /*overflow-x: hidden;*/
+}
+
+#ctracks .ctracks-container {
+    padding: 50px;
+    background-color: white;
+    text-align: center;
+    /*overflow-x: hidden;*/
+}
+
+#organize .organize-container {
+    padding: 50px;
+    background-color: white;
+    text-align: center;
+    /*overflow-x: hidden;*/
+}
+
+#sponsor .sponsor-container {
+    padding: 50px;
+    background-color: white;
+    text-align: center;
+    /*overflow-x: hidden;*/
+}
+
+#idates .idates-container {
+    padding: 50px;
     background-color: white;
     text-align: center;
     /*overflow-x: hidden;*/
