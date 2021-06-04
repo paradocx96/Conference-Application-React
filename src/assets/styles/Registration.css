@@ -14,7 +14,7 @@ body, html, .App, #root, .auth-wrapper-register {
     height: 100%;
 }
 .auth-wrapper-register {
-
+    padding: 5%;
     display: flex;
     justify-content: center;
     flex-direction: column;

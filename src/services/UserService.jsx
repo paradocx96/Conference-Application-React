@@ -14,19 +14,13 @@ class UserService extends Component{
     }
 
     // TODO: Function for registering user
-    async register(username, contactNo, email, password, userType) {
-        return await axios.post(API_BACKEND_URL + "signup", {
+    register(username, contactNo, email, password, userType) {
+        return axios.post(API_BACKEND_URL + "signup", {
             username,
             contactNo,
             email,
             password,
             userType
-        }).catch(error =>{
-            const errorMessage = error.response.message
-
-            this.setState({
-                resMessage: errorMessage
-            })
         });
     }
 
