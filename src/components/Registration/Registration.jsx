@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../assets/styles/Registration.css";
 import UserService from "../../services/UserService";
+import ResearchPaperUpload from "./ResearchPaperUpload";
 
 // TODO: Validating registration form fields
 const requiredField = data => {
@@ -75,6 +76,7 @@ export default class Register extends Component {
         this.onChangePassword = this.onChangePassword.bind(this);
         this.onChangeContactNo = this.onChangeContactNo.bind(this);
         this.onChangeUserType = this.onChangeUserType.bind(this);
+        this.handleFileUpload = this.handleFileUpload.bind(this);
 
         this.state = {
             username: "",
@@ -83,7 +85,8 @@ export default class Register extends Component {
             password: "",
             userType: "",
             successful: false,
-            message: ""
+            message: "",
+            fileUploaded: false
         };
     }
 
@@ -118,6 +121,10 @@ export default class Register extends Component {
         });
     }
 
+    handleFileUpload(event){
+        this.setState({fileUploaded: true});
+    }
+
     // TODO: Set Values for state variables
     handleRegister(event) {
         event.preventDefault();
@@ -129,6 +136,7 @@ export default class Register extends Component {
 
         // TODO: Validate register form fields
         this.form.validateAll();
+
 
         // TODO: Calling Registration Service function and check if there is any error
         if (this.checkBtn.context._errors.length === 0) {
@@ -238,16 +246,20 @@ export default class Register extends Component {
                                 <div className="form-group">
                                     {
                                         this.state.userType.toString() === "researcher"?
-                                            <label> You're in Research paper</label>:
+                                            <label> <ResearchPaperUpload onUploaded={this.handleFileUpload} /></label>:
                                             this.state.userType.toString() === "workshop"?
                                                 <label>You're in Workshop</label>:
                                                     <label> </label>
-
                                     }
                                 </div>
 
+                                {((this.state.userType== "researcher" && !this.state.fileUploaded) || (this.state.userType == "workshop" && !this.state.fileUploaded)) &&
+                                <div className= "form-group">
+                                    <label> You need to upload file first before registration!</label>
+                                </div>
+                                }
                                 <div className="form-group">
-                                    <button className="btn btn-primary btn-block">Sign Up</button>
+                                    <button disabled={(this.state.userType =="researcher" &&!this.state.fileUploaded) || (this.state.userType=="workshop" && !this.state.fileUploaded) } className="btn btn-primary btn-block">Sign Up</button>
                                 </div>
                             </div>
                         )}
