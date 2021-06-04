@@ -36,9 +36,23 @@ class UserService extends Component{
         return axios.post(API_BACKEND_URL + "signin",{
             username,
             password
-        });
+        }).then(response => {
+             if (response.data.accessToken) {
+                 sessionStorage.setItem("user", JSON.stringify(response.data));
+             }
+             return response.data;
+         });
     }
 
+    //TODO: Get current user
+    getCurrentUser() {
+        return JSON.parse(sessionStorage.getItem('user'));
+    }
+
+    //TODO: Remove current user
+    logout() {
+        sessionStorage.removeItem("user");
+    }
 }
 
 export default new UserService();
