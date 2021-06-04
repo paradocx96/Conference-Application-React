@@ -38,6 +38,7 @@ import AddDownloadAdmin from "./src/components/Download/AddDownloadAdmin";
 
 //REGISTRATION
 import Registration from "./src/components/Registration/Registration";
+import Login from "./src/components/Login/Login";
 
 
 function App() {
@@ -82,6 +83,7 @@ function App() {
                     
                     {/* REGISTRATION */}
                     <Route path="/sign-up" component={Registration}/>
+                    <Route path="/sign-in" component={Login}/>
 
                 </Switch>
             </Router>
