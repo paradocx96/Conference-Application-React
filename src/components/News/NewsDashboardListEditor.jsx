@@ -1,40 +1,40 @@
+// TODO: IT19180526 - Chandrasiri S A N L D
+
 import React, {Component} from "react";
-import {Form, Button, Col, Row, Container, Table} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import KeyNoteService from "../../services/KeyNoteService";
+import {Button, Table} from "react-bootstrap";
 
-export default class ViewKeyNote extends Component {
+import NewsService from "../../services/NewsService";
 
+export default class NewsDashboardListEditor extends Component {
+
+    // TODO: Initializing state values
     constructor(props) {
         super(props);
         this.state = {
-            keynotes: [],
+            newsList: [],
             isLoading: true,
-            errors: null
+            errors: null,
+            show: false
         };
     }
 
-    componentDidMount() {
-        this.getKeyNotes();
-    }
-
-    getKeyNotes() {
-        KeyNoteService.getKeyNotes()
+    //TODO: Function for get all News data from database
+    componentDidMount = async () => {
+        await NewsService.getNews()
             .then(response =>
                 response.data.map(
-                    keynote => ({
-                        id: keynote.id,
-                        speakername: keynote.speakername,
-                        speakertype: keynote.speakertype,
-                        organization: keynote.organization,
-                        description: keynote.description,
-                        status: keynote.status,
-                        user: keynote.user
+                    news => ({
+                        id: news.id,
+                        description: news.description,
+                        date: news.date,
+                        datetime: news.datetime,
+                        status: news.status,
+                        user: news.user
                     }))
             )
-            .then(keynotes => {
+            .then(newsList => {
                 this.setState({
-                    keynotes,
+                    newsList,
                     isLoading: false
                 });
             })
@@ -47,41 +47,40 @@ export default class ViewKeyNote extends Component {
     }
 
     render() {
-        const {isLoading, keynotes} = this.state;
+        const {isLoading, newsList} = this.state;
         return (
             <div>
-                <h1>KeyNotes List</h1>
+                <h3>News List</h3>
                 <div>
-                    <Table striped bordered hover>
+                    <Table striped bordered hover variant="dark" size="sm">
                         <thead>
                         <tr>
-                            <th>Speaker Name</th>
-                            <th>Speaker Type</th>
-                            <th>Organization</th>
+                            <th>Date</th>
                             <th>Description</th>
+                            <th>Creation Date & Time</th>
                             <th>Status</th>
                             <th>User</th>
                         </tr>
                         </thead>
                         <tbody>
                         {!isLoading ? (
-                            keynotes.map(keynote => {
-                                const {id, speakername, speakertype, organization, description, status, user} = keynote;
+                            newsList.map(news => {
+                                const {id, description, date, datetime, status, user} = news;
                                 return (
                                     <tr key={id}>
-                                        <td>{speakername}</td>
-                                        <td>{speakertype}</td>
-                                        <td>{organization}</td>
+                                        <td>{date}</td>
                                         <td>{description}</td>
+                                        <td>{datetime}</td>
                                         <td>{status}</td>
                                         <td>{user}</td>
-                                        <td><Button>Action</Button></td>
+                                        <td>
+                                            <Button className="btn-success">Edit</Button>
+                                        </td>
                                     </tr>
                                 );
                             })
                         ) : (
                             <tr>
-                                <td>Loading...</td>
                                 <td>Loading...</td>
                                 <td>Loading...</td>
                                 <td>Loading...</td>
