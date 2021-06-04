@@ -36,6 +36,9 @@ import DownloadSection from "./src/components/Download/DownloadSection";
 import DownloadDashboard from "./src/components/Download/DownloadDashboard";
 import AddDownloadAdmin from "./src/components/Download/AddDownloadAdmin";
 
+//REGISTRATION
+import Registration from "./src/components/Registration/Registration";
+
 
 function App() {
 
@@ -44,6 +47,7 @@ function App() {
             <Router>
                 <NavigationBar/>
                 <Switch>
+
                     {/* HOMEPAGE */}
                     <Route exact path="/"><Homepage/></Route>
 
@@ -75,6 +79,9 @@ function App() {
                     <Route path={'/research/deleteEntries'} exact component={DeleteResearchPapers}/>
                     <Route path={'/research/updatePaper'} exact component={UpdateResearchPaper}/>
                     <Route path={'/research/viewSinglePaper'} exact component={ViewSingleResearchPaper}/>
+                    
+                    {/* REGISTRATION */}
+                    <Route path="/sign-up" component={Registration}/>
 
                 </Switch>
             </Router>
