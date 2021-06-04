@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../assets/styles/Registration.css";
 import UserService from "../../services/UserService";
-import ResearchPaperUpload from "./ResearchPaperUpload";
+//import ResearchPaperUpload from "./ResearchPaperUpload";
 
 // TODO: Validating registration form fields
 const requiredField = data => {
@@ -269,7 +269,7 @@ export default class Register extends Component {
 
                         {this.state.message && (
                             <div className="form-group">
-                                <div className={this.state.successful ? "alert alert-success" : "alert alert-danger"} role="alert">
+                                <div className={this.state.successful ? "alert alert-success text-center" : "alert alert-danger text-center"} role="alert">
                                     {this.state.message}
                                 </div>
                             </div>
