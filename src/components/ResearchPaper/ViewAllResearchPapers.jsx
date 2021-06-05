@@ -7,6 +7,7 @@ import {Button, Table} from "react-bootstrap";
 import FileDownload from "js-file-download";
 import Toast1 from "../Toasts/Toast1";
 import researchService from "/src/services/ResearchService";
+import CommonCheckAuth from "../../services/CommonCheckAuth";
 
 class ViewAllResearchPapers extends React.Component{
     constructor(props) {
@@ -261,4 +262,4 @@ class ViewAllResearchPapers extends React.Component{
 
 }
 
-export default ViewAllResearchPapers;
+export default CommonCheckAuth (ViewAllResearchPapers);
