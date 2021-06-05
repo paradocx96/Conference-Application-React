@@ -1,9 +1,10 @@
 import React from "react";
-import axios from "axios";
+//import axios from "axios";
 import {Button, Jumbotron, Table} from "react-bootstrap";
 import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import Toast1 from "../Toasts/Toast1";
+import researchService from "/src/services/ResearchService";
 
 class DeleteResearchPapers extends React.Component{
 
@@ -24,13 +25,14 @@ class DeleteResearchPapers extends React.Component{
     }
 
     componentDidMount= async ()=> {
-        const COMMON_URL= "http://localhost:8080/";
+        /*const COMMON_URL= "http://localhost:8080/";
         const VIEW_PAPERS = "researchpaper/getAllResearchpapers/";
 
-        const   FULL_URL_GET_PAPERS = COMMON_URL+ VIEW_PAPERS ;
+        const   FULL_URL_GET_PAPERS = COMMON_URL+ VIEW_PAPERS ;*/
 
         //get all the researchPapers and set them in the state variable
-        await axios.get(FULL_URL_GET_PAPERS)
+        //await axios.get(FULL_URL_GET_PAPERS)
+        await researchService.getAllResearchPapers()
             .then(response => response.data)
             .then( (data) => {
                 this.setState({researchPapers:data});
@@ -39,14 +41,15 @@ class DeleteResearchPapers extends React.Component{
 
     handleDelete = async (id) => {
 
-        const COMMON_URL= "http://localhost:8080/";
+        /*const COMMON_URL= "http://localhost:8080/";
         const DELETE_ENTRY = "researchpaper/deletePaper/";
-        const DELETE_ENTRY_FULL_PATH = COMMON_URL +  DELETE_ENTRY;
+        const DELETE_ENTRY_FULL_PATH = COMMON_URL +  DELETE_ENTRY;*/
 
         //const formData = new FormData();
         //formData.append("id",id);
 
-        await axios.delete(DELETE_ENTRY_FULL_PATH+id)
+        //await axios.delete(DELETE_ENTRY_FULL_PATH+id)
+        await researchService.deleteResearchPaperEntry(id)
             .then(response => response.data)
             .then( (data) => {
                 if(data!=null){
