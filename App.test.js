@@ -1,20 +1,12 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
 import App from './App';
 
-test('renders learn react link', () => {
-    render(<App />);
-    const linkElement = screen.getByText(/learn react/i);
-    expect(linkElement).toBeInTheDocument();
-});
+const renderer = require('react-test-renderer');
 
-// describe('Addition', () => {
-//     it('knows that 2 and 2 make 4', () => {
-//         expect(2 + 2).toBe(4);
-//     });
-//
-//     // is equaivalent to
-//
-//     test('knows that 2 and 2 make 4', () => {
-//         expect(2 + 2).toBe(4);
-//     });
-// });
+describe('Conference Application  test cases', () => {
+    it('renders correctly', () => {
+        renderer.create(<App/>);
+    });
+
+
+});
