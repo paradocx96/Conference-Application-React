@@ -1,11 +1,48 @@
 import React from 'react';
 import {BrowserRouter as Router, Redirect, Switch, Route} from 'react-router-dom';
 
-// Import Components
+// TODO: Import Components
+//HOMEPAGE
+import Homepage from "./src/pages/Homepage";
 import NavigationBar from "./src/components/Navbar/NavigationBar";
 import FooterBar from "./src/components/Foobar/FooterBar";
-import Homepage from "./src/pages/Homepage";
+
+//RESEARCH
+import ResearchPaperUpload from "./src/components/ResearchPaper/ResearchPaperUpload";
+import ResearchPaperDownload from "./src/components/ResearchPaper/ResearchPaperDownload";
+import Research from "./src/components/ResearchPaper/Research";
+import ViewAllResearchPapers from "./src/components/ResearchPaper/ViewAllResearchPapers";
+import DeleteResearchPapers from "./src/components/ResearchPaper/DeleteResearchPapers";
+import UpdateResearchPaper from "./src/components/ResearchPaper/UpdateResearchPaper";
+import ViewSingleResearchPaper from "./src/components/ResearchPaper/ViewSingleResearchPaper";
+
+//DASHBOARD
+import Dashboard from "./src/pages/Dashboard";
+import ReviewerDashboard from "./src/components/Reviewer/ReviewerDashboard";
+import DashboardEditor from "./src/pages/DashboardEditor";
+
+//NEWS
+import NewsDashboard from "./src/components/News/NewsDashboard";
+import NewsSection from "./src/components/News/NewsSection";
+import AddNewsAdmin from "./src/components/News/AddNewsAdmin";
+
+//KEYNOTES
+import ViewKeyNoteDashboard from "./src/components/KeyNotes/ViewKeyNoteDashboard";
+import ViewKeyNoteSection from "./src/components/KeyNotes/ViewKeyNoteSection";
+import AddKeyNoteAdmin from "./src/components/KeyNotes/AddKeyNoteAdmin";
+
+//DOWNLOAD
+import DownloadSection from "./src/components/Download/DownloadSection";
+import DownloadDashboard from "./src/components/Download/DownloadDashboard";
+import AddDownloadAdmin from "./src/components/Download/AddDownloadAdmin";
+
+//REGISTRATION
+import Registration from "./src/components/Registration/Registration";
+import Login from "./src/components/Login/Login";
+
+//WORKSHOP
 import Workshop from "./src/pages/WorkshopPage";
+
 
 function App() {
 
@@ -19,7 +56,7 @@ function App() {
                     <Route exact path="/"><Homepage/></Route>
 
                     {/* WORKSHOP_PAGE */}
-                    <Route exact path={'/workshop'}> exact component={Workshop}/>
+                    <Route path={'/workshop'} exact component={Workshop}/>
 
                     {/* DASHBOARD */}
                     <Route path={'/dashboard'} exact component={Dashboard}/>
