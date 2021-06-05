@@ -237,7 +237,7 @@ export default class Register extends Component {
                                     <label htmlFor="userType">Select Type : </label>{' '}
                                     <select value={this.state.userType} onChange={this.onChangeUserType} className="dropdown">
                                         <option> </option>
-                                        <option value={"user"}>Attendee</option>
+                                        <option value={"attendee"}>Attendee</option>
                                         <option value={"researcher"}>Researcher</option>
                                         <option value={"workshop"}>Workshop Presenter</option>
                                     </select>
@@ -246,7 +246,8 @@ export default class Register extends Component {
                                 <div className="form-group">
                                     {
                                         this.state.userType.toString() === "researcher"?
-                                            <label> <ResearchPaperUpload onUploaded={this.handleFileUpload} /></label>:
+                                            // <label> <ResearchPaperUpload onUploaded={this.handleFileUpload} /></label>:
+                                            <label> </label>:
                                             this.state.userType.toString() === "workshop"?
                                                 <label>You're in Workshop</label>:
                                                     <label> </label>
