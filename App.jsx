@@ -40,6 +40,9 @@ import AddDownloadAdmin from "./src/components/Download/AddDownloadAdmin";
 import Registration from "./src/components/Registration/Registration";
 import Login from "./src/components/Login/Login";
 
+//WORKSHOP
+import Workshop from "./src/pages/WorkshopPage";
+
 
 function App() {
 
@@ -51,6 +54,9 @@ function App() {
 
                     {/* HOMEPAGE */}
                     <Route exact path="/"><Homepage/></Route>
+
+                    {/* WORKSHOP_PAGE */}
+                    <Route path={'/workshop'} exact component={Workshop}/>
 
                     {/* DASHBOARD */}
                     <Route path={'/dashboard'} exact component={Dashboard}/>
@@ -80,7 +86,7 @@ function App() {
                     <Route path={'/research/deleteEntries'} exact component={DeleteResearchPapers}/>
                     <Route path={'/research/updatePaper'} exact component={UpdateResearchPaper}/>
                     <Route path={'/research/viewSinglePaper'} exact component={ViewSingleResearchPaper}/>
-                    
+
                     {/* REGISTRATION */}
                     <Route path="/sign-up" component={Registration}/>
                     <Route path="/sign-in" component={Login}/>
