@@ -16,6 +16,7 @@ body, html, .App, #root, .auth-wrapper-login {
 }
 
 .auth-wrapper-login {
+    padding: 5%;
     display: flex;
     justify-content: center;
     flex-direction: column;
