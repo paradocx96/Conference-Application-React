@@ -47,6 +47,16 @@ class UserService extends Component{
     logout() {
         sessionStorage.removeItem("user");
     }
+
+     backendRegister(username, contactNo, email, password, userType) {
+        return axios.post(API_BACKEND_URL + "backend-signup", {
+            username,
+            contactNo,
+            email,
+            password,
+            userType
+        });
+    }
 }
 
 export default new UserService();

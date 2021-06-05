@@ -39,6 +39,7 @@ import AddDownloadAdmin from "./src/components/Download/AddDownloadAdmin";
 //REGISTRATION
 import Registration from "./src/components/Registration/Registration";
 import Login from "./src/components/Login/Login";
+import BackendRegistration from "./src/components/Registration/BackendRegistration";
 
 //WORKSHOP
 import Workshop from "./src/pages/WorkshopPage";
@@ -90,6 +91,7 @@ function App() {
                     {/* REGISTRATION */}
                     <Route path="/sign-up" component={Registration}/>
                     <Route path="/sign-in" component={Login}/>
+                    <Route path="/backend-sign-up" component={BackendRegistration}/>
 
                 </Switch>
             </Router>
