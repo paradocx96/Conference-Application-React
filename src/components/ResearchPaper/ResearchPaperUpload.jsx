@@ -3,8 +3,9 @@
 
 
 import React from "react";
-import axios from "axios";
+//import axios from "axios";
 import {Button, Form} from "react-bootstrap";
+import researchService from "/src/services/ResearchService";
 
 class ResearchPaperUpload extends React.Component{
     constructor(props) {
@@ -81,12 +82,13 @@ class ResearchPaperUpload extends React.Component{
             console.log('Form data is null');
         }
 
-        const COMMON_URL= "http://localhost:8080/";
+        /*const COMMON_URL= "http://localhost:8080/";
         const UPLOAD_PATH = "researchpaper/upload/";
 
-        const UPLOAD_URL_FULL = COMMON_URL+  UPLOAD_PATH;
+        const UPLOAD_URL_FULL = COMMON_URL+  UPLOAD_PATH;*/
 
-        await axios.post(UPLOAD_URL_FULL, formData)
+        //await axios.post(UPLOAD_URL_FULL, formData)
+        await researchService.uploadResearchPaper(formData)
             .then(response => response.data)
             .then( (data) => {
                 if(data != null){

@@ -1,6 +1,7 @@
 import React from "react";
-import axios from "axios";
+//import axios from "axios";
 import {Button, Card, Form} from "react-bootstrap";
+import researchService from "/src/services/ResearchService";
 
 class UpdateResearchPaper extends React.Component{
     constructor(props) {
@@ -24,17 +25,18 @@ class UpdateResearchPaper extends React.Component{
     componentDidMount = async () => {
 
         //set username from session storage
-        await this.setState({username:'ravi@gmail.com'});
+        await this.setState({username:'lashan@gmail.com'});
 
-        const COMMON_URL= "http://localhost:8080/";
+        /*const COMMON_URL= "http://localhost:8080/";
         const VIEW_PAPER = "researchpaper/getResearchPaperDetailsByUsername/";
 
-        const VIEW_PAPER_FULL_PATH = COMMON_URL+VIEW_PAPER;
+        const VIEW_PAPER_FULL_PATH = COMMON_URL+VIEW_PAPER;*/
 
         //const formData  = new FormData();
         //formData.append("username",this.state.username);
 
-        await axios.get(VIEW_PAPER_FULL_PATH+this.state.username)
+        //await axios.get(VIEW_PAPER_FULL_PATH+this.state.username)
+        await researchService.getResearchPaperDetailsByUsername(this.state.username)
             .then(response => response.data)
             .then( (data) => {
                 this.setState({id:data.id});
@@ -54,16 +56,17 @@ class UpdateResearchPaper extends React.Component{
     handleUpload = async (event) => {
         event.preventDefault();
 
-        const COMMON_URL= "http://localhost:8080/";
+        /*const COMMON_URL= "http://localhost:8080/";
         const UPLOAD_PATH = "researchpaper/updateFile/";
 
-        const UPLOAD_URL_FULL = COMMON_URL+  UPLOAD_PATH;
+        const UPLOAD_URL_FULL = COMMON_URL+  UPLOAD_PATH;*/
 
         const formData = new FormData();
         formData.append("id",this.state.id);
         formData.append("file",this.state.file);
 
-        await axios.put(UPLOAD_URL_FULL,formData)
+        //await axios.put(UPLOAD_URL_FULL,formData)
+        await researchService.reUploadFile(formData)
             .then(response => response.data)
             .then( (data) => {
                 if ((data != null)){
