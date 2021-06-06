@@ -39,7 +39,9 @@ class ResearchPaperUpload extends React.Component{
         username:'',
         email:'',
         title:'',
-        file:null
+        file:null,
+        paperSet:false,
+        titleSet:false
     }
 
     resetResearch =(event) => {
@@ -52,6 +54,25 @@ class ResearchPaperUpload extends React.Component{
         event.preventDefault();
 
         await this.setState({file:event.target.files[0]});
+
+        if(event.target.files[0]){
+            this.setState({paperSet:true}); //file is not empty. Set paperSet to true
+        }
+        else{
+            this.setState({paperSet:false}); //file is empty. Set paperSet to false
+        }
+
+        console.log("Fileset : "+this.state.paperSet);
+        console.log("Title set : "+this.state.titleSet);
+
+        if(this.state.titleSet == true && this.state.paperSet ==true){
+            console.log("Both true in file calling on upload")
+            this.props.onUploaded();
+        }
+        else {
+            console.log("One or both is false in file. Calling Missing");
+            this.props.onFileMissing(); //call onFileMissing
+        }
     }
 
     //save he changes to username
@@ -74,6 +95,25 @@ class ResearchPaperUpload extends React.Component{
         event.preventDefault();
 
         this.setState({title:event.target.value});
+
+        if(event.target.value){
+            this.setState({titleSet:true}); //title is not empty set titleSet to true
+        }
+        else {
+            this.setState({titleSet:false}); //title is empty set titleSet to false
+        }
+
+        console.log("Fileset : "+this.state.paperSet);
+        console.log("Title set : "+this.state.titleSet);
+
+        if(this.state.titleSet == true && this.state.paperSet ==true){
+            console.log("Both true in title calling on upload")
+            this.props.onUploaded();
+        }
+        else {
+            console.log("One or both is false in title. Calling Missing");
+            this.props.onFileMissing(); //call onFileMissing
+        }
     }
 
     //handle the upload and detail submission

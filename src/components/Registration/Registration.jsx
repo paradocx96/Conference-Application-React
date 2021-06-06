@@ -127,6 +127,10 @@ export default class Register extends Component {
         this.setState({fileUploaded: true});
     }
 
+    handleFileMissing(event){
+        this.setState({fileUploaded:false}); //method for disabling button if title is missing
+    }
+
     // TODO: Set Values for state variables
     handleRegister(event) {
         event.preventDefault();
@@ -253,7 +257,8 @@ export default class Register extends Component {
                                                  <ResearchPaperUpload
                                                      registrationUsername = {this.state.username}
                                                      registrationEmail = {this.state.email}
-                                                     /*onUploaded={this.handleFileUpload}*/
+                                                     onUploaded={this.handleFileUpload}
+                                                     onFileMissing={this.handleFileMissing}
                                                      ref={this.researchChild}
                                                  />
                                              </label>:
@@ -269,13 +274,13 @@ export default class Register extends Component {
                                     <label> You need to upload file first before registration!</label>
                                 </div>
                                 }
-                                {/*<div className="form-group">
-                                    <button disabled={(this.state.userType =="researcher" &&!this.state.fileUploaded) || (this.state.userType=="workshop" && !this.state.fileUploaded) } className="btn btn-primary btn-block">Sign Up</button>
-                                </div>*/}
-
                                 <div className="form-group">
-                                    <button  className="btn btn-primary btn-block">Sign Up</button>
+                                    <button disabled={(this.state.userType =="researcher" &&!this.state.fileUploaded) || (this.state.userType=="workshop" && !this.state.fileUploaded) } className="btn btn-primary btn-block">Sign Up</button>
                                 </div>
+
+                                {/*<div className="form-group">
+                                    <button  className="btn btn-primary btn-block">Sign Up</button>
+                                </div>*/}
                             </div>
                         )}
                         <p className="forgot-password text-right">
