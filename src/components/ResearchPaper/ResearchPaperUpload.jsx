@@ -15,9 +15,21 @@ class ResearchPaperUpload extends React.Component{
 
         this.state = this.initialState;
 
+        // this.state ={
+        //     username:this.props.registrationUsername
+        // };
+
+        this.state ={
+            username:this.props.registrationUsername,
+            email:this.props.registrationEmail
+        };
+
+        console.log("Researcher username from research paper upload" + this.state.username);
+        console.log("Researcher email from research paper upload" + this.state.email);
+
         this.fileChange =this.fileChange.bind(this);
-        this.changeUsername = this.changeUsername.bind(this);
-        this.changeEmail = this.changeEmail.bind(this);
+        //this.changeUsername = this.changeUsername.bind(this);
+        //this.changeEmail = this.changeEmail.bind(this);
         this.changeTitle = this.changeTitle.bind(this);
         this.submitResearchPaper = this.submitResearchPaper.bind(this);
         this.resetResearch = this.resetResearch.bind(this);
@@ -44,18 +56,18 @@ class ResearchPaperUpload extends React.Component{
 
     //save he changes to username
     //later this will be retrieved from session storage
-    changeUsername = (event) =>{
+    /*changeUsername = (event) =>{
         event.preventDefault();
 
         this.setState({username:event.target.value});
-    }
+    }*/
 
     //save the changes to email
-    changeEmail = (event) => {
+    /*changeEmail = (event) => {
         event.preventDefault();
 
         this.setState({email:event.target.value});
-    }
+    }*/
 
     //save the changes to research paper title
     changeTitle = (event) => {
@@ -65,11 +77,14 @@ class ResearchPaperUpload extends React.Component{
     }
 
     //handle the upload and detail submission
-    submitResearchPaper = async (event) =>{
-        event.preventDefault();
+    submitResearchPaper = async () =>{
+        //event.preventDefault();
 
 
         console.log("Running submit form");
+
+        console.log("Username from research paper : " + this.state.username);
+        console.log("Email from research paper : " + this.state.email);
 
         //setting the form data
         const formData = new FormData();
@@ -96,7 +111,7 @@ class ResearchPaperUpload extends React.Component{
                 if(data != null){
                     console.log("File Uploaded successfully");
                     alert("File Uploaded successfully\n ID: "+data);
-                    this.props.onUploaded();
+                    //this.props.onUploaded();
                 }
                 else{
                     alert("Error in uploading data");
@@ -131,7 +146,7 @@ class ResearchPaperUpload extends React.Component{
 
                 <Form  onSubmit={this.submitResearchPaper.bind(this)} onReset={this.resetResearch.bind(this)}>
 
-                    <Form.Group>
+                    {/*<Form.Group>
                         <Form.Label>Enter Username Again</Form.Label>
                         <Form.Control
 
@@ -139,15 +154,16 @@ class ResearchPaperUpload extends React.Component{
                             name={'username'}
                             placeholder={'Enter username'}
                             onChange={this.changeUsername.bind(this)}
-                            /*className={'bg-dark text-white'}*/
+                            className={'bg-dark text-white'}
                         />
-                    </Form.Group>
+                    </Form.Group>*/}
 
                     <Form.Group>
                         <Form.Label>Title</Form.Label>
                         <Form.Control
 
                             type={'text'}
+                            required
                             name={'title'}
                             placeholder={'Enter the Title of the research paper'}
                             onChange={this.changeTitle.bind(this)}
@@ -155,7 +171,7 @@ class ResearchPaperUpload extends React.Component{
                         />
                     </Form.Group>
 
-                    <Form.Group>
+                    {/*<Form.Group>
                         <Form.Label>Enter Email Again</Form.Label>
                         <Form.Control
 
@@ -163,9 +179,9 @@ class ResearchPaperUpload extends React.Component{
                             name={'email'}
                             placeholder={'Enter Email'}
                             onChange={this.changeEmail.bind(this)}
-                            /*className={'bg-dark text-white'}*/
+                            className={'bg-dark text-white'}
                         />
-                    </Form.Group>
+                    </Form.Group>*/}
 
                     <Form.Group>
                         <Form.File
@@ -180,8 +196,8 @@ class ResearchPaperUpload extends React.Component{
                     </Form.Group>
 
                     {/*<Button type={'submit'} className={'btn btn-primary'}>Upload</Button>*/}
-                    <Button onClick={this.submitResearchPaper} className={'btn btn-primary'}>Upload</Button>
-                    <Button type={'reset'} className={'btn btn-secondary'}>Reset</Button>
+                    {/*<Button onClick={this.submitResearchPaper} className={'btn btn-primary'}>Upload</Button>
+                    <Button type={'reset'} className={'btn btn-secondary'}>Reset</Button>*/}
                 </Form>
 
 

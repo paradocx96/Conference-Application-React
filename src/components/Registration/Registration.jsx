@@ -78,6 +78,8 @@ export default class Register extends Component {
         this.onChangeUserType = this.onChangeUserType.bind(this);
         this.handleFileUpload = this.handleFileUpload.bind(this);
 
+        this.researchChild = React.createRef();
+
         this.state = {
             username: "",
             contactNo: "",
@@ -140,6 +142,7 @@ export default class Register extends Component {
 
         // TODO: Calling Registration Service function and check if there is any error
         if (this.checkBtn.context._errors.length === 0) {
+            this.researchChild.current.submitResearchPaper();
             UserService.register(
                 this.state.username,
                 this.state.contactNo,
@@ -246,7 +249,14 @@ export default class Register extends Component {
                                 <div className="form-group">
                                     {
                                         this.state.userType.toString() === "researcher"?
-                                             <label> <ResearchPaperUpload onUploaded={this.handleFileUpload} /></label>:
+                                             <label>
+                                                 <ResearchPaperUpload
+                                                     registrationUsername = {this.state.username}
+                                                     registrationEmail = {this.state.email}
+                                                     /*onUploaded={this.handleFileUpload}*/
+                                                     ref={this.researchChild}
+                                                 />
+                                             </label>:
                                             //<label> </label>:
                                             this.state.userType.toString() === "workshop"?
                                                 <label>You're in Workshop</label>:
@@ -259,8 +269,12 @@ export default class Register extends Component {
                                     <label> You need to upload file first before registration!</label>
                                 </div>
                                 }
-                                <div className="form-group">
+                                {/*<div className="form-group">
                                     <button disabled={(this.state.userType =="researcher" &&!this.state.fileUploaded) || (this.state.userType=="workshop" && !this.state.fileUploaded) } className="btn btn-primary btn-block">Sign Up</button>
+                                </div>*/}
+
+                                <div className="form-group">
+                                    <button  className="btn btn-primary btn-block">Sign Up</button>
                                 </div>
                             </div>
                         )}
