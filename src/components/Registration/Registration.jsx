@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../assets/styles/Registration.css";
 import UserService from "../../services/UserService";
-//import ResearchPaperUpload from "./ResearchPaperUpload";
+import ResearchPaperUpload from "../ResearchPaper/ResearchPaperUpload";
 
 // TODO: Validating registration form fields
 const requiredField = data => {

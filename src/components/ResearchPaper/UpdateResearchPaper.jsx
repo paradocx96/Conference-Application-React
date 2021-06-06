@@ -2,6 +2,7 @@ import React from "react";
 //import axios from "axios";
 import {Button, Card, Form} from "react-bootstrap";
 import researchService from "/src/services/ResearchService";
+import CommonCheckAuth from "../../services/CommonCheckAuth";
 
 class UpdateResearchPaper extends React.Component{
     constructor(props) {
@@ -136,4 +137,4 @@ class UpdateResearchPaper extends React.Component{
 
 }
 
-export default UpdateResearchPaper;
+export default CommonCheckAuth (UpdateResearchPaper);
