@@ -6,6 +6,8 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import Toast1 from "../Toasts/Toast1";
 import researchService from "/src/services/ResearchService";
 import CommonCheckAuth from "../../services/CommonCheckAuth";
+import UserService from "../../services/UserService";
+import {Redirect} from "react-router-dom";
 
 class DeleteResearchPapers extends React.Component{
 
@@ -15,6 +17,19 @@ class DeleteResearchPapers extends React.Component{
         this.state = this.initialState;
         //this.state.show = false;
 
+        //get the role of current user
+        const currentUser = UserService.getCurrentUser();
+
+        //set the role of current user
+        this.state.currentUser = currentUser;
+
+        if(this.state.currentUser.roles != "ROLE_ADMIN"){
+            //try redirecting here.
+            console.log("Role is not admin ");
+        }
+
+        console.log("Role: "+this.state.currentUser.roles);
+
         this.handleDelete = this.handleDelete.bind(this);
         this.requestDelete = this.requestDelete.bind(this);
 
@@ -22,7 +37,8 @@ class DeleteResearchPapers extends React.Component{
 
     initialState={
         researchPapers:[],
-        show:false
+        show:false,
+        currentUser:''
     }
 
     componentDidMount= async ()=> {
@@ -30,6 +46,19 @@ class DeleteResearchPapers extends React.Component{
         const VIEW_PAPERS = "researchpaper/getAllResearchpapers/";
 
         const   FULL_URL_GET_PAPERS = COMMON_URL+ VIEW_PAPERS ;*/
+
+        //get the role of current user
+        //const currentUserRole = await UserService.getCurrentUser();
+
+        //set the role of current user
+        //await this.setState({currentUserRole:currentUserRole});
+
+        /*if(this.state.currentUserRole.roles != "ROLE_ADMIN"){
+            //try redirecting here.
+            console.log("Role is not admin ");
+        }*/
+
+        console.log("Role: "+this.state.currentUser.roles);
 
         //get all the researchPapers and set them in the state variable
         //await axios.get(FULL_URL_GET_PAPERS)
@@ -96,66 +125,80 @@ class DeleteResearchPapers extends React.Component{
         }
         return (
             <div>
-                <div style={{"display":this.state.show ? "block" :"none" }}>
 
-                    <Toast1
+                {
+                    this.state.currentUser.roles != "ROLE_ADMIN"?
+                        <Redirect to={"/no-permission"} />:
+                        <div></div>
+                }
 
-                        children={{show:this.state.show,
-                            message:"Entry deleted successfully",
-                            type: 'danger'}}
-                    />
+                    <div style={{"display": this.state.show ? "block" : "none"}}>
 
-                </div>
+                        <Toast1
 
-                <div style={padding}>
-                    <Jumbotron>
-                        <h3>Activities in this section are potentially destructive! Proceed with caution </h3>
-                    </Jumbotron>
+                            children={{
+                                show: this.state.show,
+                                message: "Entry deleted successfully",
+                                type: 'danger'
+                            }}
+                        />
 
-                </div>
-                <Table striped bordered hover variant={'dark'}>
+                    </div>
+
+
+                        <div style={padding}>
+                            <Jumbotron>
+                                <h3>Activities in this section are potentially destructive! Proceed with caution </h3>
+                            </Jumbotron>
+
+                        </div>
+
+
+                    <Table striped bordered hover variant={'dark'}>
 
                     <thead>
                     <tr>
-                        <th>Upload Id</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Research paper Title</th>
-                        <th>Research paper Status</th>
+                    <th>Upload Id</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Research paper Title</th>
+                    <th>Research paper Status</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    {
-                        this.state.researchPapers.length === 0?
-                            <tr align={'center'}>
-                                <td>{this.state.researchPapers.length} research papers available</td>
-                            </tr> :
-                            this.state.researchPapers.map((e) => (
-                                <tr key={e.id}>
-                                    <td>{e.id}</td>
-                                    <td>{e.username}</td>
-                                    <td>{e.email}</td>
-                                    <td>{e.title}</td>
-                                    <td>{e.status}</td>
+                {
+                    this.state.researchPapers.length === 0?
+                    <tr align={'center'}>
+                    <td>{this.state.researchPapers.length} research papers available</td>
+                    </tr> :
+                    this.state.researchPapers.map((e) => (
+                    <tr key={e.id}>
+                    <td>{e.id}</td>
+                    <td>{e.username}</td>
+                    <td>{e.email}</td>
+                    <td>{e.title}</td>
+                    <td>{e.status}</td>
 
 
 
-                                    <td><Button className={'btn btn-danger'}
-                                                onClick={this.requestDelete.bind(this,e.id)}>
-                                        Delete
-                                    </Button> </td>
+                    <td><Button className={'btn btn-danger'}
+                    onClick={this.requestDelete.bind(this,e.id)}>
+                    Delete
+                    </Button> </td>
 
 
-                                </tr>
-                            ))
-                    }
+                    </tr>
+                    ))
+                }
 
                     </tbody>
 
-                </Table>
+                    </Table>
 
-                <div>hello</div>
+                    <div>hello</div>
+
+
 
             </div>
         );

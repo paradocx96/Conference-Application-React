@@ -96,6 +96,7 @@ class ResearchPaperUpload extends React.Component{
                 if(data != null){
                     console.log("File Uploaded successfully");
                     alert("File Uploaded successfully\n ID: "+data);
+                    this.props.onUploaded();
                 }
                 else{
                     alert("Error in uploading data");
@@ -171,14 +172,15 @@ class ResearchPaperUpload extends React.Component{
                             className={'position-relative'}
                             required
                             name={'file'}
-                            label={'Upload Research Paper (in pdf format'}
+                            label={'Upload Research Paper (in pdf format)'}
                             onChange={this.fileChange.bind(this)}
                             id={'fileUpload'}
 
                         />
                     </Form.Group>
 
-                    <Button type={'submit'} className={'btn btn-primary'}>Upload</Button>
+                    {/*<Button type={'submit'} className={'btn btn-primary'}>Upload</Button>*/}
+                    <Button onClick={this.submitResearchPaper} className={'btn btn-primary'}>Upload</Button>
                     <Button type={'reset'} className={'btn btn-secondary'}>Reset</Button>
                 </Form>
 

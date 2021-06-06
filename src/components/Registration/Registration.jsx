@@ -246,8 +246,8 @@ export default class Register extends Component {
                                 <div className="form-group">
                                     {
                                         this.state.userType.toString() === "researcher"?
-                                            // <label> <ResearchPaperUpload onUploaded={this.handleFileUpload} /></label>:
-                                            <label> </label>:
+                                             <label> <ResearchPaperUpload onUploaded={this.handleFileUpload} /></label>:
+                                            //<label> </label>:
                                             this.state.userType.toString() === "workshop"?
                                                 <label>You're in Workshop</label>:
                                                     <label> </label>
