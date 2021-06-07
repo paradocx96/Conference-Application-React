@@ -1,7 +1,7 @@
 import axios from "axios";
 import FileDownload from "js-file-download";
 
-const WORKSHOP_API_URL = 'http://localhost:5000/workshop';
+export const WORKSHOP_API_URL = 'http://localhost:5000/workshop';
 
 export function createWorkshop(workshop) {
     console.log(workshop);
