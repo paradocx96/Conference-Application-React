@@ -3,12 +3,33 @@ import React from "react";
 import {Button, Card, Form} from "react-bootstrap";
 import researchService from "/src/services/ResearchService";
 import CommonCheckAuth from "../../services/CommonCheckAuth";
+import UserService from "../../services/UserService";
+import {Redirect} from "react-router-dom";
 
 class UpdateResearchPaper extends React.Component{
     constructor(props) {
         super(props);
 
         this.state= this.initialState;
+
+        //get the current user
+        const currentUser = UserService.getCurrentUser();
+
+        this.state.currentUser = currentUser;
+        this.state.currentUsername = this.state.currentUser.username;
+
+        console.log("Current user: "+  this.state.currentUsername);
+        console.log("Current user role "+ this.state.currentUser.roles);
+
+        if (this.state.currentUser.roles == "ROLE_ADMIN"){
+            console.log("Current user is admin. Permitting");
+            console.log("This section is not retrieving data for the admin properly");
+            this.state.permission = "permitted";
+        }
+        else if(this.state.currentUser.roles == "ROLE_USER_RESEARCHER"){
+            console.log("Current user is researcher. Permitting");
+            this.state.permission = "permitted";
+        }
 
         this.handleUpload = this.handleUpload.bind(this);
         this.fileChange = this.fileChange.bind(this);
@@ -20,7 +41,10 @@ class UpdateResearchPaper extends React.Component{
         username:'',
         title:'',
         status:'',
-        file:null
+        file:null,
+        currentUser:'',
+        currentUsername:'',
+        permission:'notPermitted'
     }
 
     componentDidMount = async () => {
@@ -37,7 +61,9 @@ class UpdateResearchPaper extends React.Component{
         //formData.append("username",this.state.username);
 
         //await axios.get(VIEW_PAPER_FULL_PATH+this.state.username)
-        await researchService.getResearchPaperDetailsByUsername(this.state.username)
+
+        //this draws and connects to the research paper of the current user
+        await researchService.getResearchPaperDetailsByUsername(this.state.currentUsername)
             .then(response => response.data)
             .then( (data) => {
                 this.setState({id:data.id});
@@ -94,6 +120,11 @@ class UpdateResearchPaper extends React.Component{
         }
         return (
             <div style={padding}>
+                {
+                    this.state.permission ==='notPermitted'?
+                        <Redirect to={'/no-permission'} />:
+                        <div></div>
+                }
                 <h2 className={'text-white'}>Update File</h2>
 
                 <div style={padding2}>

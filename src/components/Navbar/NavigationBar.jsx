@@ -53,7 +53,13 @@ class NavigationBar extends Component {
                             <Link to={'/news'} className={'nav-link'} >News</Link>
                             <Link to={'/workshop'} className={'nav-link'} >Workshop</Link>
                             <Link to={'/research'} className={'nav-link'} >Research</Link>
-                            <Link to={'/downloads'} className={'nav-link'} >Downloads</Link>
+
+                            <NavDropdown title="Authors" id="collasible-nav-dropdown">
+                                <Link to={'/research/operations'} className={'dropdown-item'}>Research</Link>
+                                <NavDropdown.Divider/>
+                                <Link to={'/downloads'} className={'dropdown-item'}>Downloads</Link>
+                            </NavDropdown>
+
                             <Link to={'/contactus'} className={'nav-link'} >Contact Us</Link>
                         </Nav>
                         <Nav>
@@ -92,14 +98,10 @@ class NavigationBar extends Component {
                                     <li className="nav-item">
                                         <label></label>
                                     </li>
-
                                     <li className="nav-item">
-                                        <Link to={"/sign-in"} className="nav-link">
-                                            Sign in
-                                        </Link>
+                                        <Link to={"/sign-in"} className="nav-link"> Sign in </Link>
                                     </li>
-                                </div>
-                                // <Link to={'/sign-in'} className={'nav-link'} >Sign in</Link>
+                                </div>                                
                             )}
                         </Nav>
                     </Navbar.Collapse>

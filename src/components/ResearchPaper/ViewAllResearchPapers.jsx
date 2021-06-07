@@ -8,6 +8,8 @@ import FileDownload from "js-file-download";
 import Toast1 from "../Toasts/Toast1";
 import researchService from "/src/services/ResearchService";
 import CommonCheckAuth from "../../services/CommonCheckAuth";
+import UserService from "../../services/UserService";
+import {Redirect} from "react-router-dom";
 
 class ViewAllResearchPapers extends React.Component{
     constructor(props) {
@@ -18,6 +20,25 @@ class ViewAllResearchPapers extends React.Component{
         this.state.showRejected =false;
         this.state.showRevoke = false;
 
+        //get the role of current user
+        const currentUser = UserService.getCurrentUser();
+
+        //set the role of current user
+        this.state.currentUser = currentUser;
+
+        if(this.state.currentUser.roles == "ROLE_ADMIN"){
+            //try redirecting here.
+            this.state.permission ='permitted';
+            console.log("Role is admin. Permitting")
+        }
+        else if(this.state.currentUser.roles == "ROLE_REVIEWER"){
+            this.state.permission ='permitted';
+            console.log("Role is reviewer. Permitting")
+        }
+
+        console.log("Permission : " + this.state.permission);
+        console.log("Role: "+this.state.currentUser.roles);
+
         this.handleDownload = this.handleDownload.bind(this);
         this.handleApprove = this.handleApprove.bind(this);
         this.handleReject = this.handleReject.bind(this);
@@ -26,7 +47,9 @@ class ViewAllResearchPapers extends React.Component{
     }
 
     initialState={
-        researchPapers:[]
+        researchPapers:[],
+        currentUser:'',
+        permission:'notPermitted'
     }
 
     componentDidMount = async () => {
@@ -161,6 +184,11 @@ class ViewAllResearchPapers extends React.Component{
     render() {
         return (
             <div>
+                {
+                    this.state.permission ==='notPermitted'?
+                        <Redirect to={'/no-permission'} />:
+                        <div></div>
+                }
                 <div style={{"display":this.state.showApproved ? "block" : "none"}}>
                     <Toast1
 
