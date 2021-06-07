@@ -3,18 +3,20 @@
 import axios from "axios";
 
 // TODO: Declare url for rest api
-const DOWNLOAD_API_BASE_URL = "http://localhost:8080/download";
+const COMMON_URL = "http://localhost:8080";
+const DOWNLOAD_API = "/download/";
+const DOWNLOAD_API_BASE_URL = COMMON_URL + DOWNLOAD_API;
 
 export default new class DownloadService {
 
     // TODO: Method for add new Download Item to database
     postKeyNote(download) {
-        return axios.post(DOWNLOAD_API_BASE_URL, download);
+        return axios.post(DOWNLOAD_API_BASE_URL + "/add", download);
     }
 
     // TODO: Method for get all Download Items from database
     getDownloadItems() {
-        return axios.get(DOWNLOAD_API_BASE_URL);
+        return axios.get(DOWNLOAD_API_BASE_URL + "/get");
     }
 
     //TODO: Method for update Download item Status
@@ -24,7 +26,7 @@ export default new class DownloadService {
 
     //TODO: Method for delete Download item from database
     deleteDownloadItemById(id) {
-        return axios.delete(DOWNLOAD_API_BASE_URL + "/" + id);
+        return axios.delete(DOWNLOAD_API_BASE_URL + "/delete/" + id);
     }
 
     //TODO: Method for Download file by Id
