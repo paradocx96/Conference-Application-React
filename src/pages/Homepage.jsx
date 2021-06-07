@@ -4,6 +4,7 @@ import React, {Component} from "react";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '/src/assets/styles/Homepage.css';
+import '/src/assets/styles/Image.css';
 
 import About from "../components/Homepage/About";
 import Gallery from "../components/Homepage/Gallery";
@@ -20,7 +21,7 @@ export default class Homepage extends Component {
         return (
             <div>
                 <section id="introduction">
-                    <div className="introduction-container">
+                    <div className="introduction-container introduction-image">
                         <h1>International Conference on Application Frameworks - 2021</h1>
                         <h3>Sri Lanka Institute of Information Technology</h3>
                         <a href="#news" className="btn btn-dark">Latest News</a>
