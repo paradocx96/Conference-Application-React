@@ -12,8 +12,9 @@ import DashboardPanelEditor from "../components/Dashboard/DashboardPanelEditor";
 import AddKeyNote from "../components/KeyNotes/AddKeyNote";
 import AddNews from "../components/News/AddNews";
 import AddDownload from "../components/Download/AddDownload";
+import CommonCheckAuth from './../services/CommonCheckAuth';
 
-export default class DashboardEditor extends Component {
+class DashboardEditor extends Component {
 
     render() {
         return (
@@ -50,3 +51,5 @@ export default class DashboardEditor extends Component {
         )
     }
 }
+
+export default CommonCheckAuth(DashboardEditor);

@@ -9,6 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../assets/styles/Registration.css";
 import UserService from "../../services/UserService";
 import ResearchPaperUpload from "../ResearchPaper/ResearchPaperUpload";
+import CreateWorkshop from "../workshop/CreateWorkshop";
+
 
 // TODO: Validating registration form fields
 const requiredField = data => {
@@ -253,6 +255,7 @@ export default class Register extends Component {
                                 <div className="form-group">
                                     {
                                         this.state.userType.toString() === "researcher"?
+
                                              <label>
                                                  <ResearchPaperUpload
                                                      registrationUsername = {this.state.username}
@@ -262,9 +265,9 @@ export default class Register extends Component {
                                                      ref={this.researchChild}
                                                  />
                                              </label>:
-                                            //<label> </label>:
+
                                             this.state.userType.toString() === "workshop"?
-                                                <label>You're in Workshop</label>:
+                                                <label><CreateWorkshop/></label>:
                                                     <label> </label>
                                     }
                                 </div>
