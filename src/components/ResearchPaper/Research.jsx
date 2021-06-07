@@ -5,6 +5,11 @@ import React from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import UserService from "../../services/UserService";
+import {Carousel} from "react-bootstrap";
+import laptopPhoto from "url:../../assets/images/laptop-photo.jpg";
+import collaborationPhoto from "url:../../assets/images/collaboration-photo.jpg";
+import bigDataPhoto from "url:../../assets/images/big-data-photo.jpg";
+import codePhoto from "url:../../assets/images/code-photo.jpg";
 
 class Research extends React.Component{
     constructor(props) {
@@ -42,14 +47,70 @@ class Research extends React.Component{
     }
 
     render() {
+        const padding={
+            padding:'10px'
+        }
         return (
             <div>
-                <h1 className={'text-white'}>Research</h1>
+                {/*<h1 className={'text-white'}>Research</h1>*/}
+
+                <Carousel>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={laptopPhoto}
+                            alt="First slide"
+
+                        />
+                        <Carousel.Caption>
+                           <h1>Meaningful Innovation</h1>
+                            <a href={'https://pixabay.com/users/stocksnap-894430/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2557615'}
+                               target={'_blank'}>
+                                Image credits
+                            </a>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={codePhoto}
+                            alt="Second slide"
+
+                        />
+                        <Carousel.Caption>
+                            <h1>Ideas at work</h1>
+                            <a href={'https://pixabay.com/photos/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=731198'}
+                            target={'_blank'}>
+                                Image Credits
+                            </a>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={bigDataPhoto}
+                            alt="Second slide"
+
+                        />
+                        <Carousel.Caption>
+                            <h1 className={'text-dark'}>New Topics</h1>
+                            <a href={'https://pixabay.com/users/geralt-9301/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=895567'}
+                               target={'_blank'}>
+                                Image Credits
+                            </a>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+
+                </Carousel>
 
 
                 {
                     this.state.permission === "permitted"?
-                        <Link to={'/research/updatePaper'}>Update Paper</Link>:
+                        <div style={padding}>
+                        <Link className={'btn btn-primary btn-block'} to={'/research/updatePaper'}>Update Paper</Link>
+                        </div>:
                         <div></div>
                 }
 
