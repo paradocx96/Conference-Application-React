@@ -26,12 +26,12 @@ export default new class NewsService {
 
     // TODO: Method fot update News's Status
     updateNewsStatusById(id, status) {
-        return axios.put(NEWS_API_BASE_URL + "/update-status/" + id, status);
+        return axios.put(NEWS_API_BASE_URL + "/update-status/" + id, status, {headers: AuthHeader()});
     }
 
     // TODO: Method for Delete a News by ID
     deleteNewsById(id) {
-        return axios.delete(NEWS_API_BASE_URL + "/delete/" + id);
+        return axios.delete(NEWS_API_BASE_URL + "/delete/" + id, {headers: AuthHeader()});
     }
 
     // TODO: Method for get News By Id

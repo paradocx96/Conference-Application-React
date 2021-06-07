@@ -21,12 +21,12 @@ export default new class DownloadService {
 
     //TODO: Method for update Download item Status
     updateStatusByFormValue(status) {
-        return axios.put(DOWNLOAD_API_BASE_URL + "/update-status", status);
+        return axios.put(DOWNLOAD_API_BASE_URL + "/update-status", status, {headers: AuthHeader()});
     }
 
     //TODO: Method for delete Download item from database
     deleteDownloadItemById(id) {
-        return axios.delete(DOWNLOAD_API_BASE_URL + "/delete/" + id);
+        return axios.delete(DOWNLOAD_API_BASE_URL + "/delete/" + id, {headers: AuthHeader()});
     }
 
     //TODO: Method for Download file by Id

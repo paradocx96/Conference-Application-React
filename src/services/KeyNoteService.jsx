@@ -1,6 +1,7 @@
 // TODO: IT19180526 - Chandrasiri S A N L D
 
 import axios from "axios";
+import AuthHeader from "./AuthHeader";
 
 // TODO: Declare url for rest api
 const COMMON_URL = "http://localhost:8080";
@@ -31,12 +32,12 @@ export default new class KeyNoteService {
 
     // TODO: Method for update Keynote's Status
     updateKeyNoteStatus(id, status) {
-        return axios.put(KEYNOTE_API_BASE_URL + "/update-status/" + id, status)
+        return axios.put(KEYNOTE_API_BASE_URL + "/update-status/" + id, status, {headers: AuthHeader()})
     }
 
     // TODO: Method for Delete a Keynote by ID
     deleteKeyNoteById(id) {
-        return axios.delete(KEYNOTE_API_BASE_URL + "/delete/" + id);
+        return axios.delete(KEYNOTE_API_BASE_URL + "/delete/" + id, {headers: AuthHeader()});
     }
 
     //TODO: Method for update Keynote

@@ -1,6 +1,7 @@
 // TODO: IT19180526 - Chandrasiri S A N L D
 
 import axios from "axios";
+import AuthHeader from "./AuthHeader";
 
 // TODO: Based url for rest api
 const COMMON_URL = "http://localhost:8080";
@@ -11,7 +12,7 @@ export default new class AboutService {
 
     // TODO: Method for add About details to database
     postAbout(about) {
-        return axios.post(ABOUT_API_BASE_URL + "/add", about);
+        return axios.post(ABOUT_API_BASE_URL + "/add", about, {headers: AuthHeader()});
     }
 
     // TODO: Method for get About details from database
@@ -21,17 +22,17 @@ export default new class AboutService {
 
     //TODO: Method for update About details
     updateAboutDetails(id, about) {
-        return axios.put(ABOUT_API_BASE_URL + "/update/" + id, about);
+        return axios.put(ABOUT_API_BASE_URL + "/update/" + id, about, {headers: AuthHeader()});
     }
 
     // TODO: Method for get About details By Id
     getAboutDetailsById(id) {
-        return axios.get(ABOUT_API_BASE_URL + "/get-id/" + id);
+        return axios.get(ABOUT_API_BASE_URL + "/get-id/" + id, {headers: AuthHeader()});
     }
 
     // TODO: Method for Delete About details by ID
     deleteAboutDetailsById(id) {
-        return axios.delete(ABOUT_API_BASE_URL + "/delete/" + id);
+        return axios.delete(ABOUT_API_BASE_URL + "/delete/" + id, {headers: AuthHeader()});
     }
 
 }
