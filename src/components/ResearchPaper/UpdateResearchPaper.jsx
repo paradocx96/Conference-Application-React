@@ -1,12 +1,35 @@
 import React from "react";
-import axios from "axios";
+//import axios from "axios";
 import {Button, Card, Form} from "react-bootstrap";
+import researchService from "/src/services/ResearchService";
+import CommonCheckAuth from "../../services/CommonCheckAuth";
+import UserService from "../../services/UserService";
+import {Redirect} from "react-router-dom";
 
 class UpdateResearchPaper extends React.Component{
     constructor(props) {
         super(props);
 
         this.state= this.initialState;
+
+        //get the current user
+        const currentUser = UserService.getCurrentUser();
+
+        this.state.currentUser = currentUser;
+        this.state.currentUsername = this.state.currentUser.username;
+
+        console.log("Current user: "+  this.state.currentUsername);
+        console.log("Current user role "+ this.state.currentUser.roles);
+
+        if (this.state.currentUser.roles == "ROLE_ADMIN"){
+            console.log("Current user is admin. Permitting");
+            console.log("This section is not retrieving data for the admin properly");
+            this.state.permission = "permitted";
+        }
+        else if(this.state.currentUser.roles == "ROLE_USER_RESEARCHER"){
+            console.log("Current user is researcher. Permitting");
+            this.state.permission = "permitted";
+        }
 
         this.handleUpload = this.handleUpload.bind(this);
         this.fileChange = this.fileChange.bind(this);
@@ -18,23 +41,29 @@ class UpdateResearchPaper extends React.Component{
         username:'',
         title:'',
         status:'',
-        file:null
+        file:null,
+        currentUser:'',
+        currentUsername:'',
+        permission:'notPermitted'
     }
 
     componentDidMount = async () => {
 
         //set username from session storage
-        await this.setState({username:'ravi@gmail.com'});
+        await this.setState({username:'lashan@gmail.com'});
 
-        const COMMON_URL= "http://localhost:8080/";
+        /*const COMMON_URL= "http://localhost:8080/";
         const VIEW_PAPER = "researchpaper/getResearchPaperDetailsByUsername/";
 
-        const VIEW_PAPER_FULL_PATH = COMMON_URL+VIEW_PAPER;
+        const VIEW_PAPER_FULL_PATH = COMMON_URL+VIEW_PAPER;*/
 
         //const formData  = new FormData();
         //formData.append("username",this.state.username);
 
-        await axios.get(VIEW_PAPER_FULL_PATH+this.state.username)
+        //await axios.get(VIEW_PAPER_FULL_PATH+this.state.username)
+
+        //this draws and connects to the research paper of the current user
+        await researchService.getResearchPaperDetailsByUsername(this.state.currentUsername)
             .then(response => response.data)
             .then( (data) => {
                 this.setState({id:data.id});
@@ -54,16 +83,17 @@ class UpdateResearchPaper extends React.Component{
     handleUpload = async (event) => {
         event.preventDefault();
 
-        const COMMON_URL= "http://localhost:8080/";
+        /*const COMMON_URL= "http://localhost:8080/";
         const UPLOAD_PATH = "researchpaper/updateFile/";
 
-        const UPLOAD_URL_FULL = COMMON_URL+  UPLOAD_PATH;
+        const UPLOAD_URL_FULL = COMMON_URL+  UPLOAD_PATH;*/
 
         const formData = new FormData();
         formData.append("id",this.state.id);
         formData.append("file",this.state.file);
 
-        await axios.put(UPLOAD_URL_FULL,formData)
+        //await axios.put(UPLOAD_URL_FULL,formData)
+        await researchService.reUploadFile(formData)
             .then(response => response.data)
             .then( (data) => {
                 if ((data != null)){
@@ -90,6 +120,11 @@ class UpdateResearchPaper extends React.Component{
         }
         return (
             <div style={padding}>
+                {
+                    this.state.permission ==='notPermitted'?
+                        <Redirect to={'/no-permission'} />:
+                        <div></div>
+                }
                 <h2 className={'text-white'}>Update File</h2>
 
                 <div style={padding2}>
@@ -133,4 +168,4 @@ class UpdateResearchPaper extends React.Component{
 
 }
 
-export default UpdateResearchPaper;
+export default CommonCheckAuth (UpdateResearchPaper);
