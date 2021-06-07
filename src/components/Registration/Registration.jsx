@@ -11,6 +11,7 @@ import UserService from "../../services/UserService";
 import ResearchPaperUpload from "../ResearchPaper/ResearchPaperUpload";
 import CreateWorkshop from "../workshop/CreateWorkshop";
 
+
 // TODO: Validating registration form fields
 const requiredField = data => {
     if (!data) {

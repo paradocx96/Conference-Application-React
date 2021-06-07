@@ -5,6 +5,7 @@ import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import Toast1 from "../Toasts/Toast1";
 import researchService from "/src/services/ResearchService";
+import CommonCheckAuth from "../../services/CommonCheckAuth";
 
 class DeleteResearchPapers extends React.Component{
 
@@ -161,4 +162,4 @@ class DeleteResearchPapers extends React.Component{
     }
 
 }
-export default DeleteResearchPapers;
+export default CommonCheckAuth(DeleteResearchPapers);
