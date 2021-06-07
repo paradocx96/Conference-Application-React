@@ -2,10 +2,14 @@
 //A.M.W.W.R.L. Wataketiya
 
 import React from "react";
-import axios from "axios";
+//import axios from "axios";
 import {Button, Table} from "react-bootstrap";
 import FileDownload from "js-file-download";
 import Toast1 from "../Toasts/Toast1";
+import researchService from "/src/services/ResearchService";
+import CommonCheckAuth from "../../services/CommonCheckAuth";
+import UserService from "../../services/UserService";
+import {Redirect} from "react-router-dom";
 
 class ViewAllResearchPapers extends React.Component{
     constructor(props) {
@@ -16,6 +20,25 @@ class ViewAllResearchPapers extends React.Component{
         this.state.showRejected =false;
         this.state.showRevoke = false;
 
+        //get the role of current user
+        const currentUser = UserService.getCurrentUser();
+
+        //set the role of current user
+        this.state.currentUser = currentUser;
+
+        if(this.state.currentUser.roles == "ROLE_ADMIN"){
+            //try redirecting here.
+            this.state.permission ='permitted';
+            console.log("Role is admin. Permitting")
+        }
+        else if(this.state.currentUser.roles == "ROLE_REVIEWER"){
+            this.state.permission ='permitted';
+            console.log("Role is reviewer. Permitting")
+        }
+
+        console.log("Permission : " + this.state.permission);
+        console.log("Role: "+this.state.currentUser.roles);
+
         this.handleDownload = this.handleDownload.bind(this);
         this.handleApprove = this.handleApprove.bind(this);
         this.handleReject = this.handleReject.bind(this);
@@ -24,17 +47,20 @@ class ViewAllResearchPapers extends React.Component{
     }
 
     initialState={
-        researchPapers:[]
+        researchPapers:[],
+        currentUser:'',
+        permission:'notPermitted'
     }
 
     componentDidMount = async () => {
-        const COMMON_URL= "http://localhost:8080/";
+        /*const COMMON_URL= "http://localhost:8080/";
         const VIEW_PAPERS = "researchpaper/getAllResearchpapers/";
 
-        const   FULL_URL_GET_PAPERS = COMMON_URL+ VIEW_PAPERS ;
+        const   FULL_URL_GET_PAPERS = COMMON_URL+ VIEW_PAPERS ;*/
 
         //get all the researchPapers and set them in the state variable
-        await axios.get(FULL_URL_GET_PAPERS)
+        //await axios.get(FULL_URL_GET_PAPERS)
+        await researchService.getAllResearchPapers()
             .then(response => response.data)
             .then( (data) => {
                 this.setState({researchPapers:data});
@@ -44,14 +70,15 @@ class ViewAllResearchPapers extends React.Component{
 
     //download the file for a selected id
     handleDownload = async (id) => {
-        const COMMON_URL= "http://localhost:8080/";
+        /*const COMMON_URL= "http://localhost:8080/";
         const DOWNLOAD_PATH = "researchpaper/downloadById/";
-        const DOWNLOAD_URL_FUL = COMMON_URL+DOWNLOAD_PATH;
+        const DOWNLOAD_URL_FUL = COMMON_URL+DOWNLOAD_PATH;*/
 
         const formData = new FormData();
         formData.append("id",id)
 
-        await axios.post(DOWNLOAD_URL_FUL,formData,{responseType:'blob'})
+        //await axios.post(DOWNLOAD_URL_FUL,formData,{responseType:'blob'})
+            await researchService.downloadResearchPaper(formData)
             .then( (response) => {
                 console.log("Data : " +response.data);
 
@@ -70,15 +97,16 @@ class ViewAllResearchPapers extends React.Component{
     handleApprove = async (id) => {
         //id.preventDefault();
 
-        const COMMON_URL= "http://localhost:8080/";
+        /*const COMMON_URL= "http://localhost:8080/";
         const UPDATE_PATH = "researchpaper/updateStatus/";
-        const DOWNLOAD_URL_FUL = COMMON_URL+UPDATE_PATH;
+        const DOWNLOAD_URL_FUL = COMMON_URL+UPDATE_PATH;*/
 
         const formData = new FormData();
         formData.append("id",id);
         formData.append("status","approved");
 
-        await axios.put(DOWNLOAD_URL_FUL,formData)
+        //await axios.put(DOWNLOAD_URL_FUL,formData)
+        await researchService.changeResearchPaperStatus(formData)
             .then(response => response.data)
             .then( (data) => {
                 //alert("Approved research paper : " +data.id);
@@ -98,15 +126,16 @@ class ViewAllResearchPapers extends React.Component{
     handleReject = async (id) => {
         //id.preventDefault();
 
-        const COMMON_URL= "http://localhost:8080/";
+        /*const COMMON_URL= "http://localhost:8080/";
         const UPDATE_PATH = "researchpaper/updateStatus/";
-        const DOWNLOAD_URL_FUL = COMMON_URL+UPDATE_PATH;
+        const DOWNLOAD_URL_FUL = COMMON_URL+UPDATE_PATH;*/
 
         const formData = new FormData();
         formData.append("id",id);
         formData.append("status","rejected");
 
-        await axios.put(DOWNLOAD_URL_FUL,formData)
+        //await axios.put(DOWNLOAD_URL_FUL,formData)
+        await researchService.changeResearchPaperStatus(formData)
             .then(response => response.data)
             .then( (data) => {
                 //alert("Rejected research paper : "+ data.id);
@@ -126,15 +155,16 @@ class ViewAllResearchPapers extends React.Component{
     handleRevoke = async (id) => {
         //id.preventDefault();
 
-        const COMMON_URL= "http://localhost:8080/";
+        /*const COMMON_URL= "http://localhost:8080/";
         const UPDATE_PATH = "researchpaper/updateStatus/";
-        const DOWNLOAD_URL_FUL = COMMON_URL+UPDATE_PATH;
+        const DOWNLOAD_URL_FUL = COMMON_URL+UPDATE_PATH;*/
 
         const formData = new FormData();
         formData.append("id",id);
         formData.append("status","pending");
 
-        await axios.put(DOWNLOAD_URL_FUL,formData)
+        //await axios.put(DOWNLOAD_URL_FUL,formData)
+        await researchService.changeResearchPaperStatus(formData)
             .then(response => response.data)
             .then( (data) => {
                 //alert("Revoked research paper : "+ data.id);
@@ -154,6 +184,11 @@ class ViewAllResearchPapers extends React.Component{
     render() {
         return (
             <div>
+                {
+                    this.state.permission ==='notPermitted'?
+                        <Redirect to={'/no-permission'} />:
+                        <div></div>
+                }
                 <div style={{"display":this.state.showApproved ? "block" : "none"}}>
                     <Toast1
 
@@ -255,4 +290,4 @@ class ViewAllResearchPapers extends React.Component{
 
 }
 
-export default ViewAllResearchPapers;
+export default CommonCheckAuth (ViewAllResearchPapers);

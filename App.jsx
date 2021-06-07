@@ -39,9 +39,12 @@ import AddDownloadAdmin from "./src/components/Download/AddDownloadAdmin";
 //REGISTRATION
 import Registration from "./src/components/Registration/Registration";
 import Login from "./src/components/Login/Login";
+import BackendRegistration from "./src/components/Registration/BackendRegistration";
 
 //WORKSHOP
 import Workshop from "./src/pages/WorkshopPage";
+import NoPermissionMessage from "./src/components/Permission/NoPermissionMessage";
+import ResearchOperations from "./src/components/ResearchPaper/ResearchOperations";
 
 
 function App() {
@@ -86,10 +89,15 @@ function App() {
                     <Route path={'/research/deleteEntries'} exact component={DeleteResearchPapers}/>
                     <Route path={'/research/updatePaper'} exact component={UpdateResearchPaper}/>
                     <Route path={'/research/viewSinglePaper'} exact component={ViewSingleResearchPaper}/>
+                    <Route path={'/research/operations'} exact component={ResearchOperations}/>
+
+                    {/*No permission*/}
+                    <Route path={'/no-permission'} component={NoPermissionMessage} />
 
                     {/* REGISTRATION */}
                     <Route path="/sign-up" component={Registration}/>
                     <Route path="/sign-in" component={Login}/>
+                    <Route path="/backend-sign-up" component={BackendRegistration}/>
 
                 </Switch>
             </Router>

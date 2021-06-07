@@ -136,9 +136,13 @@ export default class Login extends Component {
                             </button>
                         </div>
 
+                        <p className="forgot-password text-right">
+                            Are you not register yet <a href="/sign-up">sign up?</a>
+                        </p>
+
                         {this.state.message && (
                             <div className="form-group">
-                                <div className="alert alert-danger" role="alert">
+                                <div className="alert alert-danger text-center" role="alert">
                                     {this.state.message}
                                 </div>
                             </div>

@@ -8,8 +8,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../assets/styles/Registration.css";
 import UserService from "../../services/UserService";
-import ResearchPaperUpload from "../ResearchPaper/ResearchPaperUpload";
-import CreateWorkshop from "../workshop/CreateWorkshop";
 
 
 // TODO: Validating registration form fields
@@ -78,9 +76,6 @@ export default class Register extends Component {
         this.onChangePassword = this.onChangePassword.bind(this);
         this.onChangeContactNo = this.onChangeContactNo.bind(this);
         this.onChangeUserType = this.onChangeUserType.bind(this);
-        this.handleFileUpload = this.handleFileUpload.bind(this);
-
-        this.researchChild = React.createRef();
 
         this.state = {
             username: "",
@@ -89,8 +84,7 @@ export default class Register extends Component {
             password: "",
             userType: "",
             successful: false,
-            message: "",
-            fileUploaded: false
+            message: ""
         };
     }
 
@@ -125,14 +119,6 @@ export default class Register extends Component {
         });
     }
 
-    handleFileUpload(event){
-        this.setState({fileUploaded: true});
-    }
-
-    handleFileMissing(event){
-        this.setState({fileUploaded:false}); //method for disabling button if title is missing
-    }
-
     // TODO: Set Values for state variables
     handleRegister(event) {
         event.preventDefault();
@@ -148,8 +134,7 @@ export default class Register extends Component {
 
         // TODO: Calling Registration Service function and check if there is any error
         if (this.checkBtn.context._errors.length === 0) {
-            this.researchChild.current.submitResearchPaper();
-            UserService.register(
+            UserService.backendRegister(
                 this.state.username,
                 this.state.contactNo,
                 this.state.email,
@@ -186,7 +171,7 @@ export default class Register extends Component {
 
                     <Form onSubmit={this.handleRegister} ref={check => {this.form = check;}}>
 
-                        <h3>Sign Up</h3>
+                        <h3>Backend Sign Up</h3>
 
                         {!this.state.successful && (
                             <div>
@@ -246,44 +231,14 @@ export default class Register extends Component {
                                     <label htmlFor="userType">Select Type : </label>{' '}
                                     <select value={this.state.userType} onChange={this.onChangeUserType} className="dropdown">
                                         <option> </option>
-                                        <option value={"attendee"}>Attendee</option>
-                                        <option value={"researcher"}>Researcher</option>
-                                        <option value={"workshop"}>Workshop Presenter</option>
+                                        <option value={"reviewer"}>Reviewer</option>
+                                        <option value={"editor"}>Editor</option>
                                     </select>
                                 </div>
 
                                 <div className="form-group">
-                                    {
-                                        this.state.userType.toString() === "researcher"?
-
-                                             <label>
-                                                 <ResearchPaperUpload
-                                                     registrationUsername = {this.state.username}
-                                                     registrationEmail = {this.state.email}
-                                                     onUploaded={this.handleFileUpload}
-                                                     onFileMissing={this.handleFileMissing}
-                                                     ref={this.researchChild}
-                                                 />
-                                             </label>:
-
-                                            this.state.userType.toString() === "workshop"?
-                                                <label><CreateWorkshop/></label>:
-                                                    <label> </label>
-                                    }
+                                    <button className="btn btn-primary btn-block">Sign Up</button>
                                 </div>
-
-                                {((this.state.userType== "researcher" && !this.state.fileUploaded) || (this.state.userType == "workshop" && !this.state.fileUploaded)) &&
-                                <div className= "form-group">
-                                    <label> You need to upload file first before registration!</label>
-                                </div>
-                                }
-                                <div className="form-group">
-                                    <button disabled={(this.state.userType =="researcher" &&!this.state.fileUploaded) || (this.state.userType=="workshop" && !this.state.fileUploaded) } className="btn btn-primary btn-block">Sign Up</button>
-                                </div>
-
-                                {/*<div className="form-group">
-                                    <button  className="btn btn-primary btn-block">Sign Up</button>
-                                </div>*/}
                             </div>
                         )}
                         <p className="forgot-password text-right">
@@ -292,13 +247,12 @@ export default class Register extends Component {
 
                         {this.state.message && (
                             <div className="form-group">
-                                <div className={this.state.successful ? "alert alert-success text-center" : "alert alert-danger text-center"} role="alert">
+                                <div className={this.state.successful ? "alert alert-success" : "alert alert-danger"} role="alert">
                                     {this.state.message}
                                 </div>
                             </div>
                         )}
-                        <CheckButton style={{ display: "none" }} ref={check => {this.checkBtn = check;}}
-                        />
+                        <CheckButton style={{ display: "none" }} ref={check => {this.checkBtn = check;}}/>
                     </Form>
                 </div>
             </div>
