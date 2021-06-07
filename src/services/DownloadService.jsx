@@ -4,7 +4,7 @@ import axios from "axios";
 
 // TODO: Declare url for rest api
 const COMMON_URL = "http://localhost:8080";
-const DOWNLOAD_API = "/download/";
+const DOWNLOAD_API = "/download";
 const DOWNLOAD_API_BASE_URL = COMMON_URL + DOWNLOAD_API;
 
 export default new class DownloadService {
