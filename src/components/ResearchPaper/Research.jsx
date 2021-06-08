@@ -5,7 +5,7 @@ import React from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import UserService from "../../services/UserService";
-import {Carousel} from "react-bootstrap";
+import {Card, Carousel} from "react-bootstrap";
 import laptopPhoto from "url:../../assets/images/laptop-photo.jpg";
 import collaborationPhoto from "url:../../assets/images/collaboration-photo.jpg";
 import bigDataPhoto from "url:../../assets/images/big-data-photo.jpg";
@@ -105,13 +105,46 @@ class Research extends React.Component{
 
                 </Carousel>
 
+                <br/>
+
 
                 {
                     this.state.permission === "permitted"?
                         <div style={padding}>
-                        <Link className={'btn btn-primary btn-block'} to={'/research/updatePaper'}>Update Paper</Link>
+                            <Card className={'bg-dark'}>
+                                <Card.Header className={'bg-primary text-white'}>
+                                    You are registered as a researcher
+                                </Card.Header>
+                                <Card.Body className={'bg-dark text-white'}>
+                                    <Card.Title>You can view details below</Card.Title>
+
+                                    <Link className={'btn btn-primary btn-block'} to={'/research/updatePaper'}>
+                                        View and update your research paper
+                                    </Link>
+
+                                </Card.Body>
+                            </Card>
+
                         </div>:
-                        <div></div>
+
+                        <div style={padding}>
+                            <Card className={'bg-dark'}>
+                                <Card.Header className={'bg-primary text-white'}>Attention Researchers!</Card.Header>
+                                <Card.Body className={'bg-dark text-white'}>
+                                    <Card.Title>Registration are Open</Card.Title>
+                                    <Card.Text>
+                                        You can upload your research papers upon registration.
+                                    </Card.Text>
+                                    <Link to={'/sign-up'} className={'btn btn-primary'}>Sign Up</Link>
+                                </Card.Body>
+                                <Card.Footer className={'bg-dark text-white'}>
+                                    <Card.Text>
+                                        Already Registered?
+                                    </Card.Text>
+                                    <Link to={'/sign-in'} className={'btn btn-success'}>Login</Link>
+                                </Card.Footer>
+                            </Card>
+                        </div>
                 }
 
                {/* <Link to={'/research/upload'} >Upload Research Paper</Link> <br />
@@ -120,6 +153,10 @@ class Research extends React.Component{
                 <Link to={'/research/deleteEntries'} >Delete research paper entries</Link> <br />
 
                 <Link to={'/research/viewSinglePaper'}>View Single Paper</Link> <br />*/}
+
+                <br />
+                <br />
+                <br />
             </div>
         );
     }
