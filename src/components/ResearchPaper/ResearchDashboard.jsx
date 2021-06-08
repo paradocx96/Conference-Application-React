@@ -17,6 +17,8 @@ export default class ResearchDashboard extends Component {
 
                 {/*  Do your things here  */}
 
+                    <Link to={'/research/viewAll'}>View and Update status of Research Paper Entries</Link> <br/>
+                    <Link to={'/research/deleteEntries'}>Delete Research Paper Entries</Link>
 
 
 

@@ -19,7 +19,7 @@ class NoPermissionMessage extends React.Component{
         return (
             <div style={padding}>
 
-                <Card>
+                <Card className={'bg-transparent'}>
                     <Card.Header className={'bg-danger text-white'}>No Permission</Card.Header>
                     <Card.Body className={'bg-warning'}>
                         <Card.Title>You currently do not have permission to view this resource</Card.Title>
