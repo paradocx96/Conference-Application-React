@@ -2,9 +2,7 @@
 
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import DashboardPanel from "../Dashboard/DashboardPanel";
 import DownloadDashboardList from "./DownloadDashboardList";
 
@@ -15,7 +13,7 @@ export default class DownloadDashboard extends Component {
         return(
             <div>
                 <DashboardPanel/>
-                <section id="download">
+                <section id="subSection">
                     <h1>Download Manager</h1>
                     <div className="adddownload">
                         <Link to={'/dashboard-download-add'} className={'btn btn-primary'} >Add Download Item</Link>
