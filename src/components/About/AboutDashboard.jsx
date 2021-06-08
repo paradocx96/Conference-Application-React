@@ -103,6 +103,7 @@ export default class AboutDashboard extends Component {
             <div>
                 <section id="about">
                     <div id="about-add">
+                        <h1>About Section</h1>
                         <h2>Add About Details</h2>
                         <Form onSubmit={this.submitBtn.bind(this)} onReset={this.resetBtn.bind(this)}>
 
@@ -136,7 +137,7 @@ export default class AboutDashboard extends Component {
 
                             <Form.Group as={Row}>
                                 <Col sm={{span: 10, offset: 2}}>
-                                    <Button type="submit">Add News</Button>{'\u00A0'}
+                                    <Button type="submit">Add Details</Button>{'\u00A0'}
                                     <Button type="reset" className="btn-danger">Reset</Button>
                                 </Col>
                             </Form.Group>

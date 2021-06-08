@@ -20,20 +20,22 @@ import ViewSingleResearchPaper from "./src/components/ResearchPaper/ViewSingleRe
 import Dashboard from "./src/pages/Dashboard";
 import ReviewerDashboard from "./src/components/Reviewer/ReviewerDashboard";
 import DashboardEditor from "./src/pages/DashboardEditor";
+import NewsDashboard from "./src/components/News/NewsDashboard";
+import ViewKeyNoteDashboard from "./src/components/KeyNotes/ViewKeyNoteDashboard";
+import DownloadDashboard from "./src/components/Download/DownloadDashboard";
+import ResearchDashboard from "./src/components/ResearchPaper/ResearchDashboard";
+import WorkshopDashboard from "./src/components/workshop/WorkshopDashboard";
 
 //NEWS
-import NewsDashboard from "./src/components/News/NewsDashboard";
 import NewsSection from "./src/components/News/NewsSection";
 import AddNewsAdmin from "./src/components/News/AddNewsAdmin";
 
 //KEYNOTES
-import ViewKeyNoteDashboard from "./src/components/KeyNotes/ViewKeyNoteDashboard";
 import ViewKeyNoteSection from "./src/components/KeyNotes/ViewKeyNoteSection";
 import AddKeyNoteAdmin from "./src/components/KeyNotes/AddKeyNoteAdmin";
 
 //DOWNLOAD
 import DownloadSection from "./src/components/Download/DownloadSection";
-import DownloadDashboard from "./src/components/Download/DownloadDashboard";
 import AddDownloadAdmin from "./src/components/Download/AddDownloadAdmin";
 
 //REGISTRATION
@@ -65,20 +67,22 @@ function App() {
                     <Route path={'/dashboard'} exact component={Dashboard}/>
                     <Route path={'/editor-dashboard'} exact component={DashboardEditor}/>
                     <Route path={'/reviewer/dashboard'} exact component={ReviewerDashboard}/>
+                    <Route path={'/dashboard-keynotes'} exact component={ViewKeyNoteDashboard}/>
+                    <Route path={'/dashboard-news'} exact component={NewsDashboard}/>
+                    <Route path={'/dashboard-download'} exact component={DownloadDashboard}/>
+                    <Route path={'/dashboard-research'} exact component={ResearchDashboard}/>
+                    <Route path={'/dashboard-workshop'} exact component={WorkshopDashboard}/>
 
                     {/* KEYNOTES */}
                     <Route path={'/keynotes'} exact component={ViewKeyNoteSection}/>
-                    <Route path={'/dashboard-keynotes'} exact component={ViewKeyNoteDashboard}/>
                     <Route path={'/dashboard-keynotes-add'} exact component={AddKeyNoteAdmin}/>
 
                     {/* NEWS */}
                     <Route path={'/news'} exact component={NewsSection}/>
-                    <Route path={'/dashboard-news'} exact component={NewsDashboard}/>
                     <Route path={'/dashboard-news-add'} exact component={AddNewsAdmin}/>
 
                     {/* DOWNLOADS */}
                     <Route path={'/downloads'} exact component={DownloadSection}/>
-                    <Route path={'/dashboard-download'} exact component={DownloadDashboard}/>
                     <Route path={'/dashboard-download-add'} exact component={AddDownloadAdmin}/>
 
                     {/* RESEARCH */}
