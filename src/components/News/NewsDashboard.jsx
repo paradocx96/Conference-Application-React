@@ -2,9 +2,7 @@
 
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import DashboardPanel from "../Dashboard/DashboardPanel";
 import NewsDashboardList from "./NewsDashboardList";
 
@@ -15,7 +13,7 @@ export default class NewsDashboard extends Component {
         return(
             <div>
                 <DashboardPanel/>
-                <section id="news">
+                <section id="subSection">
                     <h1>News</h1>
                     <div className="addnews">
                         <Link to={'/dashboard-news-add'} className={'btn btn-primary'} >Add News</Link>

@@ -122,7 +122,7 @@ export default class NewsDashboardList extends Component {
         const {isLoading, newsList} = this.state;
         return (
             <div>
-                <h1>News List</h1>
+                <h2>News List</h2>
                 <div>
                     <Table striped bordered hover variant="dark" size="sm">
                         <thead>

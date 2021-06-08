@@ -2,10 +2,7 @@
 
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '/src/assets/styles/Dashboard.css';
-
 import DashboardPanel from "../Dashboard/DashboardPanel";
 import ViewKeyNoteDashboardList from "./ViewKeyNoteDashboardList";
 
@@ -15,7 +12,7 @@ export default class ViewKeyNoteDashboard extends Component {
         return(
             <div>
                 <DashboardPanel/>
-                <section id="keynote">
+                <section id="subSection">
                     <h1>KeyNotes</h1>
                     <div className="addkeynote">
                         <Link to={'/dashboard-keynotes-add'} className={'btn btn-primary'} >Add Keynote</Link>

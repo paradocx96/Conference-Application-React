@@ -161,7 +161,7 @@ export default class DownloadDashboardList extends Component {
         const {isLoading, downloadItemList} = this.state;
         return (
             <div>
-                <h1>Download Items List</h1>
+                <h2>Download Items List</h2>
                 <div>
                     <Table striped bordered hover variant="dark" size="sm">
                         <thead>
