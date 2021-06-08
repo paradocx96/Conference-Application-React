@@ -20,19 +20,19 @@ export default class Gallery extends Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-md-4 border">
+                    <div className="col-md-4 p-1">
                         <Image src={Image1} rounded/>
                     </div>
-                    <div className="col-md-4 border">
+                    <div className="col-md-4 p-1">
                         <Image src={Image2} rounded/>
                     </div>
-                    <div className="col-md-4 border">
+                    <div className="col-md-4 p-1">
                         <Image src={Image3} rounded/>
                     </div>
-                    <div className="col-md-4 border">
+                    <div className="col-md-4 p-1">
                         <Image src={Image4} rounded/>
                     </div>
-                    <div className="col-md-4 border">
+                    <div className="col-md-4 p-1">
                         <Image src={Image5} rounded/>
                     </div>
                 </div>

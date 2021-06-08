@@ -29,6 +29,15 @@
     flex-direction: column;
 }
 
+.introduction-image {
+    background-image: url('../images/Homepage/Homepage4.jpg');
+    background-size:100% auto;
+}
+
+.nav-color-custom {
+    background-color: #212121;
+}
+
 #keynotes .keynote-container {
     padding: 50px;
     background-color: white;
@@ -48,6 +57,18 @@
     background-color: white;
     text-align: center;
     /*overflow-x: hidden;*/
+}
+
+#news .singleNews {
+    /*background: #bbdefb;  */
+    /* fallback for old browsers */
+    background: linear-gradient(to bottom, #ccffff 0%, #66ffff 100%);
+    border-radius: 15px;
+    /*background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);  */
+    /* Chrome 10-25, Safari 5.1-6 */
+    /*background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB); */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 #gallery .gallery-container {

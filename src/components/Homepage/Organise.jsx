@@ -4,7 +4,7 @@ import React, {Component} from "react";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Image} from 'react-bootstrap';
-import Image1 from 'url:../../assets/images/Gallery/Image1.jpg?as=webp&width=300&height=250';
+import SLIIT from 'url:../../assets/images/Sponsored/sliit.png?as=webp';
 
 export default class Organise extends Component {
 
@@ -15,11 +15,7 @@ export default class Organise extends Component {
     render() {
         return (
             <div>
-                <div className="row">
-                    <div className="col-md-4 border">
-                        <Image src={Image1} rounded/>
-                    </div>
-                </div>
+                <Image src={SLIIT} rounded/>
             </div>
         )
     }

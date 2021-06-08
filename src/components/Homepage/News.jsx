@@ -36,7 +36,7 @@ export default class News extends Component {
                             <p>Loading...</p>
                             :
                             this.state.newsList.map((news) => (
-                                <div className="col-md-4 border-success border" key={news.id}>
+                                <div className="col-md-4 singleNews" key={news.id}>
                                     <h3>{news.date}</h3>
                                     <p>{news.description}</p>
                                     <Link to={'/news'} className={'card-link'} >Read more..</Link>

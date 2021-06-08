@@ -60,7 +60,7 @@ export default class KeyNotes extends Component {
                         keynotes.map(keynote => {
                             const {id, speakername, speakertype, organization, description, status, user} = keynote;
                             return (
-                                <div className="col-md-4 border-primary border" key={id}>
+                                <div className="col-md-4" key={id}>
                                     <Image src={UserPhoto} rounded/>
                                     <h3>{speakername}</h3>
                                     <p>{speakertype}</p>
