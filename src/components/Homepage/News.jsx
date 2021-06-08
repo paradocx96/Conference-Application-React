@@ -3,7 +3,7 @@
 import React, {Component} from "react";
 
 import NewsService from "../../services/NewsService";
-import {Card} from "react-bootstrap";
+import {Card, Image} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 export default class News extends Component {
@@ -30,19 +30,24 @@ export default class News extends Component {
     render() {
         return (
             <div>
-                <div>
+                <div className="row">
                     {
                         this.state.newsList.length === 0?
                             <p>Loading...</p>
                             :
                             this.state.newsList.map((news) => (
-                                <Card style={{ width: '100%' }} key={news.id}>
-                                    <Card.Body>
-                                        <Card.Title>{news.date}</Card.Title>
-                                        <Card.Text>{news.description}</Card.Text>
-                                        <Link to={'/news'} className={'card-link'} >Read more..</Link>
-                                    </Card.Body>
-                                </Card>
+                                <div className="col-md-4 singleNews" key={news.id}>
+                                    <h3>{news.date}</h3>
+                                    <p>{news.description}</p>
+                                    <Link to={'/news'} className={'card-link'} >Read more..</Link>
+                                </div>
+                                // <Card style={{ width: '100%' }} key={news.id}>
+                                //     <Card.Body>
+                                //         <Card.Title>{news.date}</Card.Title>
+                                //         <Card.Text>{news.description}</Card.Text>
+                                //         <Link to={'/news'} className={'card-link'} >Read more..</Link>
+                                //     </Card.Body>
+                                // </Card>
                             ))
                     }
                 </div>

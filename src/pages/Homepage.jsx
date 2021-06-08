@@ -20,13 +20,12 @@ export default class Homepage extends Component {
         return (
             <div>
                 <section id="introduction">
-                    <div className="introduction-container">
+                    <div className="introduction-container introduction-image">
                         <h1>International Conference on Application Frameworks - 2021</h1>
                         <h3>Sri Lanka Institute of Information Technology</h3>
                         <a href="#news" className="btn btn-dark">Latest News</a>
                     </div>
                 </section>
-
                 <section id="about">
                     <div className="about-container">
                         <h2>ABOUT ICAF 2021</h2>
@@ -36,7 +35,6 @@ export default class Homepage extends Component {
                         </div>
                     </div>
                 </section>
-
                 <section id="keynotes">
                     <div className="keynote-container">
                         <h2>KEY NOTE SPEAKERS</h2>
@@ -46,7 +44,6 @@ export default class Homepage extends Component {
                         </div>
                     </div>
                 </section>
-
                 <section id="news">
                     <div className="news-container">
                         <h2>LATEST NEWS</h2>
@@ -56,7 +53,6 @@ export default class Homepage extends Component {
                         </div>
                     </div>
                 </section>
-
                 <section id="gallery">
                     <div className="gallery-container">
                         <h2>GALLERY</h2>
@@ -66,7 +62,6 @@ export default class Homepage extends Component {
                         </div>
                     </div>
                 </section>
-
                 <section id="ctracks">
                     <div className="ctracks-container">
                         <h2>CONFERENCE TRACKS</h2>
@@ -76,27 +71,6 @@ export default class Homepage extends Component {
                         </div>
                     </div>
                 </section>
-
-                <section id="organize">
-                    <div className="organize-container">
-                        <h2>ORGANISED BY</h2>
-                        <br/>
-                        <div>
-                            <Organise/>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="sponsor">
-                    <div className="sponsor-container">
-                        <h2>SPONSORED BY</h2>
-                        <br/>
-                        <div>
-                            <Sponsored/>
-                        </div>
-                    </div>
-                </section>
-
                 <section id="idates">
                     <div className="idates-container">
                         <h2>IMPORTANT DATES</h2>
@@ -106,7 +80,24 @@ export default class Homepage extends Component {
                         </div>
                     </div>
                 </section>
-
+                <section id="organize">
+                    <div className="organize-container">
+                        <h2>ORGANISED BY</h2>
+                        <br/>
+                        <div>
+                            <Organise/>
+                        </div>
+                    </div>
+                </section>
+                <section id="sponsor">
+                    <div className="sponsor-container">
+                        <h2>SPONSORED BY</h2>
+                        <br/>
+                        <div>
+                            <Sponsored/>
+                        </div>
+                    </div>
+                </section>
             </div>
         )
     }

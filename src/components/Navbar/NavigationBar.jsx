@@ -44,7 +44,7 @@ class NavigationBar extends Component {
 
         return (
             <div>
-                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar collapseOnSelect expand="lg" className="nav-color-custom" variant="dark">
                     <Link to={'/'} className={'navbar-brand'}>ICAF - 2021</Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">

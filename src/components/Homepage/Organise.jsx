@@ -2,8 +2,9 @@
 
 import React, {Component} from "react";
 
-import {Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Image} from 'react-bootstrap';
+import SLIIT from 'url:../../assets/images/Sponsored/sliit.png?as=webp';
 
 export default class Organise extends Component {
 
@@ -14,7 +15,7 @@ export default class Organise extends Component {
     render() {
         return (
             <div>
-                <h1>Sample Data</h1>
+                <Image src={SLIIT} rounded/>
             </div>
         )
     }

@@ -2,8 +2,9 @@
 
 import React, {Component} from "react";
 
-import {Form, Button, Col, Row, Container, Table, Image} from 'react-bootstrap';
+import {Image} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import UserPhoto from "url:../../assets/images/user.jpg?as=webp&width=150";
 
 import KeyNoteService from "../../services/KeyNoteService";
 
@@ -59,11 +60,8 @@ export default class KeyNotes extends Component {
                         keynotes.map(keynote => {
                             const {id, speakername, speakertype, organization, description, status, user} = keynote;
                             return (
-                                <div className="col-md-4 border-primary border" key={id}>
-                                    <Image src="https://i.pinimg.com/originals/a7/0e/16/a70e1675c7bc001f1578aa76bb0a7819.png"
-                                           height="200px"
-                                           width="auto"
-                                           rounded />
+                                <div className="col-md-4" key={id}>
+                                    <Image src={UserPhoto} rounded/>
                                     <h3>{speakername}</h3>
                                     <p>{speakertype}</p>
                                 </div>

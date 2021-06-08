@@ -4,6 +4,7 @@ import React, {Component} from "react";
 
 import {Image} from "react-bootstrap";
 import './../../assets/styles/Keynote.css';
+import UserPhoto from "url:../../assets/images/user.jpg?as=webp&width=250";
 
 import KeyNoteService from "../../services/KeyNoteService";
 
@@ -60,9 +61,7 @@ export default class ViewKeyNoteSection extends Component {
                                 const {id, speakername, speakertype, organization, description} = keynote;
                                 return (
                                     <div key={id} className="speaker-list">
-                                        <Image
-                                            src="https://i.pinimg.com/originals/a7/0e/16/a70e1675c7bc001f1578aa76bb0a7819.png"
-                                            height="250px" width="auto" rounded />
+                                        <Image src={UserPhoto} rounded />
                                         <h2>{speakername}</h2>
                                         <h3>{speakertype}</h3>
                                         <h4>{organization}</h4>
