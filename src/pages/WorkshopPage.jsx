@@ -20,7 +20,10 @@ export default class WorkshopPage extends Component {
             const user = UserService.getCurrentUser();
             if (user) {
                 this.setState({
-                    signRole: user.roles.includes("ROLE_USER_WORKSHOP") ? "ROLE_USER_WORKSHOP" : ""
+                    signRole: user.roles.includes("ROLE_USER_WORKSHOP") ? "ROLE_USER_WORKSHOP" :
+                        user.roles.includes("ROLE_ADMIN") ? "ADMIN" : user.roles.includes("ROLE_REVIEWER") ?
+                            "REVIEWER" : ""
+
                 });
             }
         } catch (error) {
@@ -55,7 +58,11 @@ export default class WorkshopPage extends Component {
                 }
 
                 {/**  All signed users - view, download **/}
-                <WorkshopAllScheduledList/>
+                {
+                    this.state.signRole !== "ADMIN" &&
+                    <WorkshopAllScheduledList/>
+                }
+
 
                 {
                     /**

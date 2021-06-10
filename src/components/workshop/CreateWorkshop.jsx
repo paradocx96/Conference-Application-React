@@ -15,7 +15,7 @@ export default class CreateWorkshop extends Component {
             isShowForm: false,
             isValidated: false,
             isUploading: false,
-            username: '',
+            username: this.props.registrationUsername,
             workshop: {
                 title: '',
                 courseCode: '',
@@ -32,6 +32,7 @@ export default class CreateWorkshop extends Component {
     handleSubmit = async (event) => {
         event.preventDefault();
         console.log(this.state.workshop);
+        console.log(this.state.username);
         this.setState({isValidated: true});
         if (
             this.state.workshop.title === '' ||
