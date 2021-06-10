@@ -2,22 +2,28 @@ import React, {Component} from "react";
 import WorkshopUnit from "./WorkshopUnit";
 import {Card} from "react-bootstrap";
 import {getAllScheduledWorkshop} from "../../services/WorkshopService";
+import LoadingDiv from "./LoadingDiv";
 
 export default class WorkshopAllScheduledList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            workshopList: []
+            workshopList: [],
+            isLoading: true
         }
     };
 
     renderWorkshopList = () => {
-        return this.state.workshopList.map((item, index) =>
-            <WorkshopUnit workshop={item} key={index} signRole={"SIGNED_USER"}/>)
+        if (this.state.workshopList.length === 0) {
+            return <span className="text-danger">There is no any scheduled workshops.</span>
+        } else {
+            return this.state.workshopList.map((item, index) =>
+                <WorkshopUnit workshop={item} key={index} signRole={"SIGNED_USER"}/>);
+        }
     }
 
     componentDidMount() {
-        getAllScheduledWorkshop().then(value => this.setState({workshopList: value.data}));
+        getAllScheduledWorkshop().then(value => this.setState({workshopList: value.data, isLoading: false}));
     }
 
     render() {

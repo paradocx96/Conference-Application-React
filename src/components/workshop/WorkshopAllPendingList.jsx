@@ -12,8 +12,13 @@ export default class WorkshopAllPendingList extends Component {
     };
 
     renderWorkshopList = () => {
-        return this.state.workshopList.map((item, index) =>
-            <WorkshopUnit workshop={item} key={index} signRole={"REVIEWER"}/>)
+        if (this.state.workshopList.length === 0) {
+            return <span className="text-danger">There is no any pending workshops for approbation </span>
+        } else {
+            return this.state.workshopList.map((item, index) =>
+                <WorkshopUnit workshop={item} key={index} signRole={"REVIEWER"}/>);
+        }
+
     }
 
     componentDidMount() {

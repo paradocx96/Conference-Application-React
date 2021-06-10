@@ -12,8 +12,12 @@ export default class WorkshopAllList extends Component {
     };
 
     renderWorkshopList = () => {
-        return this.state.workshopList.map((item, index) =>
-            <WorkshopUnit workshop={item} key={index} signRole={"ADMIN"}/>)
+        if (this.state.workshopList.length === 0) {
+            return <span className="text-danger">There is no any workshops. </span>
+        } else {
+            return this.state.workshopList.map((item, index) =>
+                <WorkshopUnit workshop={item} key={index} signRole={"ADMIN"}/>);
+        }
     }
 
     componentDidMount() {
@@ -23,7 +27,7 @@ export default class WorkshopAllList extends Component {
     render() {
         return (
             <Card className="mx-2 my-3 p-2 pt-4">
-                <h2 className="px-2">All Meetings</h2>
+                <h2 className="px-2">All Workshops</h2>
                 {
                     this.renderWorkshopList()
                 }
