@@ -1,8 +1,7 @@
 import React, {Component} from "react";
 import WorkshopUnit from "./WorkshopUnit";
-import {Card} from "react-bootstrap";
+import {Card, Spinner} from "react-bootstrap";
 import {getAllScheduledWorkshop} from "../../services/WorkshopService";
-import LoadingDiv from "./LoadingDiv";
 
 export default class WorkshopAllScheduledList extends Component {
     constructor(props) {
@@ -14,7 +13,11 @@ export default class WorkshopAllScheduledList extends Component {
     };
 
     renderWorkshopList = () => {
-        if (this.state.workshopList.length === 0) {
+        if (this.state.isLoading && this.state.workshopList.length === 0) {
+            return <div style={{minHeight: '25vh', color: 'gray'}} className="text-center pt-5">
+                <Spinner animation="border"/><span className="h3"> Loading</span>
+            </div>
+        } else if (this.state.workshopList.length === 0) {
             return <span className="text-danger">There is no any scheduled workshops.</span>
         } else {
             return this.state.workshopList.map((item, index) =>
