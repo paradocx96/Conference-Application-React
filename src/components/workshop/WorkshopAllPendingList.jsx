@@ -1,23 +1,33 @@
 import React, {Component} from "react";
 import WorkshopUnit from "./WorkshopUnit";
-import {Card} from "react-bootstrap";
+import {Card,Spinner} from "react-bootstrap";
 import {getAllPendingWorkshop} from "../../services/WorkshopService";
 
 export default class WorkshopAllPendingList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            workshopList: []
+            workshopList: [],
+            isLoading: true
         }
     };
 
     renderWorkshopList = () => {
-        return this.state.workshopList.map((item, index) =>
-            <WorkshopUnit workshop={item} key={index} signRole={"REVIEWER"}/>)
+        if (this.state.isLoading && this.state.workshopList.length === 0) {
+            return <div style={{minHeight: '25vh', color: 'gray'}} className="text-center pt-5">
+                <Spinner animation="border"/><span className="h3"> Loading</span>
+            </div>
+        } else if (this.state.workshopList.length === 0) {
+            return <span className="text-danger">There is no any pending workshops for approbation </span>
+        } else {
+            return this.state.workshopList.map((item, index) =>
+                <WorkshopUnit workshop={item} key={index} signRole={"REVIEWER"}/>);
+        }
+
     }
 
     componentDidMount() {
-        getAllPendingWorkshop().then(value => this.setState({workshopList: value.data}));
+        getAllPendingWorkshop().then(value => this.setState({workshopList: value.data, isLoading: false}));
     }
 
     render() {

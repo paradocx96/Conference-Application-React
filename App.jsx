@@ -47,6 +47,7 @@ import BackendRegistration from "./src/components/Registration/BackendRegistrati
 import Workshop from "./src/pages/WorkshopPage";
 import NoPermissionMessage from "./src/components/Permission/NoPermissionMessage";
 import ResearchOperations from "./src/components/ResearchPaper/ResearchOperations";
+import WorkshopAllPendingList from "./src/components/workshop/WorkshopAllPendingList";
 
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
 
                     {/* WORKSHOP_PAGE */}
                     <Route path={'/workshop'} exact component={Workshop}/>
+                    <Route path={'/workshop/pending'} exact component={WorkshopAllPendingList}/>
 
                     {/* DASHBOARD */}
                     <Route path={'/dashboard'} exact component={Dashboard}/>
