@@ -25,6 +25,7 @@ import ViewKeyNoteDashboard from "./src/components/KeyNotes/ViewKeyNoteDashboard
 import DownloadDashboard from "./src/components/Download/DownloadDashboard";
 import ResearchDashboard from "./src/components/ResearchPaper/ResearchDashboard";
 import WorkshopDashboard from "./src/components/workshop/WorkshopDashboard";
+import DashboardWorkshop from "./src/pages/DashboardWorkshop";
 
 //NEWS
 import NewsSection from "./src/components/News/NewsSection";
@@ -74,6 +75,7 @@ function App() {
                     <Route path={'/dashboard-download'} exact component={DownloadDashboard}/>
                     <Route path={'/dashboard-research'} exact component={ResearchDashboard}/>
                     <Route path={'/dashboard-workshop'} exact component={WorkshopDashboard}/>
+                    <Route path={'/workshop-dashboard'} exact component={DashboardWorkshop}/>
 
                     {/* KEYNOTES */}
                     <Route path={'/keynotes'} exact component={ViewKeyNoteSection}/>
