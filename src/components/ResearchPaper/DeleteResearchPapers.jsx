@@ -8,6 +8,7 @@ import researchService from "/src/services/ResearchService";
 import CommonCheckAuth from "../../services/CommonCheckAuth";
 import UserService from "../../services/UserService";
 import {Redirect} from "react-router-dom";
+import DashboardPanel from "../Dashboard/DashboardPanel";
 
 class DeleteResearchPapers extends React.Component{
 
@@ -146,12 +147,14 @@ class DeleteResearchPapers extends React.Component{
                     </div>
 
 
+                <DashboardPanel />
                         <div style={padding}>
                             <Jumbotron>
                                 <h3>Activities in this section are potentially destructive! Proceed with caution </h3>
                             </Jumbotron>
 
                         </div>
+
 
 
                     <Table striped bordered hover variant={'dark'}>
@@ -196,7 +199,6 @@ class DeleteResearchPapers extends React.Component{
 
                     </Table>
 
-                    <div>hello</div>
 
 
 

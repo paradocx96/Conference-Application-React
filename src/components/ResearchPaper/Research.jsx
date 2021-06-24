@@ -111,7 +111,7 @@ class Research extends React.Component{
                 {
                     this.state.permission === "permitted"?
                         <div style={padding}>
-                            <Card className={'bg-dark'}>
+                            <Card className={'bg-transparent'}>
                                 <Card.Header className={'bg-primary text-white'}>
                                     You are registered as a researcher
                                 </Card.Header>
@@ -128,7 +128,7 @@ class Research extends React.Component{
                         </div>:
 
                         <div style={padding}>
-                            <Card className={'bg-dark'}>
+                            <Card className={'bg-transparent'}>
                                 <Card.Header className={'bg-primary text-white'}>Attention Researchers!</Card.Header>
                                 <Card.Body className={'bg-dark text-white'}>
                                     <Card.Title>Registration are Open</Card.Title>

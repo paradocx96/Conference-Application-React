@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import axios from "axios";
 import AuthHeader from "./AuthHeader";
 
-const BACKEND_COMMON_URL = "http://localhost:8080/researchpaper/";
+const BACKEND_COMMON_URL = "https://icaf-codewave-backend-api.herokuapp.com/researchpaper/";
+const BACKEND_COMMON_URL_LOCAL = "http://localhost:8080/researchpaper/";
 
 class ResearchService extends  Component{
     constructor(props) {
