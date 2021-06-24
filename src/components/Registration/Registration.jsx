@@ -148,7 +148,9 @@ export default class Register extends Component {
 
         // TODO: Calling Registration Service function and check if there is any error
         if (this.checkBtn.context._errors.length === 0) {
-            this.researchChild.current.submitResearchPaper();
+            if(this.state.userType == "researcher") {
+                this.researchChild.current.submitResearchPaper();
+            }
             UserService.register(
                 this.state.username,
                 this.state.contactNo,

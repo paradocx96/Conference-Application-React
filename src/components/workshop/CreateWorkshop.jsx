@@ -3,7 +3,6 @@ import {Card, Form, Button, Col, Spinner} from "react-bootstrap";
 import {IoMdCloseCircleOutline} from "react-icons/io";
 import {createWorkshop} from "../../services/WorkshopService";
 
-
 /**
  * render create workshop component.
  */
@@ -15,7 +14,6 @@ export default class CreateWorkshop extends Component {
             isShowForm: false,
             isValidated: false,
             isUploading: false,
-            username: '',
             workshop: {
                 title: '',
                 courseCode: '',
@@ -32,6 +30,7 @@ export default class CreateWorkshop extends Component {
     handleSubmit = async (event) => {
         event.preventDefault();
         console.log(this.state.workshop);
+        console.log(this.state.username);
         this.setState({isValidated: true});
         if (
             this.state.workshop.title === '' ||
@@ -41,9 +40,10 @@ export default class CreateWorkshop extends Component {
         ) {
             return;
         }
+        const currentUser = JSON.parse(sessionStorage.getItem('user')).username;
 
         let formData = new FormData();
-        formData.append("username", this.state.username);
+        formData.append("username", currentUser);
         formData.append("title", this.state.workshop.title);
         formData.append("courseCode", this.state.workshop.courseCode);
         formData.append("venue", this.state.workshop.venue);

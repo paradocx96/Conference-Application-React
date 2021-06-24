@@ -17,10 +17,11 @@ class NavigationBar extends Component {
             currentUser: undefined,
             adminDashboard: "",
             editorDashboard: "",
-            reviewerDashboard: ""
+            reviewerDashboard: "",
+            workshopDashboard: ""
         };
     }
-
+//
     componentDidMount() {
         const user = UserService.getCurrentUser();
 
@@ -29,7 +30,8 @@ class NavigationBar extends Component {
                 currentUser: user,
                 adminDashboard: user.roles.includes("ROLE_ADMIN"),
                 editorDashboard: user.roles.includes("ROLE_EDITOR"),
-                reviewerDashboard: user.roles.includes("ROLE_REVIEWER")
+                reviewerDashboard: user.roles.includes("ROLE_REVIEWER"),
+                workshopDashboard: user.roles.includes("ROLE_USER_WORKSHOP")
             });
         }
     }
@@ -40,7 +42,7 @@ class NavigationBar extends Component {
 
     render() {
 
-        const { currentUser, adminDashboard, editorDashboard, reviewerDashboard } = this.state;
+        const { currentUser, adminDashboard, editorDashboard, reviewerDashboard, workshopDashboard } = this.state;
 
         return (
             <div>
@@ -83,6 +85,11 @@ class NavigationBar extends Component {
                                     {reviewerDashboard && (
                                         <li className="nav-item">
                                             <Link to={'/reviewer/dashboard'} className={'nav-link'} > Dashboard </Link>
+                                        </li>
+                                    )}
+                                    {workshopDashboard && (
+                                        <li className="nav-item">
+                                            <Link to={'/workshop-dashboard'} className={'nav-link'} > Dashboard </Link>
                                         </li>
                                     )}
 

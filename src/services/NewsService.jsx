@@ -4,7 +4,8 @@ import axios from "axios";
 import AuthHeader from "./AuthHeader";
 
 // TODO: Based url for rest api
-const COMMON_URL = "http://localhost:8080";
+const COMMON_URL = "https://icaf-codewave-backend-api.herokuapp.com";
+const COMMON_URL_LOCAL = "http://localhost:8080";
 const NEWS_API = "/news";
 const NEWS_API_BASE_URL = COMMON_URL + NEWS_API;
 

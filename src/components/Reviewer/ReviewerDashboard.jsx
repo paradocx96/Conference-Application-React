@@ -61,7 +61,7 @@ class ReviewerDashboard extends React.Component{
                             </Col>
 
                             <Col>
-                                <Link className={'btn btn-success'}>Review workshop submissions</Link>
+                                <Link  to={'/workshop/pending'} className={'btn btn-success'}>Review workshop submissions</Link>
                             </Col>
                         </Row>
                     </div>

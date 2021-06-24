@@ -4,7 +4,8 @@ import axios from "axios";
 import AuthHeader from "./AuthHeader";
 
 // TODO: Declare url for rest api
-const COMMON_URL = "http://localhost:8080";
+const COMMON_URL = "https://icaf-codewave-backend-api.herokuapp.com";
+const COMMON_URL_LOCAL = "http://localhost:8080";
 const KEYNOTE_API = "/keynote";
 const KEYNOTE_API_BASE_URL = COMMON_URL + KEYNOTE_API;
 
