@@ -10,6 +10,7 @@ import researchService from "/src/services/ResearchService";
 import CommonCheckAuth from "../../services/CommonCheckAuth";
 import UserService from "../../services/UserService";
 import {Redirect} from "react-router-dom";
+import DashboardPanel from "../Dashboard/DashboardPanel";
 
 class ViewAllResearchPapers extends React.Component{
     constructor(props) {
@@ -228,7 +229,8 @@ class ViewAllResearchPapers extends React.Component{
 
                 </div>
 
-                <h3 className={'bg-dark text-white'}>All research papers uploaded</h3>
+                <DashboardPanel />
+                <h3 className={'p-3 bg-dark text-white'}>All research papers uploaded</h3>
                 <Table striped bordered hover variant={'dark'}>
 
                     <thead>

@@ -119,15 +119,36 @@ class UpdateResearchPaper extends React.Component{
             padding:'20px'
         }
         return (
-            <div style={padding}>
+
+            <>
+
+                <style type={'text/css'}>
+                    {
+                        `
+                        .color-back{
+                            background-color: #035955;
+                        }
+                        `
+                    }
+                </style>
+
+                <div className={' pb-md-5 color-back'}>
+
+
+
+            <div className={'container'} >
+
+
                 {
                     this.state.permission ==='notPermitted'?
                         <Redirect to={'/no-permission'} />:
                         <div></div>
                 }
-                <h2 className={'text-white'}>Update File</h2>
+                <div className={'pt-md-5'}>
+                    <h2 className={'text-white'} >Update File</h2>
+                </div>
 
-                <div style={padding2}>
+                <div className={'pt-md-5'}>
 
                 <Card className={'bg-dark text-white'}>
                     <Card.Header>
@@ -153,7 +174,7 @@ class UpdateResearchPaper extends React.Component{
                             className={'position-relative'}
                             required
                             name={'file'}
-                            label={'Upload Research Paper again (in pdf format)'}
+                            label={'Upload research paper again (in pdf format)'}
                             onChange={this.fileChange.bind(this)}
                             id={'fileUpload'}
 
@@ -163,6 +184,11 @@ class UpdateResearchPaper extends React.Component{
                     <Button type={'submit'} className={'btn btn-primary'}>Re-Upload</Button>
                 </Form>
             </div>
+
+                </div>
+
+
+            </>
         );
     }
 
