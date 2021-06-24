@@ -57,7 +57,7 @@ class ReviewerDashboard extends React.Component{
                     <div>
                         <Row>
                             <Col>
-                                <Link to={'/research/viewAll'} className={'btn btn-primary'}>Review research papers</Link>
+                                <Link to={'/research/viewAllAsReviewer'} className={'btn btn-primary'}>Review research papers</Link>
                             </Col>
 
                             <Col>

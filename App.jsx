@@ -47,6 +47,7 @@ import BackendRegistration from "./src/components/Registration/BackendRegistrati
 import Workshop from "./src/pages/WorkshopPage";
 import NoPermissionMessage from "./src/components/Permission/NoPermissionMessage";
 import ResearchOperations from "./src/components/ResearchPaper/ResearchOperations";
+import ViewAllResearchPapersAsReviewer from "./src/components/ResearchPaper/ViewAllResearchPapersAsReviewer";
 
 
 function App() {
@@ -90,6 +91,7 @@ function App() {
                     <Route path={'/research/upload'} exact component={ResearchPaperUpload}/>
                     <Route path={'/research/download'} exact component={ResearchPaperDownload}/>
                     <Route path={'/research/viewAll'} exact component={ViewAllResearchPapers}/>
+                    <Route path={'/research/viewAllAsReviewer'} exact component={ViewAllResearchPapersAsReviewer}/>
                     <Route path={'/research/deleteEntries'} exact component={DeleteResearchPapers}/>
                     <Route path={'/research/updatePaper'} exact component={UpdateResearchPaper}/>
                     <Route path={'/research/viewSinglePaper'} exact component={ViewSingleResearchPaper}/>
