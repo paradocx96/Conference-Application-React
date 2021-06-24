@@ -46,13 +46,16 @@ import BackendRegistration from "./src/components/Registration/BackendRegistrati
 
 //WORKSHOP
 import Workshop from "./src/pages/WorkshopPage";
-import NoPermissionMessage from "./src/components/Permission/NoPermissionMessage";
 import ResearchOperations from "./src/components/ResearchPaper/ResearchOperations";
 import ViewAllResearchPapersAsReviewer from "./src/components/ResearchPaper/ViewAllResearchPapersAsReviewer";
 import WorkshopAllPendingList from "./src/components/workshop/WorkshopAllPendingList";
 
 //USER DETAILS
 import ViewAllUserDetails from "./src/components/UserDetails/ViewAllUserDetails";
+
+//Permission
+import NoPermissionMessage from "./src/components/Permission/NoPermissionMessage";
+import AdminPermissionMessage from "./src/components/Permission/AdminPermissionMessage";
 
 function App() {
 
@@ -105,6 +108,7 @@ function App() {
 
                     {/*No permission*/}
                     <Route path={'/no-permission'} component={NoPermissionMessage} />
+                    <Route path={'/no-permission-admin'} component={AdminPermissionMessage} />
 
                     {/* REGISTRATION */}
                     <Route path="/sign-up" component={Registration}/>
@@ -112,7 +116,7 @@ function App() {
                     <Route path="/backend-sign-up" component={BackendRegistration}/>
 
                     {/* USER DETAILS */}
-                    <Route path="/get-all-users" component={ViewAllUserDetails}/>
+                    <Route path="/dashboard-users" component={ViewAllUserDetails}/>
 
                 </Switch>
             </Router>
