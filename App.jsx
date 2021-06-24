@@ -51,6 +51,8 @@ import ResearchOperations from "./src/components/ResearchPaper/ResearchOperation
 import ViewAllResearchPapersAsReviewer from "./src/components/ResearchPaper/ViewAllResearchPapersAsReviewer";
 import WorkshopAllPendingList from "./src/components/workshop/WorkshopAllPendingList";
 
+//USER DETAILS
+import ViewAllUserDetails from "./src/components/UserDetails/ViewAllUserDetails";
 
 function App() {
 
@@ -108,6 +110,9 @@ function App() {
                     <Route path="/sign-up" component={Registration}/>
                     <Route path="/sign-in" component={Login}/>
                     <Route path="/backend-sign-up" component={BackendRegistration}/>
+
+                    {/* USER DETAILS */}
+                    <Route path="/get-all-users" component={ViewAllUserDetails}/>
 
                 </Switch>
             </Router>

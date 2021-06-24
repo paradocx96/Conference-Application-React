@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import AuthHeader from "./AuthHeader";
 
 const API_BACKEND_URL = "http://localhost:8080/api/";
 
@@ -56,6 +57,11 @@ class UserService extends Component{
             password,
             userType
         });
+    }
+
+    //TODO: Get All users
+    getAllUserDetails(){
+        return axios.get(API_BACKEND_URL + "get-all-users", {headers: AuthHeader()} );
     }
 }
 
