@@ -54,6 +54,26 @@ export default class CreateWorkshop extends Component {
 
         this.setState({isUploading: true});
         createWorkshop(formData).then(() => this.setState({isUploading: false, isValidated: false, isShowForm: false}));
+
+        this.setState({
+            isValidated: false,
+            isUploading: false,
+            workshop: {
+                title: '',
+                courseCode: '',
+                venue: '',
+                date: '',
+                startingTime: '',
+                endTime: '',
+                description: '',
+                documents: null
+            }
+
+        });
+        Array.from(document.querySelectorAll("input")).forEach(
+            input => (input.value = "")
+        );
+
     }
 
     render() {
