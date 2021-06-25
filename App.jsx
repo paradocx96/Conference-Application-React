@@ -50,12 +50,17 @@ import ResearchOperations from "./src/components/ResearchPaper/ResearchOperation
 import ViewAllResearchPapersAsReviewer from "./src/components/ResearchPaper/ViewAllResearchPapersAsReviewer";
 import WorkshopAllPendingList from "./src/components/workshop/WorkshopAllPendingList";
 
-//USER DETAILS
-import ViewAllUserDetails from "./src/components/UserDetails/ViewAllUserDetails";
+//ABOUT
+import AddAbout from "./src/components/About/AddAbout";
+import EditAbout from "./src/components/About/EditAbout";
 
 //Permission
 import NoPermissionMessage from "./src/components/Permission/NoPermissionMessage";
 import AdminPermissionMessage from "./src/components/Permission/AdminPermissionMessage";
+
+//USER DETAILS
+import ViewAllUserDetails from "./src/components/UserDetails/ViewAllUserDetails";
+
 
 function App() {
 
@@ -82,6 +87,10 @@ function App() {
                     <Route path={'/dashboard-research'} exact component={ResearchDashboard}/>
                     <Route path={'/dashboard-workshop'} exact component={WorkshopDashboard}/>
                     <Route path={'/workshop-dashboard'} exact component={DashboardWorkshop}/>
+
+                    {/* ABOUT */}
+                    <Route path={'/dashboard-about-add'} exact component={AddAbout}/>
+                    <Route path={'/dashboard-about-update'} exact component={EditAbout}/>
 
                     {/* KEYNOTES */}
                     <Route path={'/keynotes'} exact component={ViewKeyNoteSection}/>

@@ -34,6 +34,7 @@ export default class About extends Component {
                         'Loading...'
                         :
                         this.state.AboutList.map((item) => (
+
                             <Container key={item.id}>
                                 <Row>
                                     <Col sm={2}> </Col>
