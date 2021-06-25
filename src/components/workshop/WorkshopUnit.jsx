@@ -24,11 +24,6 @@ export default class WorkshopUnit extends Component {
         await deleteWorkshop(formData);
     }
 
-    async handleApprove(workshopId) {
-        const formData = new FormData();
-        formData.append("id", workshopId);
-        await approveWorkshop(formData);
-    }
 
     handleOnClickUpdate() {
         this.setState({isShowUpdate: !this.state.isShowUpdate});
@@ -79,24 +74,7 @@ export default class WorkshopUnit extends Component {
                                             Update</Button>
                                     </Col>
                                 </Row>
-
-
                             }
-                            {
-                                this.state.signRole === "REVIEWER" &&
-                                <Row>
-                                    <Col xs={6}>
-                                        <Button className="px-3 px-sm-5 py-2"
-                                                onClick={() => this.handleDownload(this.props.workshop.id)}>Download</Button>
-                                    </Col>
-                                    <Col xs={6}>
-                                        <Button variant="success" className="px-3 px-sm-5 py-2"
-                                                onClick={() => this.handleApprove(this.props.workshop.id)}>
-                                            Approve</Button>
-                                    </Col>
-                                </Row>
-                            }
-
                         </Card>
                         :
                         <UpdateWorkshop workshop={this.props.workshop}
