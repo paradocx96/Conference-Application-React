@@ -33,7 +33,7 @@ export default class WorkshopAllPendingList extends Component {
     render() {
         return (
             <Card className="mx-2 my-3 p-2 pt-4">
-                <h2 className="px-2">Pending Meetings</h2>
+                <h2 className="px-2">Pending Workshops</h2>
                 {
                     this.renderWorkshopList()
                 }
