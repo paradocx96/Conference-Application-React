@@ -48,6 +48,7 @@ import Workshop from "./src/pages/WorkshopPage";
 import NoPermissionMessage from "./src/components/Permission/NoPermissionMessage";
 import ResearchOperations from "./src/components/ResearchPaper/ResearchOperations";
 import ViewAllResearchPapersAsReviewer from "./src/components/ResearchPaper/ViewAllResearchPapersAsReviewer";
+import Payment from "./src/components/ResearchPaper/Payment";
 
 
 function App() {
@@ -96,6 +97,7 @@ function App() {
                     <Route path={'/research/updatePaper'} exact component={UpdateResearchPaper}/>
                     <Route path={'/research/viewSinglePaper'} exact component={ViewSingleResearchPaper}/>
                     <Route path={'/research/operations'} exact component={ResearchOperations}/>
+                    <Route path={'/research/payment'} exact component={Payment}/>
 
                     {/*No permission*/}
                     <Route path={'/no-permission'} component={NoPermissionMessage} />
