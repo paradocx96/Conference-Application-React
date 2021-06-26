@@ -15,6 +15,7 @@ import ViewAllResearchPapers from "./src/components/ResearchPaper/ViewAllResearc
 import DeleteResearchPapers from "./src/components/ResearchPaper/DeleteResearchPapers";
 import UpdateResearchPaper from "./src/components/ResearchPaper/UpdateResearchPaper";
 import ViewSingleResearchPaper from "./src/components/ResearchPaper/ViewSingleResearchPaper";
+import Payment from "./src/components/ResearchPaper/Payment";
 
 //DASHBOARD
 import Dashboard from "./src/pages/Dashboard";
@@ -100,6 +101,7 @@ function App() {
                     <Route path={'/research/updatePaper'} exact component={UpdateResearchPaper}/>
                     <Route path={'/research/viewSinglePaper'} exact component={ViewSingleResearchPaper}/>
                     <Route path={'/research/operations'} exact component={ResearchOperations}/>
+                    <Route path={'/research/payment'} exact component={Payment}/>
 
                     {/*No permission*/}
                     <Route path={'/no-permission'} component={NoPermissionMessage} />
