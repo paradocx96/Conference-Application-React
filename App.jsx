@@ -25,6 +25,7 @@ import ViewKeyNoteDashboard from "./src/components/KeyNotes/ViewKeyNoteDashboard
 import DownloadDashboard from "./src/components/Download/DownloadDashboard";
 import ResearchDashboard from "./src/components/ResearchPaper/ResearchDashboard";
 import WorkshopDashboard from "./src/components/workshop/WorkshopDashboard";
+import DashboardWorkshop from "./src/pages/DashboardWorkshop";
 
 //NEWS
 import NewsSection from "./src/components/News/NewsSection";
@@ -48,7 +49,7 @@ import Workshop from "./src/pages/WorkshopPage";
 import NoPermissionMessage from "./src/components/Permission/NoPermissionMessage";
 import ResearchOperations from "./src/components/ResearchPaper/ResearchOperations";
 import ViewAllResearchPapersAsReviewer from "./src/components/ResearchPaper/ViewAllResearchPapersAsReviewer";
-import Payment from "./src/components/ResearchPaper/Payment";
+import WorkshopAllPendingList from "./src/components/workshop/WorkshopAllPendingList";
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
 
                     {/* WORKSHOP_PAGE */}
                     <Route path={'/workshop'} exact component={Workshop}/>
+                    <Route path={'/workshop/pending'} exact component={WorkshopAllPendingList}/>
 
                     {/* DASHBOARD */}
                     <Route path={'/dashboard'} exact component={Dashboard}/>
@@ -74,6 +76,7 @@ function App() {
                     <Route path={'/dashboard-download'} exact component={DownloadDashboard}/>
                     <Route path={'/dashboard-research'} exact component={ResearchDashboard}/>
                     <Route path={'/dashboard-workshop'} exact component={WorkshopDashboard}/>
+                    <Route path={'/workshop-dashboard'} exact component={DashboardWorkshop}/>
 
                     {/* KEYNOTES */}
                     <Route path={'/keynotes'} exact component={ViewKeyNoteSection}/>
@@ -97,7 +100,6 @@ function App() {
                     <Route path={'/research/updatePaper'} exact component={UpdateResearchPaper}/>
                     <Route path={'/research/viewSinglePaper'} exact component={ViewSingleResearchPaper}/>
                     <Route path={'/research/operations'} exact component={ResearchOperations}/>
-                    <Route path={'/research/payment'} exact component={Payment}/>
 
                     {/*No permission*/}
                     <Route path={'/no-permission'} component={NoPermissionMessage} />
