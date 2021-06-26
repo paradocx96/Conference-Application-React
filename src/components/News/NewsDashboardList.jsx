@@ -146,9 +146,6 @@ export default class NewsDashboardList extends Component {
                                         <td>{status}</td>
                                         <td>{user}</td>
                                         <td>
-                                            <Button className="btn-success">Edit</Button>
-                                        </td>
-                                        <td>
                                             <Button
                                                 onClick={this.handleNewsActivate.bind(this, news.id)}
                                                 className="btn-secondary">Activate</Button>

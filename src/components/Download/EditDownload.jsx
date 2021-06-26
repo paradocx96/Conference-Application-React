@@ -1,10 +1,10 @@
 // TODO: IT19180526 - Chandrasiri S A N L D
 
 import React, {Component} from 'react';
+import {Button, Col, Form, Row} from "react-bootstrap";
 import UserService from "../../services/UserService";
 import DownloadService from "../../services/DownloadService";
 import DashboardPanel from "../Dashboard/DashboardPanel";
-import {Button, Col, Form, Row} from "react-bootstrap";
 
 class EditDownload extends Component {
 
@@ -12,7 +12,6 @@ class EditDownload extends Component {
         super(props);
 
         this.state = this.initialState;
-
         this.state = {
             getList: [],
             selected: [],
@@ -22,9 +21,9 @@ class EditDownload extends Component {
 
         this.onChange = this.onChange.bind(this);
         this.assignHandlerId = this.assignHandlerId.bind(this);
-        this.getSelectedValue = this.getSelectedValue.bind(this);
         this.submitForm = this.submitForm.bind(this);
         this.resetForm = this.resetForm.bind(this);
+        this.FileHandler = this.FileHandler.bind(this);
 
         // Get current user
         const currentUser = UserService.getCurrentUser();
@@ -45,6 +44,7 @@ class EditDownload extends Component {
         id: '',
         name: '',
         type: '',
+        file: null,
         status: '',
         user: 'Admin'
     }
@@ -66,63 +66,43 @@ class EditDownload extends Component {
     }
 
     // TODO: Set Values for state variables
-    assignHandlerId = (event) => {
-        this.setState({id: event.target.value});
-
-        setTimeout(() => {
-            this.getSelectedValue();
-        }, 1000);
+    FileHandler = async (event) => {
+        event.preventDefault();
+        await this.setState({file: event.target.files[0]});
     }
 
-    getSelectedValue = async () => {
-
-        console.log('SELECTED ID :', this.state.id);
-
-        // await NewsService.getNewsById(this.state.id)
-        //     .then(response => {
-        //         this.setState({
-        //             selected: response.data
-        //         });
-        //     }).then(data => {
-        //         this.state.selected.map(data => (
-        //             this.setState({
-        //                 id: data.id,
-        //                 description: data.description,
-        //                 date: data.date,
-        //                 datetime: data.datetime,
-        //                 status: data.status,
-        //                 user: data.user
-        //             })
-        //         ))
-        //     }).catch(error => {
-        //         console.log(error.message);
-        //     });
+    // TODO: Set Values for state variables
+    assignHandlerId = (event) => {
+        this.setState({id: event.target.value});
     }
 
     // TODO: Implementation of Update KeyNote
     submitForm = async (event) => {
         event.preventDefault();
+        console.log('SELECTED ID :', this.state.id);
 
-        let values = {
-            id: this.state.id,
+        const formValue = new FormData();
+        formValue.append("file", this.state.file);
+        formValue.append("name", this.state.name);
+        formValue.append("type", this.state.type);
+        formValue.append("user", this.state.currentUser.username);
+        formValue.append("status", "Inactive");
+        formValue.append("id", this.state.id);
 
-            status: 'Inactive',
-            user: this.state.currentUser.username
+        if (formValue == null) {
+            console.log('Form value is NULL!!!');
+        } else {
+            await DownloadService.putDownloadDetails(formValue)
+                .then(response => response.data)
+                .then((data) => {
+                    console.log(data)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            this.resetForm();
+            await this.componentDidMount();
         }
-
-        console.log(values);
-
-        // TODO: Save new Keynote in database
-        await NewsService.updateNews(this.state.id, values)
-            .then(response => response.data)
-            .then((data) => {
-                console.log(data)
-            })
-            .catch(function (error) {
-                console.log(error.message)
-            });
-        this.resetForm();
-        await this.componentDidMount();
     }
 
     // TODO: Reset form values
@@ -166,7 +146,42 @@ class EditDownload extends Component {
                         <Form onSubmit={this.submitForm.bind(this)}
                               onReset={this.resetForm.bind(this)}>
 
+                            <Form.Group as={Row} controlId="name">
+                                <Form.Label column sm={2}>File Name</Form.Label>
+                                <Col sm={5}>
+                                    <Form.Control required placeholder="File Name"
+                                                  name="name"
+                                                  value={this.state.name}
+                                                  onChange={this.onChange}/>
+                                </Col>
+                            </Form.Group>
 
+                            <Form.Group as={Row} controlId="type">
+                                <Form.Label column sm={2}>File Type</Form.Label>
+                                <Col sm={5}>
+                                    <Form.Control required as="select"
+                                                  name="type"
+                                                  value={this.state.type}
+                                                  onChange={this.onChange}>
+                                        <option>-Select-</option>
+                                        <option>Research Paper Template</option>
+                                        <option>Workshop PowerPoint Templates</option>
+                                        <option>Other Templates</option>
+                                    </Form.Control>
+                                </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} controlId="file">
+                                <Form.Label column sm={2}>Select File</Form.Label>
+                                <Col sm={10}>
+                                    <Form.File
+                                        className={'position-relative'}
+                                        required
+                                        name="file"
+                                        id="file"
+                                        onChange={this.FileHandler.bind(this)}/>
+                                </Col>
+                            </Form.Group>
 
                             <Form.Group as={Row}>
                                 <Col sm={{span: 10, offset: 2}}>
@@ -177,7 +192,6 @@ class EditDownload extends Component {
                         </Form>
                     </div>
                 </section>
-
             </div>
         );
     }

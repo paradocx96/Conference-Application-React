@@ -185,9 +185,6 @@ export default class DownloadDashboardList extends Component {
                                         <td>{status}</td>
                                         <td>{user}</td>
                                         <td>
-                                            <Button className="btn-success">Edit</Button>
-                                        </td>
-                                        <td>
                                             <Button
                                                 onClick={this.handleActivate.bind(this, item.id)}
                                                 className="btn-secondary">Activate</Button><br/><br/>
