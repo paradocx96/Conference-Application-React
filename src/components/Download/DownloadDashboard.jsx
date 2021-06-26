@@ -44,7 +44,8 @@ class DownloadDashboard extends Component {
                 <section id="subSection">
                     <h1>Download Manager</h1>
                     <div className="adddownload">
-                        <Link to={'/dashboard-download-add'} className={'btn btn-primary'} >Add Download Item</Link>
+                        <Link to={'/dashboard-download-add'} className={'btn btn-primary'} >Add Download Item</Link> {'\u00A0'}
+                        <Link to={'/dashboard-download-update'} className={'btn btn-primary'} >Update Download Item</Link>
                     </div>
                     <div className="viedownload">
                         <DownloadDashboardList/>

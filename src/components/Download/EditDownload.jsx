@@ -3,6 +3,8 @@
 import React, {Component} from 'react';
 import UserService from "../../services/UserService";
 import DownloadService from "../../services/DownloadService";
+import DashboardPanel from "../Dashboard/DashboardPanel";
+import {Button, Col, Form, Row} from "react-bootstrap";
 
 class EditDownload extends Component {
 
@@ -74,7 +76,7 @@ class EditDownload extends Component {
 
     getSelectedValue = async () => {
 
-        console.log('SELECTED ID :', this.state.id)
+        console.log('SELECTED ID :', this.state.id);
 
         // await NewsService.getNewsById(this.state.id)
         //     .then(response => {
@@ -103,9 +105,7 @@ class EditDownload extends Component {
 
         let values = {
             id: this.state.id,
-            description: this.state.description,
-            date: this.state.date,
-            datetime: this.state.datetime,
+
             status: 'Inactive',
             user: this.state.currentUser.username
         }
@@ -133,6 +133,50 @@ class EditDownload extends Component {
     render() {
         return (
             <div>
+                <DashboardPanel/>
+                <section id="subSection">
+                    <h1>Download Items</h1>
+
+                    <div id="selectSection">
+                        <h3>Select what you want to update</h3>
+                        <Form>
+                            <Form.Group as={Row} controlId="Id">
+                                <Col sm={2}>
+                                    <Form.Label className={'font-weight-bold'}>Select one : </Form.Label>
+                                </Col>
+
+                                <Col sm={5}>
+                                    <Form.Control required as="select" name={'id'}
+                                                  value={this.state.id}
+                                                  onChange={this.assignHandlerId}>
+
+                                        <option>--Select--</option>
+                                        {this.state.getList.map(item => (
+                                            <option key={item.id} value={item.id}>
+                                                {item.name}
+                                            </option>
+                                        ))}
+                                    </Form.Control>
+                                </Col>
+                            </Form.Group>
+                        </Form>
+                    </div>
+
+                    <div id="updateSection">
+                        <Form onSubmit={this.submitForm.bind(this)}
+                              onReset={this.resetForm.bind(this)}>
+
+
+
+                            <Form.Group as={Row}>
+                                <Col sm={{span: 10, offset: 2}}>
+                                    <Button type="submit">Save</Button>{'\u00A0'}
+                                    <Button type="reset" className="btn-danger">Reset</Button>
+                                </Col>
+                            </Form.Group>
+                        </Form>
+                    </div>
+                </section>
 
             </div>
         );
