@@ -41,6 +41,7 @@ import EditKeyNote from "./src/components/KeyNotes/EditKeyNote";
 //DOWNLOAD
 import DownloadSection from "./src/components/Download/DownloadSection";
 import AddDownloadAdmin from "./src/components/Download/AddDownloadAdmin";
+import EditDownload from "./src/components/Download/EditDownload";
 
 //REGISTRATION
 import Registration from "./src/components/Registration/Registration";
@@ -108,6 +109,7 @@ function App() {
                     {/* DOWNLOADS */}
                     <Route path={'/downloads'} exact component={DownloadSection}/>
                     <Route path={'/dashboard-download-add'} exact component={AddDownloadAdmin}/>
+                    <Route path={'/dashboard-download-update'} exact component={EditDownload}/>
 
                     {/* RESEARCH */}
                     <Route path={'/research'} exact component={Research}/>

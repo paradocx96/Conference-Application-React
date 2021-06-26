@@ -102,9 +102,6 @@ export default class DownloadDashboardListEditor extends Component {
                                         <td>{status}</td>
                                         <td>{user}</td>
                                         <td>
-                                            <Button className="btn-success">Edit</Button>
-                                        </td>
-                                        <td>
                                             <Button
                                                 onClick={this.handleDownload.bind(this, item.id)}
                                                 className="btn-info">Download</Button>
@@ -123,6 +120,9 @@ export default class DownloadDashboardListEditor extends Component {
                         )}
                         </tbody>
                     </Table>
+                </div>
+                <div>
+                    <Button onClick={this.componentDidMount} className="btn-info">Refresh</Button>
                 </div>
             </div>
         )
