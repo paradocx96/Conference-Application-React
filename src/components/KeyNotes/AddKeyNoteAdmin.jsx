@@ -18,6 +18,9 @@ export default class AddKeyNoteAdmin extends Component {
         return (
             <div>
                 <DashboardPanel/>
+                <section id="keynote">
+                    <h1>KeyNotes</h1>
+                </section>
                 <AddKeyNote/>
             </div>
         )

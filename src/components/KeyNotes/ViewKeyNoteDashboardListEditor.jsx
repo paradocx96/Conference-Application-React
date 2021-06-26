@@ -91,9 +91,6 @@ export default class ViewKeyNoteDashboardListEditor extends Component {
                                         <td>{status}</td>
                                         <td>{user}</td>
                                         <td>{datetime}</td>
-                                        <td>
-                                            <Button className="btn-success">Edit</Button>
-                                        </td>
                                     </tr>
                                 );
                             })

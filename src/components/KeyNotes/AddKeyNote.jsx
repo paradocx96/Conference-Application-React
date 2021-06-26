@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './../../assets/styles/Keynote.css'
 
 import KeyNoteService from "../../services/KeyNoteService";
+import UserService from "../../services/UserService";
 
 export default class AddKeyNote extends Component {
 
@@ -21,6 +22,16 @@ export default class AddKeyNote extends Component {
         this.submitKeyNote = this.submitKeyNote.bind(this);
         this.resetForm = this.resetForm.bind(this);
         // this.callGetViewMethod = ViewKeyNote.bind(this);
+
+        this.state = {
+            currentUser: ''
+        }
+
+        // Get current user
+        const currentUser = UserService.getCurrentUser();
+
+        // Set role of current user
+        this.state.currentUser = currentUser;
     }
 
     // TODO: Initializing default values
@@ -28,8 +39,8 @@ export default class AddKeyNote extends Component {
         speakername: '',
         speakertype: '',
         organization: '',
-        description:'',
-        user:'Admin'
+        description: '',
+        user: 'Admin'
     }
 
     // TODO: Implementation of Add KeyNote Button
@@ -44,11 +55,11 @@ export default class AddKeyNote extends Component {
                 speakertype: this.state.speakertype,
                 organization: this.state.organization,
                 description: this.state.description,
-                user: this.state.user
+                user: this.state.currentUser.username
             }
 
             // TODO: Save new Keynote in database
-           KeyNoteService.postKeyNote(keynote)
+            KeyNoteService.postKeyNote(keynote)
                 .catch(function (error) {
                     console.log(error);
                 }).then(() => {
