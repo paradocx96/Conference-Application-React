@@ -65,6 +65,16 @@ const userPassword = value => {
     }
 };
 
+const userConfirmPassword = (value,props) => {
+    if (props.expectedvalue !==  value) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                The password is not matched!
+            </div>
+        );
+    }
+};
+
 export default class Register extends Component {
 
     // TODO: Initializing state values and functions
@@ -76,6 +86,7 @@ export default class Register extends Component {
         this.onChangePassword = this.onChangePassword.bind(this);
         this.onChangeContactNo = this.onChangeContactNo.bind(this);
         this.onChangeUserType = this.onChangeUserType.bind(this);
+        this.onChangeConfirmPassword = this.onChangeConfirmPassword.bind(this);
 
         this.state = {
             username: "",
@@ -84,7 +95,8 @@ export default class Register extends Component {
             password: "",
             userType: "",
             successful: false,
-            message: ""
+            message: "",
+            loading: false,
         };
     }
 
@@ -119,13 +131,20 @@ export default class Register extends Component {
         });
     }
 
+    onChangeConfirmPassword(event){
+        this.setState({
+            confirmPassword: event.target.value
+        });
+    }
+
     // TODO: Set Values for state variables
     handleRegister(event) {
         event.preventDefault();
 
         this.setState({
             message: "",
-            successful: false
+            successful: false,
+            loading: true
         });
 
         // TODO: Validate register form fields
@@ -153,11 +172,16 @@ export default class Register extends Component {
 
                     this.setState({
                         successful: false,
-                        message: resMessage
+                        message: resMessage,
+                        loading: false,
                     });
                 }
             );
 
+        }else{
+            this.setState({
+                loading: false
+            });
         }
 
     }
@@ -228,6 +252,20 @@ export default class Register extends Component {
                                 </div>
 
                                 <div className="form-group">
+                                    <label htmlFor="confirmPassword">Re-enter Password</label>
+                                    <Input
+                                        type="password"
+                                        placeholder="Re-enter password"
+                                        className="form-control"
+                                        name="confirmPassword"
+                                        expectedvalue={this.state.password}
+                                        value={this.state.confirmPassword}
+                                        onChange={this.onChangeConfirmPassword}
+                                        validations={[requiredField, userConfirmPassword]}
+                                    />
+                                </div>
+
+                                <div className="form-group">
                                     <label htmlFor="userType">Select Type : </label>{' '}
                                     <select value={this.state.userType} onChange={this.onChangeUserType} className="dropdown">
                                         <option> </option>
@@ -237,8 +275,14 @@ export default class Register extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <button className="btn btn-primary btn-block">Sign Up</button>
+                                    <button className="btn btn-primary btn-block" disabled={this.state.loading}>
+                                        {this.state.loading && (
+                                            <span className="spinner-border spinner-border-sm"> </span>
+                                        )}
+                                        <span>Sign Up</span>
+                                    </button>
                                 </div>
+
                             </div>
                         )}
                         <p className="forgot-password text-right">
