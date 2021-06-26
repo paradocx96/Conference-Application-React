@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './../../assets/styles/News.css'
 
 import NewsService from "../../services/NewsService";
+import UserService from "../../services/UserService";
 
 export default class AddNews extends Component {
 
@@ -14,11 +15,20 @@ export default class AddNews extends Component {
     constructor(props) {
         super(props);
         this.state = this.initialState;
+        this.state = {
+            currentUser: ''
+        }
 
         this.submitNews = this.submitNews.bind(this);
         this.resetForm = this.resetForm.bind(this);
         this.DateHandler = this.DateHandler.bind();
         this.DescriptionHandler = this.DescriptionHandler.bind();
+
+        // Get current user
+        const currentUser = UserService.getCurrentUser();
+
+        // Set role of current user
+        this.state.currentUser = currentUser;
     }
 
     // TODO: Initializing default values
@@ -49,7 +59,7 @@ export default class AddNews extends Component {
         let newsArray = {
             description: this.state.description,
             date: this.state.date,
-            user: this.state.user
+            user: this.state.currentUser.username
         }
 
         await NewsService.postNews(newsArray)
