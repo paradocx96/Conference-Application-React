@@ -12,7 +12,7 @@ class Payment extends React.Component{
                     {
                         `
                         .color-back{
-                            background-color: #035955;
+                            background-color: #fff2c2;
                         }
                         `
                     }
@@ -22,15 +22,16 @@ class Payment extends React.Component{
 
                     <div className={'p-lg-5 container'}>
 
-                <Card>
-                    <Card.Header>
+                <Card className={'bg-transparent'}>
+                    <Card.Header className={'bg-primary'}>
                         <Card.Title>Your Research Paper has been approved</Card.Title>
                     </Card.Header>
-                    <Card.Body>
+                    <Card.Body className={'bg-dark text-white'}>
                         <Card.Text>Make the payment to confirm your research paper presentation</Card.Text>
+                        <Card.Text>Payment Amount Rs.3000.00</Card.Text>
                     </Card.Body>
 
-                    <Card.Footer>
+                    <Card.Footer className={'bg-dark text-white'}>
                         <Button className={'btn btn-primary btn-block'}>Go to payment gateway</Button>
                     </Card.Footer>
                 </Card>

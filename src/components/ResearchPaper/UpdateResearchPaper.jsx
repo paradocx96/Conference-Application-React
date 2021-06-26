@@ -126,7 +126,7 @@ class UpdateResearchPaper extends React.Component{
                     {
                         `
                         .color-back{
-                            background-color: #035955;
+                            background-color: #fff2c2;
                         }
                         `
                     }
@@ -145,18 +145,18 @@ class UpdateResearchPaper extends React.Component{
                         <div></div>
                 }
                 <div className={'pt-md-5'}>
-                    <h2 className={'text-white'} >Update File</h2>
+                    <h2 >View and Update File</h2>
                 </div>
 
                 <div className={'pt-md-5'}>
 
-                <Card className={'bg-dark text-white'}>
-                    <Card.Header>
+                <Card className={'bg-transparent text-white'}>
+                    <Card.Header className={'bg-primary'}>
                         <Card.Title>
                             Upload id: {this.state.id}
                         </Card.Title>
                     </Card.Header>
-                    <Card.Body>
+                    <Card.Body className={'bg-dark'}>
                         <Card.Text>Title : {this.state.title}</Card.Text>
                         <Card.Text>Status : {this.state.status}</Card.Text>
                         {
@@ -169,8 +169,8 @@ class UpdateResearchPaper extends React.Component{
 
                 </div>
 
-                <p className={'text-white'}>Re Upload your file only if it is rejected.</p>
-                <p className={'text-white'}>Once re-uploaded it will be revoked to pending</p>
+                <p >Re Upload your file only if it is rejected.</p>
+                <p >Once re-uploaded it will be revoked to pending</p>
 
                 <Form style={padding3} className={'bg-dark text-white'} onSubmit={this.handleUpload.bind(this)}>
                     <Form.Group>
