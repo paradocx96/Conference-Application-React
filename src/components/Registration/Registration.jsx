@@ -67,6 +67,16 @@ const userPassword = value => {
     }
 };
 
+const userConfirmPassword = (value,props) => {
+    if (props.expectedvalue !==  value) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                The password is not matched!
+            </div>
+        );
+    }
+};
+
 export default class Register extends Component {
 
     // TODO: Initializing state values and functions
@@ -79,6 +89,7 @@ export default class Register extends Component {
         this.onChangeContactNo = this.onChangeContactNo.bind(this);
         this.onChangeUserType = this.onChangeUserType.bind(this);
         this.handleFileUpload = this.handleFileUpload.bind(this);
+        this.onChangeConfirmPassword = this.onChangeConfirmPassword.bind(this);
 
         this.researchChild = React.createRef();
 
@@ -87,6 +98,7 @@ export default class Register extends Component {
             contactNo: "",
             email: "",
             password: "",
+            confirmPassword: "",
             userType: "",
             successful: false,
             message: "",
@@ -131,6 +143,12 @@ export default class Register extends Component {
 
     handleFileMissing(event){
         this.setState({fileUploaded:false}); //method for disabling button if title is missing
+    }
+
+    onChangeConfirmPassword(event){
+        this.setState({
+            confirmPassword: event.target.value
+        });
     }
 
     // TODO: Set Values for state variables
@@ -241,6 +259,20 @@ export default class Register extends Component {
                                         value={this.state.password}
                                         onChange={this.onChangePassword}
                                         validations={[requiredField, userPassword]}
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="confirmPassword">Re-enter Password</label>
+                                    <Input
+                                        type="password"
+                                        placeholder="Re-enter password"
+                                        className="form-control"
+                                        name="confirmPassword"
+                                        expectedvalue={this.state.password}
+                                        value={this.state.confirmPassword}
+                                        onChange={this.onChangeConfirmPassword}
+                                        validations={[requiredField, userConfirmPassword]}
                                     />
                                 </div>
 
