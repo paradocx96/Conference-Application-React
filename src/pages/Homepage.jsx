@@ -3,7 +3,8 @@
 import React, {Component} from "react";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '/src/assets/styles/Homepage.css';
+// import '/src/assets/styles/Homepage.css';
+import  './../assets/styles/Homepage.css';
 
 import About from "../components/Homepage/About";
 import Gallery from "../components/Homepage/Gallery";

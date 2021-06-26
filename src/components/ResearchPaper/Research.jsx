@@ -6,10 +6,14 @@ import axios from "axios";
 import {Link} from "react-router-dom";
 import UserService from "../../services/UserService";
 import {Card, Carousel} from "react-bootstrap";
-import laptopPhoto from "url:../../assets/images/laptop-photo.jpg";
-import collaborationPhoto from "url:../../assets/images/collaboration-photo.jpg";
-import bigDataPhoto from "url:../../assets/images/big-data-photo.jpg";
-import codePhoto from "url:../../assets/images/code-photo.jpg";
+// import laptopPhoto from "url:../../assets/images/laptop-photo.jpg";
+// import collaborationPhoto from "url:../../assets/images/collaboration-photo.jpg";
+// import bigDataPhoto from "url:../../assets/images/big-data-photo.jpg";
+// import codePhoto from "url:../../assets/images/code-photo.jpg";
+import laptopPhoto from "../../assets/images/laptop-photo.jpg";
+import collaborationPhoto from "../../assets/images/collaboration-photo.jpg";
+import bigDataPhoto from "../../assets/images/big-data-photo.jpg";
+import codePhoto from "../../assets/images/code-photo.jpg";
 
 class Research extends React.Component{
     constructor(props) {

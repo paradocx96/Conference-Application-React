@@ -4,8 +4,9 @@
   "description": "RHNA Conference Application Front-End",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
   },
   "author": "RHNA",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
     "react-validation": "^3.0.7",
     "validator": "^13.6.0"
   },
@@ -27,5 +29,17 @@
     "@parcel/transformer-image": "^2.0.0-beta.3.1",
     "parcel": "^2.0.0-beta.3.1",
     "sharp": "^0.28.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

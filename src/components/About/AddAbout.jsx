@@ -2,7 +2,8 @@
 
 import React, {Component} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
-import '/src/assets/styles/Dashboard.css';
+// import '/src/assets/styles/Dashboard.css';
+import './../../assets/styles/Dashboard.css';
 import AboutService from "../../services/AboutService";
 import DashboardPanel from "../Dashboard/DashboardPanel";
 

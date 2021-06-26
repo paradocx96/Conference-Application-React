@@ -6,11 +6,12 @@ import React from "react";
 import {Button, Table} from "react-bootstrap";
 import FileDownload from "js-file-download";
 import Toast1 from "../Toasts/Toast1";
-import researchService from "/src/services/ResearchService";
+// import researchService from "/src/services/ResearchService";
 import CommonCheckAuth from "../../services/CommonCheckAuth";
 import UserService from "../../services/UserService";
 import {Redirect} from "react-router-dom";
 import DashboardPanel from "../Dashboard/DashboardPanel";
+import researchService from "./../../services/ResearchService";
 
 class ViewAllResearchPapersAsReviewer extends React.Component{
     constructor(props) {

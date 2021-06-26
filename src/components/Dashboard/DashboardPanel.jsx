@@ -4,7 +4,8 @@ import React, {Component} from "react";
 import {Link} from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '/src/assets/styles/Dashboard.css';
+// import '/src/assets/styles/Dashboard.css';
+import './../../assets/styles/Dashboard.css';
 import {Nav} from "react-bootstrap";
 
 export default class DashboardPanel extends Component {

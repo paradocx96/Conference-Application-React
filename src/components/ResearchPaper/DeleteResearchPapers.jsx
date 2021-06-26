@@ -4,11 +4,12 @@ import {Button, Jumbotron, Table} from "react-bootstrap";
 import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import Toast1 from "../Toasts/Toast1";
-import researchService from "/src/services/ResearchService";
+// import researchService from "/src/services/ResearchService";
 import CommonCheckAuth from "../../services/CommonCheckAuth";
 import UserService from "../../services/UserService";
 import {Redirect} from "react-router-dom";
 import DashboardPanel from "../Dashboard/DashboardPanel";
+import researchService from "./../../services/ResearchService";
 
 class DeleteResearchPapers extends React.Component{
 

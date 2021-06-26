@@ -4,7 +4,8 @@ import React, {Component} from "react";
 
 import {Image} from "react-bootstrap";
 import './../../assets/styles/Keynote.css';
-import UserPhoto from "url:../../assets/images/user.jpg?as=webp&width=250";
+// import UserPhoto from "url:../../assets/images/user.jpg?as=webp&width=250";
+import UserPhoto from "../../assets/images/user.jpg";
 
 import KeyNoteService from "../../services/KeyNoteService";
 
