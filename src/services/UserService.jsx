@@ -56,7 +56,7 @@ class UserService extends Component{
             email,
             password,
             userType
-        });
+        },{headers: AuthHeader()});
     }
 
     //TODO: Get All users
