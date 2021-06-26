@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './../../assets/styles/Download.css';
 
 import DownloadService from "../../services/DownloadService";
+import UserService from "../../services/UserService";
 
 export default class AddDownload extends Component {
 
@@ -14,6 +15,9 @@ export default class AddDownload extends Component {
     constructor(props) {
         super(props);
         this.state = this.initialState;
+        this.state = {
+            currentUser: ''
+        }
 
         this.submitDownload = this.submitDownload.bind(this);
         this.resetForm = this.resetForm.bind(this);
@@ -21,6 +25,12 @@ export default class AddDownload extends Component {
         this.FileHandler = this.FileHandler.bind(this);
         this.NameHandler = this.NameHandler.bind(this);
         this.TypeHandler = this.TypeHandler.bind(this);
+
+        // Get current user
+        const currentUser = UserService.getCurrentUser();
+
+        // Set role of current user
+        this.state.currentUser = currentUser;
     }
 
     // TODO: Initializing default values
@@ -60,7 +70,7 @@ export default class AddDownload extends Component {
         formValue.append("file", this.state.file);
         formValue.append("name", this.state.name);
         formValue.append("type", this.state.type);
-        formValue.append("user", this.state.user);
+        formValue.append("user", this.state.currentUser.username);
 
         if (formValue == null) {
             console.log('Form value is NULL!!!');

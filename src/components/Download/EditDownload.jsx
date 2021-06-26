@@ -5,6 +5,7 @@ import {Button, Col, Form, Row} from "react-bootstrap";
 import UserService from "../../services/UserService";
 import DownloadService from "../../services/DownloadService";
 import DashboardPanel from "../Dashboard/DashboardPanel";
+import {Redirect} from "react-router-dom";
 
 class EditDownload extends Component {
 
@@ -113,6 +114,10 @@ class EditDownload extends Component {
     render() {
         return (
             <div>
+                {
+                    this.state.permission === 'notPermitted' ? <Redirect to={'/no-permission-admin'}/> :
+                        <div></div>
+                }
                 <DashboardPanel/>
                 <section id="subSection">
                     <h1>Download Items</h1>
