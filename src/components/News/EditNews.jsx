@@ -143,7 +143,27 @@ class EditNews extends Component {
 
                     <div id="selectSection">
                         <h3>Select what you want to update</h3>
+                        <Form>
+                            <Form.Group as={Row} controlId="Id">
+                                <Col sm={2}>
+                                    <Form.Label className={'font-weight-bold'}>Select one : </Form.Label>
+                                </Col>
 
+                                <Col sm={5}>
+                                    <Form.Control required as="select" name={'id'}
+                                                  value={this.state.id}
+                                                  onChange={this.assignHandlerId}>
+
+                                        <option>--Select--</option>
+                                        {this.state.getList.map(item => (
+                                            <option key={item.id} value={item.id}>
+                                                {item.description}
+                                            </option>
+                                        ))}
+                                    </Form.Control>
+                                </Col>
+                            </Form.Group>
+                        </Form>
                     </div>
 
                     <div id="updateSection">
