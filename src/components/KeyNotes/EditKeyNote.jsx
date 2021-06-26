@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import KeyNoteService from "../../services/KeyNoteService";
 import DashboardPanel from "../Dashboard/DashboardPanel";
 import UserService from "../../services/UserService";
+import {Redirect} from "react-router-dom";
 
 export default class EditKeyNote extends Component {
 
@@ -16,7 +17,8 @@ export default class EditKeyNote extends Component {
         this.state = {
             KeynoteList: [],
             selected: [],
-            currentUser: ''
+            currentUser: '',
+            permission: 'notPermitted'
         }
 
         this.onChange = this.onChange.bind(this);
@@ -30,6 +32,13 @@ export default class EditKeyNote extends Component {
 
         // Set role of current user
         this.state.currentUser = currentUser;
+
+        if (this.state.currentUser.roles == "ROLE_ADMIN") {
+            this.state.permission = 'permitted';
+            console.log("Role is Admin. Permitting to Dashboard!")
+        }
+        console.log("Permission : " + this.state.permission);
+        console.log("Role: " + this.state.currentUser.roles);
     }
 
     initialState = {
@@ -125,6 +134,10 @@ export default class EditKeyNote extends Component {
     render() {
         return (
             <div>
+                {
+                    this.state.permission === 'notPermitted' ? <Redirect to={'/no-permission-admin'}/> :
+                        <div></div>
+                }
                 <DashboardPanel/>
                 <section id="subSection">
                     <h1>KeyNotes</h1>
