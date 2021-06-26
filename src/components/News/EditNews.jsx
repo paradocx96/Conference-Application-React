@@ -57,7 +57,6 @@ class EditNews extends Component {
             .then(response => response.data)
             .then((data) => {
                 this.setState({getList: data});
-                console.log(data)
             }).catch(error =>
                 console.log(error.message)
             );
@@ -84,7 +83,6 @@ class EditNews extends Component {
                 this.setState({
                     selected: response.data
                 });
-                console.log('response.data', response.data)
             }).then(data => {
                 this.state.selected.map(data => (
                     this.setState({
@@ -167,7 +165,59 @@ class EditNews extends Component {
                     </div>
 
                     <div id="updateSection">
+                        <Form onSubmit={this.submitForm.bind(this)}
+                              onReset={this.resetForm.bind(this)}>
 
+                            <Form.Group as={Row} controlId="NewsDate">
+                                <Form.Label column sm={2}>Date</Form.Label>
+                                <Col sm={10}>
+                                    <Form.Control type="date"
+                                                  name="date"
+                                                  value={this.state.date}
+                                                  onChange={this.onChange} />
+                                </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} controlId="NewsDescription">
+                                <Form.Label column sm={2}>Description</Form.Label>
+                                <Col sm={10}>
+                                    <Form.Control placeholder="Description"
+                                                  as="textarea" rows={5}
+                                                  name="description"
+                                                  value={this.state.description}
+                                                  onChange={this.onChange} />
+                                </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} controlId="NewsDateTime">
+                                <Form.Label column sm={2}>
+                                    Created Date & Time
+                                </Form.Label>
+                                <Col sm={10}>
+                                    <Form.Label column sm={5}>
+                                        {this.state.datetime}
+                                    </Form.Label>
+                                </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row} controlId="NewsStatus">
+                                <Form.Label column sm={2}>
+                                    Status
+                                </Form.Label>
+                                <Col sm={10}>
+                                    <Form.Label column sm={5}>
+                                        {this.state.status}
+                                    </Form.Label>
+                                </Col>
+                            </Form.Group>
+
+                            <Form.Group as={Row}>
+                                <Col sm={{span: 10, offset: 2}}>
+                                    <Button type="submit">Save</Button>{'\u00A0'}
+                                    <Button type="reset">Reset</Button>
+                                </Col>
+                            </Form.Group>
+                        </Form>
                     </div>
                 </section>
             </div>
