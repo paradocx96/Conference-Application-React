@@ -121,6 +121,9 @@ export default class DownloadDashboardListEditor extends Component {
                         </tbody>
                     </Table>
                 </div>
+                <div>
+                    <Button onClick={this.componentDidMount} className="btn-info">Refresh</Button>
+                </div>
             </div>
         )
     }

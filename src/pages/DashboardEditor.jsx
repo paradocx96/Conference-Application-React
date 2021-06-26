@@ -15,6 +15,7 @@ import AddNews from "../components/News/AddNews";
 import AddDownload from "../components/Download/AddDownload";
 import EditKeyNoteEditor from "../components/KeyNotes/EditKeyNoteEditor";
 import EditNewsEditor from "../components/News/EditNewsEditor";
+import EditDownloadEditor from "../components/Download/EditDownloadEditor";
 
 class DashboardEditor extends Component {
 
@@ -40,12 +41,10 @@ class DashboardEditor extends Component {
 
                     <section id="download">
                         <h2>DOWNLOADS</h2>
-                        <div className="addkeynote">
-                            <AddDownload/>
-                        </div>
+                        <AddDownload/>
+                        <EditDownloadEditor/>
                         <DownloadDashboardListEditor/>
                     </section>
-
                 </div>
             </div>
         )
