@@ -1,3 +1,8 @@
+//Name : Malwatta H.G.
+//ID : IT19240848
+//Group : REG_WE_03
+
+
 import React, { Component } from "react";
 import CheckButton from "react-validation/build/button";
 import Input from "react-validation/build/input";
@@ -102,7 +107,8 @@ export default class Register extends Component {
             userType: "",
             successful: false,
             message: "",
-            fileUploaded: false
+            fileUploaded: false,
+            loading: false,
         };
     }
 
@@ -157,7 +163,8 @@ export default class Register extends Component {
 
         this.setState({
             message: "",
-            successful: false
+            successful: false,
+            loading: true
         });
 
         // TODO: Validate register form fields
@@ -188,11 +195,16 @@ export default class Register extends Component {
 
                     this.setState({
                         successful: false,
-                        message: resMessage
+                        message: resMessage,
+                        loading: false,
                     });
                 }
             );
 
+        }else{
+            this.setState({
+                loading: false,
+            });
         }
 
     }
@@ -311,8 +323,17 @@ export default class Register extends Component {
                                     <label> You need to upload file first before registration!</label>
                                 </div>
                                 }
+                                {/*<div className="form-group">*/}
+                                {/*    <button disabled={(this.state.userType =="researcher" &&!this.state.fileUploaded) || (this.state.userType=="workshop" && !this.state.fileUploaded) } className="btn btn-primary btn-block">Sign Up</button>*/}
+                                {/*</div>*/}
+
                                 <div className="form-group">
-                                    <button disabled={(this.state.userType =="researcher" &&!this.state.fileUploaded) || (this.state.userType=="workshop" && !this.state.fileUploaded) } className="btn btn-primary btn-block">Sign Up</button>
+                                    <button className="btn btn-primary btn-block" disabled={(this.state.loading) || (this.state.userType =="researcher" &&!this.state.fileUploaded) || (this.state.userType=="workshop" && !this.state.fileUploaded)}>
+                                        {this.state.loading && (
+                                            <span className="spinner-border spinner-border-sm"> </span>
+                                        )}
+                                        <span>Sign Up</span>
+                                    </button>
                                 </div>
 
                                 {/*<div className="form-group">
