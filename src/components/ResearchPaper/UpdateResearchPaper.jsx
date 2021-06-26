@@ -4,7 +4,7 @@ import {Button, Card, Form} from "react-bootstrap";
 import researchService from "/src/services/ResearchService";
 import CommonCheckAuth from "../../services/CommonCheckAuth";
 import UserService from "../../services/UserService";
-import {Redirect} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class UpdateResearchPaper extends React.Component{
     constructor(props) {
@@ -159,6 +159,11 @@ class UpdateResearchPaper extends React.Component{
                     <Card.Body>
                         <Card.Text>Title : {this.state.title}</Card.Text>
                         <Card.Text>Status : {this.state.status}</Card.Text>
+                        {
+                            this.state.status === 'approved'?
+                                <Link to={'/research/payment'} className={'btn btn-success'}>Pay</Link> :
+                                <div></div>
+                        }
                     </Card.Body>
                 </Card>
 
