@@ -31,6 +31,7 @@ import DashboardWorkshop from "./src/pages/DashboardWorkshop";
 //NEWS
 import NewsSection from "./src/components/News/NewsSection";
 import AddNewsAdmin from "./src/components/News/AddNewsAdmin";
+import EditNews from "./src/components/News/EditNews";
 
 //KEYNOTES
 import ViewKeyNoteSection from "./src/components/KeyNotes/ViewKeyNoteSection";
@@ -102,6 +103,7 @@ function App() {
                     {/* NEWS */}
                     <Route path={'/news'} exact component={NewsSection}/>
                     <Route path={'/dashboard-news-add'} exact component={AddNewsAdmin}/>
+                    <Route path={'/dashboard-news-update'} exact component={EditNews}/>
 
                     {/* DOWNLOADS */}
                     <Route path={'/downloads'} exact component={DownloadSection}/>
