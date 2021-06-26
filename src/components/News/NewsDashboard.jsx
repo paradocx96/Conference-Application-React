@@ -43,7 +43,8 @@ class NewsDashboard extends Component {
                 <section id="subSection">
                     <h1>News</h1>
                     <div className="addnews">
-                        <Link to={'/dashboard-news-add'} className={'btn btn-primary'}>Add News</Link>
+                        <Link to={'/dashboard-news-add'} className={'btn btn-primary'}>Add News</Link> {'\u00A0'}
+                        <Link to={'/dashboard-news-update'} className={'btn btn-primary'}>Update News</Link>
                     </div>
                     <div className="viewnews">
                         <NewsDashboardList/>

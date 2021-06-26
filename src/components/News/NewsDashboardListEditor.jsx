@@ -73,9 +73,6 @@ export default class NewsDashboardListEditor extends Component {
                                         <td>{datetime}</td>
                                         <td>{status}</td>
                                         <td>{user}</td>
-                                        <td>
-                                            <Button className="btn-success">Edit</Button>
-                                        </td>
                                     </tr>
                                 );
                             })
