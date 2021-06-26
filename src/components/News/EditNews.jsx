@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NewsService from "../../services/NewsService";
 import DashboardPanel from "../Dashboard/DashboardPanel";
 import UserService from "../../services/UserService";
-import KeyNoteService from "../../services/KeyNoteService";
+import {Redirect} from "react-router-dom";
 
 class EditNews extends Component {
 
@@ -135,6 +135,10 @@ class EditNews extends Component {
     render() {
         return (
             <div>
+                {
+                    this.state.permission === 'notPermitted' ? <Redirect to={'/no-permission-admin'}/> :
+                        <div></div>
+                }
                 <DashboardPanel/>
                 <section id="subSection">
                     <h1>News</h1>
