@@ -35,8 +35,7 @@ export default class WorkshopPage extends Component {
     render() {
         return (
             <Container>
-                <h1 style={{webkitTextStroke: '2px black', webkitTextFillColor: 'white', fontWeight: 700}}
-                    className="mt-5 mb-4">Workshop Page</h1>
+                <h1 className="my-4 text-center">Workshop</h1>
 
                 {
                     /**
@@ -49,13 +48,11 @@ export default class WorkshopPage extends Component {
                     </React.Fragment>
                 }
 
-                {
-                    /**
-                     * Only for sign as reviewer - view, download, approve
-                     */
-                    this.state.signRole === "REVIEWER" &&
-                    <WorkshopAllPendingList/>
-                }
+                {/*{*/}
+                {/*     // Only for sign as reviewer - view, download, approve*/}
+                {/*    this.state.signRole === "REVIEWER" &&*/}
+                {/*    <WorkshopAllPendingList/>*/}
+                {/*}*/}
 
                 {/**  All signed users - view, download **/}
                 {
