@@ -1,9 +1,10 @@
 import React, {Component} from "react";
-import WorkshopUnit from "./WorkshopUnit";
 import {Button, Card, Col, Row, Spinner} from "react-bootstrap";
 import {approveWorkshop, downloadDocumentByWorkshop, getAllPendingWorkshop} from "../../services/WorkshopService";
+import CommonCheckAuth from "../../services/CommonCheckAuth";
 
-export default class WorkshopAllPendingList extends Component {
+class WorkshopAllPendingList extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -76,3 +77,5 @@ export default class WorkshopAllPendingList extends Component {
         )
     }
 }
+
+export default CommonCheckAuth(WorkshopAllPendingList);
