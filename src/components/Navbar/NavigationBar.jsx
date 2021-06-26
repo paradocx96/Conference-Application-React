@@ -69,7 +69,7 @@ class NavigationBar extends Component {
                                 <div className="navbar-nav ml-auto">
 
                                     <li className="nav-item">
-                                        <Link className={'nav-link'} > {currentUser.username}</Link>
+                                        <Link to={'/'} className={'nav-link'} > {currentUser.username}</Link>
                                     </li>
 
                                     {adminDashboard && (

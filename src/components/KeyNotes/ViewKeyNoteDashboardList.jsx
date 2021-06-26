@@ -168,9 +168,6 @@ export default class ViewKeyNoteDashboardList extends Component {
                                         <td>{user}</td>
                                         <td>{datetime}</td>
                                         <td>
-                                            <Button className="btn-success">Edit</Button>
-                                        </td>
-                                        <td>
                                             <Button onClick={this.handleActivate.bind(this, keynote.id)}
                                                     className="btn-secondary">Activate</Button><br/><br/>
                                             <Button onClick={this.handleDeactivate.bind(this, keynote.id)}

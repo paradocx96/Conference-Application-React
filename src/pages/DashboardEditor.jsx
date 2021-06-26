@@ -5,6 +5,7 @@ import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './../assets/styles/Dashboard.css'
 
+import CommonCheckAuth from './../services/CommonCheckAuth';
 import ViewKeyNoteDashboardListEditor from "../components/KeyNotes/ViewKeyNoteDashboardListEditor";
 import NewsDashboardListEditor from "../components/News/NewsDashboardListEditor";
 import DownloadDashboardListEditor from "../components/Download/DownloadDashboardListEditor";
@@ -12,7 +13,7 @@ import DashboardPanelEditor from "../components/Dashboard/DashboardPanelEditor";
 import AddKeyNote from "../components/KeyNotes/AddKeyNote";
 import AddNews from "../components/News/AddNews";
 import AddDownload from "../components/Download/AddDownload";
-import CommonCheckAuth from './../services/CommonCheckAuth';
+import EditKeyNoteEditor from "../components/KeyNotes/EditKeyNoteEditor";
 
 class DashboardEditor extends Component {
 
@@ -24,9 +25,8 @@ class DashboardEditor extends Component {
 
                     <section id="keynote">
                         <h2>KEYNOTES</h2>
-                        <div className="addkeynote">
-                            <AddKeyNote/>
-                        </div>
+                        <AddKeyNote/>
+                        <EditKeyNoteEditor/>
                         <ViewKeyNoteDashboardListEditor/>
                     </section>
 

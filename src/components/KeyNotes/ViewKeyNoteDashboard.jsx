@@ -43,7 +43,8 @@ class ViewKeyNoteDashboard extends Component {
                 <section id="subSection">
                     <h1>KeyNotes</h1>
                     <div className="addkeynote">
-                        <Link to={'/dashboard-keynotes-add'} className={'btn btn-primary'}>Add Keynote</Link>
+                        <Link to={'/dashboard-keynotes-add'} className={'btn btn-primary'}>Add Keynote</Link> {'\u00A0'}
+                        <Link to={'/dashboard-keynotes-update'} className={'btn btn-primary'}>Update Keynote</Link>
                     </div>
                     <div className="viewkeynote">
                         <ViewKeyNoteDashboardList/>

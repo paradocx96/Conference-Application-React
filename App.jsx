@@ -35,6 +35,7 @@ import AddNewsAdmin from "./src/components/News/AddNewsAdmin";
 //KEYNOTES
 import ViewKeyNoteSection from "./src/components/KeyNotes/ViewKeyNoteSection";
 import AddKeyNoteAdmin from "./src/components/KeyNotes/AddKeyNoteAdmin";
+import EditKeyNote from "./src/components/KeyNotes/EditKeyNote";
 
 //DOWNLOAD
 import DownloadSection from "./src/components/Download/DownloadSection";
@@ -96,6 +97,7 @@ function App() {
                     {/* KEYNOTES */}
                     <Route path={'/keynotes'} exact component={ViewKeyNoteSection}/>
                     <Route path={'/dashboard-keynotes-add'} exact component={AddKeyNoteAdmin}/>
+                    <Route path={'/dashboard-keynotes-update'} exact component={EditKeyNote}/>
 
                     {/* NEWS */}
                     <Route path={'/news'} exact component={NewsSection}/>
