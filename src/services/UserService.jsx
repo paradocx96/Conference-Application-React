@@ -1,8 +1,13 @@
+//Name : Malwatta H.G.
+//ID : IT19240848
+//Group : REG_WE_03
+
 import React, { Component } from "react";
 import axios from "axios";
 import AuthHeader from "./AuthHeader";
 
-const API_BACKEND_URL = "http://localhost:8080/api/";
+const API_BACKEND_URL = "https://icaf-codewave-backend-api.herokuapp.com/api/";
+//const API_BACKEND_URL = "http://localhost:8080/api/";
 
 class UserService extends Component{
 
