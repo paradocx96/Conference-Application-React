@@ -5,6 +5,7 @@ import {Button, Table} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AboutService from "../../services/AboutService";
 import {Link} from "react-router-dom";
+import {confirmAlert} from 'react-confirm-alert'
 
 class AboutDashboard extends Component {
 
@@ -15,6 +16,7 @@ class AboutDashboard extends Component {
             AboutList: []
         }
         this.handleDelete = this.handleDelete.bind(this);
+        this.submit = this.submit.bind(this);
     }
 
     componentDidMount = async () => {
@@ -39,6 +41,30 @@ class AboutDashboard extends Component {
 
         await this.componentDidMount();
     }
+
+    submit = (id) => {
+        confirmAlert({
+            title: 'Confirm to delete?',
+            message: 'Are you sure to delete this.',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => {
+                        this.handleDelete(id);
+                        console.log('Delete Operation Proceed!');
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick: () => {
+                        console.log('Delete Operation Canceled!');
+                    }
+                }
+            ],
+            closeOnEscape: true,
+            closeOnClickOutside: true
+        });
+    };
 
     render() {
         return (
@@ -78,7 +104,7 @@ class AboutDashboard extends Component {
                                             <td>{item.date}</td>
                                             <td>
                                                 <Button
-                                                    onClick={this.handleDelete.bind(this, item.id)}
+                                                    onClick={this.submit.bind(this, item.id)}
                                                     className="btn-danger">Delete</Button>
                                             </td>
                                         </tr>
