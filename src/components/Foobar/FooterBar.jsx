@@ -17,7 +17,7 @@ export default class FooterBar extends Component {
                         <Card.Text>Fax: +94 11 241 3901</Card.Text>
                         <Card.Text>Email: info@sliit.lk</Card.Text>
                     </Card.Body>
-                    <Card.Footer className="text-center">©2021 SLIIT, developed by RHNA. All Rights Reserved.</Card.Footer>
+                    <Card.Footer className="text-center">©2021 SLIIT, developed by CodeWave. All Rights Reserved.</Card.Footer>
                 </Card>
             </div>
         )
