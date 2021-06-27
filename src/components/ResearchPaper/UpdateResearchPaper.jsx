@@ -1,7 +1,8 @@
 import React from "react";
 //import axios from "axios";
 import {Button, Card, Form} from "react-bootstrap";
-import researchService from "/src/services/ResearchService";
+//import researchService from "/src/services/ResearchService";
+import researchService from "../../services/ResearchService";
 import CommonCheckAuth from "../../services/CommonCheckAuth";
 import UserService from "../../services/UserService";
 import {Link, Redirect} from "react-router-dom";
