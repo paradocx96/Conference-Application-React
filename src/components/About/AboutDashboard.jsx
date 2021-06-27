@@ -5,7 +5,7 @@ import {Button, Table} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AboutService from "../../services/AboutService";
 import {Link} from "react-router-dom";
-import {confirmAlert} from 'react-confirm-alert'
+import {confirmAlert} from 'react-confirm-alert';
 
 class AboutDashboard extends Component {
 
@@ -42,6 +42,7 @@ class AboutDashboard extends Component {
         await this.componentDidMount();
     }
 
+    //TODO: Function for confirm delete operation
     submit = (id) => {
         confirmAlert({
             title: 'Confirm to delete?',

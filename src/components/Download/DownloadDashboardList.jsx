@@ -4,8 +4,8 @@ import React, {Component} from "react";
 import {Button, Table} from "react-bootstrap";
 
 import DownloadService from "../../services/DownloadService";
-import {confirmAlert} from "react-confirm-alert";
 import FileDownload from "js-file-download";
+import {confirmAlert} from 'react-confirm-alert';
 
 export default class DownloadDashboardList extends Component {
 
@@ -21,9 +21,9 @@ export default class DownloadDashboardList extends Component {
 
         this.handleActivate = this.handleActivate.bind(this);
         this.handleDeactivate = this.handleDeactivate.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
         this.handleDeleteProcess = this.handleDeleteProcess.bind(this);
         this.handleDownload = this.handleDownload.bind(this);
+        this.submitDelete = this.submitDelete.bind(this);
     }
 
     //TODO: Function for get all News data from database
@@ -97,27 +97,30 @@ export default class DownloadDashboardList extends Component {
         }
     }
 
-    //TODO: Function for confirm popup
-    handleDelete = (id) => {
+    //TODO: Function for confirm delete operation
+    submitDelete = (id) => {
         confirmAlert({
-            title: 'Do you want to delete Keynote?',
-            message: 'This cannot be undone',
+            title: 'Confirm to delete?',
+            message: 'Are you sure to delete this.',
             buttons: [
                 {
-                    label: 'I understand. Delete.',
-                    onClick: this.handleDeleteProcess.bind(this, id)
+                    label: 'Yes',
+                    onClick: () => {
+                        this.handleDeleteProcess(id);
+                        console.log('Delete Operation Proceed!');
+                    }
                 },
                 {
-                    label: 'Do not delete',
-                    onClick: this.handleDeleteCancel.bind(this)
+                    label: 'No',
+                    onClick: () => {
+                        console.log('Delete Operation Canceled!');
+                    }
                 }
-            ]
+            ],
+            closeOnEscape: true,
+            closeOnClickOutside: true
         });
-    }
-
-    handleDeleteCancel = () => {
-        console.log('Delete Process Canceled!!!');
-    }
+    };
 
     //TODO: Function for delete a News
     handleDeleteProcess = async (id) => {
@@ -199,7 +202,7 @@ export default class DownloadDashboardList extends Component {
                                         </td>
                                         <td>
                                             <Button
-                                                onClick={this.handleDeleteProcess.bind(this, item.id)}
+                                                onClick={this.submitDelete.bind(this, item.id)}
                                                 className="btn-danger">Delete</Button>
                                         </td>
                                     </tr>
