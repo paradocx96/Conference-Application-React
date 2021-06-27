@@ -1,7 +1,8 @@
 // TODO: IT19180526 - Chandrasiri S A N L D
 
 import React, {Component} from 'react';
-import {Button, Col, Form, Row} from "react-bootstrap";
+import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import '/src/assets/styles/Dashboard.css';
 import AboutService from "../../services/AboutService";
 import DashboardPanel from "../Dashboard/DashboardPanel";
 
