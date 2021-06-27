@@ -3,9 +3,8 @@
 import React, {Component} from "react";
 
 import {Button, Table} from 'react-bootstrap';
-import {confirmAlert} from "react-confirm-alert";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import {confirmAlert} from 'react-confirm-alert';
 import KeyNoteService from "../../services/KeyNoteService";
 
 export default class ViewKeyNoteDashboardList extends Component {
@@ -22,8 +21,8 @@ export default class ViewKeyNoteDashboardList extends Component {
 
         this.handleActivate = this.handleActivate.bind(this);
         this.handleDeactivate = this.handleDeactivate.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
         this.handleDeleteProcess = this.handleDeleteProcess.bind(this);
+        this.submitDelete = this.submitDelete.bind(this);
     }
 
     //TODO: Function for get all Keynotes data from database
@@ -91,28 +90,30 @@ export default class ViewKeyNoteDashboardList extends Component {
         await this.componentDidMount();
     }
 
-    //TODO: Function for confirm popup
-    handleDelete = (id) => {
+    //TODO: Function for confirm delete operation
+    submitDelete = (id) => {
         confirmAlert({
-            title: 'Do you want to delete Keynote?',
-            message: 'This cannot be undone',
+            title: 'Confirm to delete?',
+            message: 'Are you sure to delete this.',
             buttons: [
                 {
-                    label: 'I understand. Delete.',
-                    onClick: this.handleDeleteProcess.bind(this, id)
+                    label: 'Yes',
+                    onClick: () => {
+                        this.handleDeleteProcess(id);
+                        console.log('Delete Operation Proceed!');
+                    }
                 },
                 {
-                    label: 'Do not delete',
-                    onClick: this.handleDeleteCancel.bind(this)
+                    label: 'No',
+                    onClick: () => {
+                        console.log('Delete Operation Canceled!');
+                    }
                 }
-            ]
-        })
-
-    }
-
-    handleDeleteCancel = () => {
-        alert("Deletion Cancelled.");
-    }
+            ],
+            closeOnEscape: true,
+            closeOnClickOutside: true
+        });
+    };
 
     //TODO: Function for delete a Keynote
     handleDeleteProcess = async (id) => {
@@ -174,7 +175,7 @@ export default class ViewKeyNoteDashboardList extends Component {
                                                     className="btn-warning">Deactivate</Button>
                                         </td>
                                         <td>
-                                            <Button onClick={this.handleDeleteProcess.bind(this, keynote.id)}
+                                            <Button onClick={this.submitDelete.bind(this, keynote.id)}
                                                     className="btn-danger">Delete</Button>
                                         </td>
                                     </tr>
