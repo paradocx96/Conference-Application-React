@@ -2,7 +2,7 @@
 
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '/src/assets/styles/Dashboard.css';
+import './../assets/styles/Dashboard.css';
 import DashboardPanel from "../components/Dashboard/DashboardPanel";
 import AboutDashboard from "../components/About/AboutDashboard";
 import UserService from "../services/UserService";
