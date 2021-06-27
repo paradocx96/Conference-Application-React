@@ -2,9 +2,8 @@
 
 import React, {Component} from "react";
 import {Button, Table} from "react-bootstrap";
-
+import {confirmAlert} from 'react-confirm-alert';
 import NewsService from "../../services/NewsService";
-import {confirmAlert} from "react-confirm-alert";
 
 export default class NewsDashboardList extends Component {
 
@@ -20,8 +19,8 @@ export default class NewsDashboardList extends Component {
 
         this.handleNewsActivate = this.handleNewsActivate.bind(this);
         this.handleNewsDeactivate = this.handleNewsDeactivate.bind(this);
-        this.handleNewsDelete = this.handleNewsDelete.bind(this);
         this.handleNewsDeleteProcess = this.handleNewsDeleteProcess.bind(this);
+        this.submitDelete = this.submitDelete.bind(this);
     }
 
     //TODO: Function for get all News data from database
@@ -86,23 +85,30 @@ export default class NewsDashboardList extends Component {
         await this.componentDidMount();
     }
 
-    //TODO: Function for confirm popup
-    handleNewsDelete = (id) => {
+    //TODO: Function for confirm delete operation
+    submitDelete = (id) => {
         confirmAlert({
-            title: 'Do you want to delete Keynote?',
-            message: 'This cannot be undone',
+            title: 'Confirm to delete?',
+            message: 'Are you sure to delete this.',
             buttons: [
                 {
-                    label: 'I understand. Delete.',
-                    onClick: this.handleDeleteProcess.bind(this, id)
+                    label: 'Yes',
+                    onClick: () => {
+                        this.handleNewsDeleteProcess(id);
+                        console.log('Delete Operation Proceed!');
+                    }
                 },
                 {
-                    label: 'Do not delete',
-                    onClick: this.handleDeleteCancel.bind(this)
+                    label: 'No',
+                    onClick: () => {
+                        console.log('Delete Operation Canceled!');
+                    }
                 }
-            ]
+            ],
+            closeOnEscape: true,
+            closeOnClickOutside: true
         });
-    }
+    };
 
     //TODO: Function for delete a News
     handleNewsDeleteProcess = async (id) => {
@@ -155,7 +161,7 @@ export default class NewsDashboardList extends Component {
                                         </td>
                                         <td>
                                             <Button
-                                                onClick={this.handleNewsDeleteProcess.bind(this, news.id)}
+                                                onClick={this.submitDelete.bind(this, news.id)}
                                                 className="btn-danger">Delete</Button>
                                         </td>
                                     </tr>
