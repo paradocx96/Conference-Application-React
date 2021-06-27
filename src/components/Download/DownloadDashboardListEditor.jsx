@@ -2,11 +2,10 @@
 
 import React, {Component} from "react";
 import {Button, Table} from "react-bootstrap";
-
-import DownloadService from "../../services/DownloadService";
 import FileDownload from "js-file-download";
+import DownloadService from "../../services/DownloadService";
 
-export default class DownloadDashboardListEditor extends Component {
+class DownloadDashboardListEditor extends Component {
 
     // TODO: Initializing state values and functions
     constructor(props) {
@@ -128,3 +127,5 @@ export default class DownloadDashboardListEditor extends Component {
         )
     }
 }
+
+export default DownloadDashboardListEditor;

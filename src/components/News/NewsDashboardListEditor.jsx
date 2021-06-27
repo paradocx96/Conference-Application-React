@@ -2,10 +2,9 @@
 
 import React, {Component} from "react";
 import {Button, Table} from "react-bootstrap";
-
 import NewsService from "../../services/NewsService";
 
-export default class NewsDashboardListEditor extends Component {
+class NewsDashboardListEditor extends Component {
 
     // TODO: Initializing state values
     constructor(props) {
@@ -92,3 +91,5 @@ export default class NewsDashboardListEditor extends Component {
         )
     }
 }
+
+export default NewsDashboardListEditor;

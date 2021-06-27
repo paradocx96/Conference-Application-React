@@ -1,13 +1,11 @@
 // TODO: IT19180526 - Chandrasiri S A N L D
 
 import React, {Component} from "react";
-
 import {Button, Table} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import KeyNoteService from "../../services/KeyNoteService";
 
-export default class ViewKeyNoteDashboardListEditor extends Component {
+class ViewKeyNoteDashboardListEditor extends Component {
 
     // TODO: Initializing state values
     constructor(props) {
@@ -112,3 +110,5 @@ export default class ViewKeyNoteDashboardListEditor extends Component {
         )
     }
 }
+
+export default ViewKeyNoteDashboardListEditor;
