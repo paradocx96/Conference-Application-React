@@ -5,7 +5,8 @@
 import React from "react";
 //import axios from "axios";
 import {Button, Form, Jumbotron} from "react-bootstrap";
-import researchService from "/src/services/ResearchService";
+//import researchService from "/src/services/ResearchService";
+import researchService from "../../services/ResearchService";
 import "../../assets/styles/Registration.css";
 
 
