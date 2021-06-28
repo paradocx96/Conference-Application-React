@@ -8,6 +8,7 @@ import CheckButton from "react-validation/build/button";
 import Input from "react-validation/build/input";
 import Form from "react-validation/build/form";
 import { isEmail } from "validator";
+import {Link} from "react-router-dom"
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -300,7 +301,7 @@ export default class Register extends Component {
 
                                 <div className="form-group">
                                     {
-                                        this.state.userType.toString() === "researcher"?
+                                        this.state.userType.toString() === "researcher" &&
 
                                              <label>
                                                  <ResearchPaperUpload
@@ -310,11 +311,7 @@ export default class Register extends Component {
                                                      onFileMissing={this.handleFileMissing}
                                                      ref={this.researchChild}
                                                  />
-                                             </label>:
-
-                                            this.state.userType.toString() === "workshop"?
-                                                <label><CreateWorkshop/></label>:
-                                                    <label> </label>
+                                             </label>
                                     }
                                 </div>
 
@@ -342,7 +339,7 @@ export default class Register extends Component {
                             </div>
                         )}
                         <p className="forgot-password text-right">
-                            Already registered <a href="/sign-in">sign in?</a>
+                            Already registered <Link to="/sign-in">sign in?</Link>
                         </p>
 
                         {this.state.message && (
