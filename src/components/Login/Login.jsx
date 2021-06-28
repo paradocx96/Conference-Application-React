@@ -8,6 +8,7 @@ import Input from "react-validation/build/input";
 import Form from "react-validation/build/form";
 import UserService from "../../services/UserService";
 import "../../assets/styles/Login.css";
+import {Link}  from "react-router-dom";
 
 // TODO: create to validate form fields
 const requiredField = data => {
@@ -141,7 +142,7 @@ export default class Login extends Component {
                         </div>
 
                         <p className="forgot-password text-right">
-                            Are you not register yet <a href="/sign-up">sign up?</a>
+                            Are you not register yet <Link to="/sign-up">sign up?</Link>
                         </p>
 
                         {this.state.message && (
