@@ -1,7 +1,7 @@
 // TODO: IT19180526 - Chandrasiri S A N L D
 
 import React, {Component} from 'react';
-import {Container, Row, Col, Form, Button} from "react-bootstrap";
+import {Container, Row, Col, Form, Button, Card} from "react-bootstrap";
 
 class Contact extends Component {
 
@@ -49,9 +49,37 @@ class Contact extends Component {
         return (
             <div>
                 <Container>
-                    <h1>Contact Us</h1>
+                    <div className="pt-5">
+                        <h1>Contact Us</h1>
+                    </div>
                     <Row>
-                        <Col>1 of 2</Col>
+                        <Col>
+                            <div className="pt-5 pb-5">
+                                <Card>
+                                    <Card.Body>
+                                        <Card.Title>Address</Card.Title>
+                                        <Card.Text>Faculty of Computing,</Card.Text>
+                                        <Card.Text>Sri Lanka Institute of Information Technology(SLIIT),</Card.Text>
+                                        <Card.Text>Malabe,</Card.Text>
+                                        <Card.Text>Sri Lanka.</Card.Text>
+                                    </Card.Body>
+                                </Card>
+                                <Card>
+                                    <Card.Body>
+                                        <Card.Title>Telephone</Card.Title>
+                                        <Card.Text>+94117544801</Card.Text>
+                                        <Card.Title>Fax</Card.Title>
+                                        <Card.Text>+94112413901</Card.Text>
+                                    </Card.Body>
+                                </Card>
+                                <Card>
+                                    <Card.Body>
+                                        <Card.Title>Email</Card.Title>
+                                        <Card.Text>info@sliit.lk</Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </div>
+                        </Col>
                         <Col>
                             <div className="pt-5 pb-5">
                                 <Form onSubmit={this.onSubmit.bind(this)}>
