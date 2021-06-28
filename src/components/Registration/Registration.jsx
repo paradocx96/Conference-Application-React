@@ -301,7 +301,7 @@ export default class Register extends Component {
 
                                 <div className="form-group">
                                     {
-                                        this.state.userType.toString() === "researcher"?
+                                        this.state.userType.toString() === "researcher" &&
 
                                              <label>
                                                  <ResearchPaperUpload
@@ -311,11 +311,7 @@ export default class Register extends Component {
                                                      onFileMissing={this.handleFileMissing}
                                                      ref={this.researchChild}
                                                  />
-                                             </label>:
-
-                                            this.state.userType.toString() === "workshop"?
-                                                <label><CreateWorkshop/></label>:
-                                                    <label> </label>
+                                             </label>
                                     }
                                 </div>
 
