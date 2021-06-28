@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Redirect, Switch, Route} from 'react-router-dom
 import Homepage from "./src/pages/Homepage";
 import NavigationBar from "./src/components/Navbar/NavigationBar";
 import FooterBar from "./src/components/Foobar/FooterBar";
+import Contact from "./src/components/Homepage/Contact";
 
 //RESEARCH
 import ResearchPaperUpload from "./src/components/ResearchPaper/ResearchPaperUpload";
@@ -76,6 +77,7 @@ function App() {
 
                     {/* HOMEPAGE */}
                     <Route exact path="/"><Homepage/></Route>
+                    <Route path={'/contact'} exact component={Contact}/>
 
                     {/* WORKSHOP_PAGE */}
                     <Route path={'/workshop'} exact component={Workshop}/>
