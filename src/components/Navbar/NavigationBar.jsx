@@ -62,7 +62,7 @@ class NavigationBar extends Component {
                                 <Link to={'/downloads'} className={'dropdown-item'}>Downloads</Link>
                             </NavDropdown>
 
-                            <Link to={'/contactus'} className={'nav-link'} >Contact Us</Link>
+                            <Link to={'/contact'} className={'nav-link'} >Contact</Link>
                         </Nav>
                         <Nav>
                             {currentUser ? (
