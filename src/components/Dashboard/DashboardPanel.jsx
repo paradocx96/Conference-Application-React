@@ -37,6 +37,9 @@ export default class DashboardPanel extends Component {
                             <Nav.Item>
                                 <Link to={'/dashboard-users'} className={'nav-link'} >Users</Link>
                             </Nav.Item>
+                            <Nav.Item>
+                                <Link to={'/backend-sign-up'} className={'nav-link'} >Registration</Link>
+                            </Nav.Item>
                         </Nav>
 
                     </div>
