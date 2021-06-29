@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import {Card, Form, Button, Col, Spinner} from "react-bootstrap";
-import {IoMdCloseCircleOutline} from "react-icons/io";
+import {Button, Card, Col, Form, Spinner} from "react-bootstrap";
 import {createWorkshop} from "../../services/WorkshopService";
 
 /**
@@ -76,12 +75,28 @@ export default class CreateWorkshop extends Component {
 
     }
 
+    checkIsFillAllFields = () => {
+        if (
+            this.state.workshop.title === '' ||
+            this.state.workshop.venue === '' ||
+            this.state.workshop.date === '' ||
+            this.state.workshop.description === '' ||
+            this.state.workshop.documents
+        ) {
+            this.props.onFileMissing(); //call onFileMissing
+
+        } else {
+            this.props.onUploaded();
+        }
+    }
+
     render() {
         return (
             <React.Fragment>
                 <Card className="mx-2 my-5 p-4">
                     <h3>Create new workshop</h3>
-                    <Form noValidate validated={this.state.isValidated} onSubmit={this.handleSubmit}>
+                    <Form noValidate validated={this.state.isValidated} onChange={this.checkIsFillAllFields}
+                          onSubmit={this.handleSubmit}>
 
                         <Form.Group controlId="validationTitle">
                             <Form.Label>WorkshopUnit title</Form.Label>
@@ -219,8 +234,8 @@ export default class CreateWorkshop extends Component {
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
 
-                        <Button type="submit" disabled={this.state.isUploading}> Submit form&nbsp;
-                            {this.state.isUploading && <Spinner animation={"border"} size={"sm"}/>}</Button>
+                        {/*<Button type="submit" disabled={this.state.isUploading}> Submit form&nbsp;*/}
+                        {/*    {this.state.isUploading && <Spinner animation={"border"} size={"sm"}/>}</Button>*/}
                     </Form>
                 </Card>
 
