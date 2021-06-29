@@ -2,7 +2,8 @@ import axios from "axios";
 import FileDownload from "js-file-download";
 import AuthHeader from "./AuthHeader";
 
-const WORKSHOP_API_URL = 'http://localhost:8080/workshop';
+const WORKSHOP_API_URL_LOCAL = 'http://localhost:8080/workshop';
+const WORKSHOP_API_URL = 'https://icaf-codewave-backend-api.herokuapp.com/workshop';
 
 export function createWorkshop(workshop) {
     console.log(workshop);
