@@ -3,11 +3,11 @@
 //Group : REG_WE_03
 
 
-import React, { Component } from "react";
+import React, {Component} from "react";
 import CheckButton from "react-validation/build/button";
 import Input from "react-validation/build/input";
 import Form from "react-validation/build/form";
-import { isEmail } from "validator";
+import {isEmail} from "validator";
 import {Link} from "react-router-dom"
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -73,8 +73,8 @@ const userPassword = value => {
     }
 };
 
-const userConfirmPassword = (value,props) => {
-    if (props.expectedvalue !==  value) {
+const userConfirmPassword = (value, props) => {
+    if (props.expectedvalue !== value) {
         return (
             <div className="alert alert-danger" role="alert">
                 The password is not matched!
@@ -98,6 +98,7 @@ export default class Register extends Component {
         this.onChangeConfirmPassword = this.onChangeConfirmPassword.bind(this);
 
         this.researchChild = React.createRef();
+        this.workshopChild = React.createRef();
 
         this.state = {
             username: "",
@@ -144,15 +145,15 @@ export default class Register extends Component {
         });
     }
 
-    handleFileUpload(event){
+    handleFileUpload(event) {
         this.setState({fileUploaded: true});
     }
 
-    handleFileMissing(event){
-        this.setState({fileUploaded:false}); //method for disabling button if title is missing
+    handleFileMissing(event) {
+        this.setState({fileUploaded: false}); //method for disabling button if title is missing
     }
 
-    onChangeConfirmPassword(event){
+    onChangeConfirmPassword(event) {
         this.setState({
             confirmPassword: event.target.value
         });
@@ -174,8 +175,12 @@ export default class Register extends Component {
 
         // TODO: Calling Registration Service function and check if there is any error
         if (this.checkBtn.context._errors.length === 0) {
-            if(this.state.userType == "researcher") {
+            if (this.state.userType == "researcher") {
                 this.researchChild.current.submitResearchPaper();
+            }
+            if (this.state.userType === "workshop") {
+                console.log("your type matched in registration")
+                this.workshopChild.current.handleSubmitWorkshop();
             }
             UserService.register(
                 this.state.username,
@@ -202,7 +207,7 @@ export default class Register extends Component {
                 }
             );
 
-        }else{
+        } else {
             this.setState({
                 loading: false,
             });
@@ -217,7 +222,9 @@ export default class Register extends Component {
             <div className="auth-wrapper-register">
                 <div className="auth-inner-register">
 
-                    <Form onSubmit={this.handleRegister} ref={check => {this.form = check;}}>
+                    <Form onSubmit={this.handleRegister} ref={check => {
+                        this.form = check;
+                    }}>
 
                         <h3>Sign Up</h3>
 
@@ -291,8 +298,9 @@ export default class Register extends Component {
 
                                 <div className="form-group">
                                     <label htmlFor="userType">Select Type : </label>{' '}
-                                    <select value={this.state.userType} onChange={this.onChangeUserType} className="dropdown">
-                                        <option> </option>
+                                    <select value={this.state.userType} onChange={this.onChangeUserType}
+                                            className="dropdown">
+                                        <option></option>
                                         <option value={"attendee"}>Attendee</option>
                                         <option value={"researcher"}>Researcher</option>
                                         <option value={"workshop"}>Workshop Presenter</option>
@@ -303,20 +311,31 @@ export default class Register extends Component {
                                     {
                                         this.state.userType.toString() === "researcher" &&
 
-                                             <label>
-                                                 <ResearchPaperUpload
-                                                     registrationUsername = {this.state.username}
-                                                     registrationEmail = {this.state.email}
-                                                     onUploaded={this.handleFileUpload}
-                                                     onFileMissing={this.handleFileMissing}
-                                                     ref={this.researchChild}
-                                                 />
-                                             </label>
+                                        <label>
+                                            <ResearchPaperUpload
+                                                registrationUsername={this.state.username}
+                                                registrationEmail={this.state.email}
+                                                onUploaded={this.handleFileUpload}
+                                                onFileMissing={this.handleFileMissing}
+                                                ref={this.researchChild}
+                                            />
+                                        </label>
+                                    }
+                                    {
+                                        this.state.userType.toString() === "workshop" &&
+                                        <label>
+                                            <CreateWorkshop
+                                                registrationUsername={this.state.username}
+                                                onUploaded={this.handleFileUpload}
+                                                onFileMissing={this.handleFileMissing}
+                                                ref={this.workshopChild}
+                                            />
+                                        </label>
                                     }
                                 </div>
 
-                                {((this.state.userType== "researcher" && !this.state.fileUploaded) || (this.state.userType == "workshop" && !this.state.fileUploaded)) &&
-                                <div className= "form-group">
+                                {((this.state.userType == "researcher" && !this.state.fileUploaded) || (this.state.userType == "workshop" && !this.state.fileUploaded)) &&
+                                <div className="form-group">
                                     <label> You need to upload file first before registration!</label>
                                 </div>
                                 }
@@ -325,7 +344,8 @@ export default class Register extends Component {
                                 {/*</div>*/}
 
                                 <div className="form-group">
-                                    <button className="btn btn-primary btn-block" disabled={(this.state.loading) || (this.state.userType =="researcher" &&!this.state.fileUploaded) || (this.state.userType=="workshop" && !this.state.fileUploaded)}>
+                                    <button className="btn btn-primary btn-block"
+                                            disabled={(this.state.loading) || (this.state.userType == "researcher" && !this.state.fileUploaded) || (this.state.userType == "workshop" && !this.state.fileUploaded)}>
                                         {this.state.loading && (
                                             <span className="spinner-border spinner-border-sm"> </span>
                                         )}
@@ -344,12 +364,16 @@ export default class Register extends Component {
 
                         {this.state.message && (
                             <div className="form-group">
-                                <div className={this.state.successful ? "alert alert-success text-center" : "alert alert-danger text-center"} role="alert">
+                                <div
+                                    className={this.state.successful ? "alert alert-success text-center" : "alert alert-danger text-center"}
+                                    role="alert">
                                     {this.state.message}
                                 </div>
                             </div>
                         )}
-                        <CheckButton style={{ display: "none" }} ref={check => {this.checkBtn = check;}}
+                        <CheckButton style={{display: "none"}} ref={check => {
+                            this.checkBtn = check;
+                        }}
                         />
                     </Form>
                 </div>

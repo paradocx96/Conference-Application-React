@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import {Card, Form, Button, Col, Spinner} from "react-bootstrap";
-import {IoMdCloseCircleOutline} from "react-icons/io";
+import {Card, Col, Form} from "react-bootstrap";
 import {createWorkshop} from "../../services/WorkshopService";
 
 /**
@@ -11,6 +10,7 @@ export default class CreateWorkshop extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            username:this.props.registrationUsername,
             isValidated: false,
             isUploading: false,
             workshop: {
@@ -24,10 +24,12 @@ export default class CreateWorkshop extends Component {
                 documents: null
             }
         }
+        this.handleSubmitWorkshop = this.handleSubmitWorkshop.bind(this);
     };
 
-    handleSubmit = async (event) => {
-        event.preventDefault();
+    handleSubmitWorkshop = async () => {
+        // event.preventDefault();
+        console.log("------------------------");
         console.log(this.state.workshop);
         console.log(this.state.username);
         this.setState({isValidated: true});
@@ -39,10 +41,10 @@ export default class CreateWorkshop extends Component {
         ) {
             return;
         }
-        const currentUser = JSON.parse(sessionStorage.getItem('user')).username;
+        // const currentUser = JSON.parse(sessionStorage.getItem('user')).username;
 
         let formData = new FormData();
-        formData.append("username", currentUser);
+        formData.append("username", this.state.username);
         formData.append("title", this.state.workshop.title);
         formData.append("courseCode", this.state.workshop.courseCode);
         formData.append("venue", this.state.workshop.venue);
@@ -76,12 +78,28 @@ export default class CreateWorkshop extends Component {
 
     }
 
+    checkIsFillAllFields = () => {
+        if (
+            this.state.workshop.title === '' ||
+            this.state.workshop.venue === '' ||
+            this.state.workshop.date === '' ||
+            this.state.workshop.description === '' ||
+            this.state.workshop.documents
+        ) {
+            this.props.onFileMissing(); //call onFileMissing
+
+        } else {
+            this.props.onUploaded();
+        }
+    }
+
     render() {
         return (
             <React.Fragment>
                 <Card className="mx-2 my-5 p-4">
                     <h3>Create new workshop</h3>
-                    <Form noValidate validated={this.state.isValidated} onSubmit={this.handleSubmit}>
+                    <Form noValidate validated={this.state.isValidated} onChange={this.checkIsFillAllFields}
+                          onSubmit={this.handleSubmitWorkshop}>
 
                         <Form.Group controlId="validationTitle">
                             <Form.Label>WorkshopUnit title</Form.Label>
@@ -219,8 +237,8 @@ export default class CreateWorkshop extends Component {
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
 
-                        <Button type="submit" disabled={this.state.isUploading}> Submit form&nbsp;
-                            {this.state.isUploading && <Spinner animation={"border"} size={"sm"}/>}</Button>
+                        {/*<Button type="submit" disabled={this.state.isUploading}> Submit form&nbsp;*/}
+                        {/*    {this.state.isUploading && <Spinner animation={"border"} size={"sm"}/>}</Button>*/}
                     </Form>
                 </Card>
 
