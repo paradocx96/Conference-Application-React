@@ -54,7 +54,7 @@ class NavigationBar extends Component {
                             <Link to={'/keynotes'} className={'nav-link'} >Keynotes</Link>
                             <Link to={'/news'} className={'nav-link'} >News</Link>
                             <Link to={'/workshop'} className={'nav-link'} >Workshop</Link>
-                            <Link to={'/research'} className={'nav-link'} >Research</Link>
+                            {/* <Link to={'/research'} className={'nav-link'} >Research</Link> */}
 
                             <NavDropdown title="Authors" id="collasible-nav-dropdown">
                                 <Link to={'/research'} className={'dropdown-item'}>Research</Link>
