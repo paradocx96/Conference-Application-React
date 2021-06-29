@@ -178,8 +178,9 @@ export default class Register extends Component {
             if (this.state.userType == "researcher") {
                 this.researchChild.current.submitResearchPaper();
             }
-            if (this.state.username === "workshop") {
-                this.workshopChild.current.handleSubmit();
+            if (this.state.userType === "workshop") {
+                console.log("your type matched in registration")
+                this.workshopChild.current.handleSubmitWorkshop();
             }
             UserService.register(
                 this.state.username,
@@ -324,6 +325,7 @@ export default class Register extends Component {
                                         this.state.userType.toString() === "workshop" &&
                                         <label>
                                             <CreateWorkshop
+                                                registrationUsername={this.state.username}
                                                 onUploaded={this.handleFileUpload}
                                                 onFileMissing={this.handleFileMissing}
                                                 ref={this.workshopChild}
