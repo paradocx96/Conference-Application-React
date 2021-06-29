@@ -3,68 +3,68 @@ import {BrowserRouter as Router, Redirect, Switch, Route} from 'react-router-dom
 
 // TODO: Import Components
 //HOMEPAGE
-import Homepage from "./src/pages/Homepage";
-import NavigationBar from "./src/components/Navbar/NavigationBar";
-import FooterBar from "./src/components/Foobar/FooterBar";
-import Contact from "./src/components/Homepage/Contact";
+import Homepage from "./pages/Homepage";
+import NavigationBar from "./components/Navbar/NavigationBar";
+import FooterBar from "./components/Foobar/FooterBar";
+import Contact from "./components/Homepage/Contact";
 
 //RESEARCH
-import ResearchPaperUpload from "./src/components/ResearchPaper/ResearchPaperUpload";
-import ResearchPaperDownload from "./src/components/ResearchPaper/ResearchPaperDownload";
-import Research from "./src/components/ResearchPaper/Research";
-import ViewAllResearchPapers from "./src/components/ResearchPaper/ViewAllResearchPapers";
-import DeleteResearchPapers from "./src/components/ResearchPaper/DeleteResearchPapers";
-import UpdateResearchPaper from "./src/components/ResearchPaper/UpdateResearchPaper";
-import ViewSingleResearchPaper from "./src/components/ResearchPaper/ViewSingleResearchPaper";
-import Payment from "./src/components/ResearchPaper/Payment";
+import ResearchPaperUpload from "./components/ResearchPaper/ResearchPaperUpload";
+import ResearchPaperDownload from "./components/ResearchPaper/ResearchPaperDownload";
+import Research from "./components/ResearchPaper/Research";
+import ViewAllResearchPapers from "./components/ResearchPaper/ViewAllResearchPapers";
+import DeleteResearchPapers from "./components/ResearchPaper/DeleteResearchPapers";
+import UpdateResearchPaper from "./components/ResearchPaper/UpdateResearchPaper";
+import ViewSingleResearchPaper from "./components/ResearchPaper/ViewSingleResearchPaper";
+import Payment from "./components/ResearchPaper/Payment";
 
 //DASHBOARD
-import Dashboard from "./src/pages/Dashboard";
-import ReviewerDashboard from "./src/components/Reviewer/ReviewerDashboard";
-import DashboardEditor from "./src/pages/DashboardEditor";
-import NewsDashboard from "./src/components/News/NewsDashboard";
-import ViewKeyNoteDashboard from "./src/components/KeyNotes/ViewKeyNoteDashboard";
-import DownloadDashboard from "./src/components/Download/DownloadDashboard";
-import ResearchDashboard from "./src/components/ResearchPaper/ResearchDashboard";
-import WorkshopDashboard from "./src/components/workshop/WorkshopDashboard";
-import DashboardWorkshop from "./src/pages/DashboardWorkshop";
+import Dashboard from "./pages/Dashboard";
+import ReviewerDashboard from "./components/Reviewer/ReviewerDashboard";
+import DashboardEditor from "./pages/DashboardEditor";
+import NewsDashboard from "./components/News/NewsDashboard";
+import ViewKeyNoteDashboard from "./components/KeyNotes/ViewKeyNoteDashboard";
+import DownloadDashboard from "./components/Download/DownloadDashboard";
+import ResearchDashboard from "./components/ResearchPaper/ResearchDashboard";
+import WorkshopDashboard from "./components/workshop/WorkshopDashboard";
+import DashboardWorkshop from "./pages/DashboardWorkshop";
 
 //NEWS
-import NewsSection from "./src/components/News/NewsSection";
-import AddNewsAdmin from "./src/components/News/AddNewsAdmin";
-import EditNews from "./src/components/News/EditNews";
+import NewsSection from "./components/News/NewsSection";
+import AddNewsAdmin from "./components/News/AddNewsAdmin";
+import EditNews from "./components/News/EditNews";
 
 //KEYNOTES
-import ViewKeyNoteSection from "./src/components/KeyNotes/ViewKeyNoteSection";
-import AddKeyNoteAdmin from "./src/components/KeyNotes/AddKeyNoteAdmin";
-import EditKeyNote from "./src/components/KeyNotes/EditKeyNote";
+import ViewKeyNoteSection from "./components/KeyNotes/ViewKeyNoteSection";
+import AddKeyNoteAdmin from "./components/KeyNotes/AddKeyNoteAdmin";
+import EditKeyNote from "./components/KeyNotes/EditKeyNote";
 
 //DOWNLOAD
-import DownloadSection from "./src/components/Download/DownloadSection";
-import AddDownloadAdmin from "./src/components/Download/AddDownloadAdmin";
-import EditDownload from "./src/components/Download/EditDownload";
+import DownloadSection from "./components/Download/DownloadSection";
+import AddDownloadAdmin from "./components/Download/AddDownloadAdmin";
+import EditDownload from "./components/Download/EditDownload";
 
 //REGISTRATION
-import Registration from "./src/components/Registration/Registration";
-import Login from "./src/components/Login/Login";
-import BackendRegistration from "./src/components/Registration/BackendRegistration";
+import Registration from "./components/Registration/Registration";
+import Login from "./components/Login/Login";
+import BackendRegistration from "./components/Registration/BackendRegistration";
 
 //WORKSHOP
-import Workshop from "./src/pages/WorkshopPage";
-import ResearchOperations from "./src/components/ResearchPaper/ResearchOperations";
-import ViewAllResearchPapersAsReviewer from "./src/components/ResearchPaper/ViewAllResearchPapersAsReviewer";
-import WorkshopAllPendingList from "./src/components/workshop/WorkshopAllPendingList";
+import Workshop from "./pages/WorkshopPage";
+import ResearchOperations from "./components/ResearchPaper/ResearchOperations";
+import ViewAllResearchPapersAsReviewer from "./components/ResearchPaper/ViewAllResearchPapersAsReviewer";
+import WorkshopAllPendingList from "./components/workshop/WorkshopAllPendingList";
 
 //ABOUT
-import AddAbout from "./src/components/About/AddAbout";
-import EditAbout from "./src/components/About/EditAbout";
+import AddAbout from "./components/About/AddAbout";
+import EditAbout from "./components/About/EditAbout";
 
 //Permission
-import NoPermissionMessage from "./src/components/Permission/NoPermissionMessage";
-import AdminPermissionMessage from "./src/components/Permission/AdminPermissionMessage";
+import NoPermissionMessage from "./components/Permission/NoPermissionMessage";
+import AdminPermissionMessage from "./components/Permission/AdminPermissionMessage";
 
 //USER DETAILS
-import ViewAllUserDetails from "./src/components/UserDetails/ViewAllUserDetails";
+import ViewAllUserDetails from "./components/UserDetails/ViewAllUserDetails";
 
 
 function App() {

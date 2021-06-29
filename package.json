@@ -1,11 +1,12 @@
 {
   "name": "conference-application-react",
   "version": "1.0.0",
-  "description": "RHNA Conference Application Front-End",
+  "description": "Conference Application",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
   },
   "author": "RHNA",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
     "react-validation": "^3.0.7",
     "validator": "^13.6.0"
   },
