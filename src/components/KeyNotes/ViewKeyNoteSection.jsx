@@ -4,9 +4,12 @@ import React, {Component} from "react";
 
 import {Image} from "react-bootstrap";
 import './../../assets/styles/Keynote.css';
-import UserPhoto from "url:../../assets/images/user.jpg?as=webp&width=250";
-
 import KeyNoteService from "../../services/KeyNoteService";
+
+import UserPhoto from "../../assets/images/user.jpg";
+
+// import UserPhoto from "url:../../assets/images/user.jpg?as=webp&width=250";
+
 
 export default class ViewKeyNoteSection extends Component {
 
@@ -18,6 +21,10 @@ export default class ViewKeyNoteSection extends Component {
             isLoading: true,
             errors: null
         };
+    }
+
+    imageSize = {
+        width: 250
     }
 
     //TODO: Function for get all activated Keynotes data from database
@@ -61,7 +68,7 @@ export default class ViewKeyNoteSection extends Component {
                                 const {id, speakername, speakertype, organization, description} = keynote;
                                 return (
                                     <div key={id} className="speaker-list">
-                                        <Image src={UserPhoto} rounded />
+                                        <Image style={this.imageSize} src={UserPhoto} rounded />
                                         <h2>{speakername}</h2>
                                         <h3>{speakertype}</h3>
                                         <h4>{organization}</h4>

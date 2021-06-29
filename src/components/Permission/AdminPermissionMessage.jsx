@@ -3,17 +3,24 @@
 import React from "react";
 import {Card, Container, Image} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import WarningLogo from 'url:../../assets/images/Dashboard/warning.png?as=webp&width=500&height=500';
+import WarningLogo from '../../assets/images/Dashboard/warning.png';
+
+// import WarningLogo from 'url:../../assets/images/Dashboard/warning.png?as=webp&width=500&height=500';
 
 class AdminPermissionMessage extends React.Component{
     constructor(props) {
         super(props);
     }
 
+    imageSize = {
+        width: 500,
+        height: 500
+    }
+
     render() {
         return (
             <Container>
-                <Image src={WarningLogo} className={'align-items-center'} rounded/>
+                <Image src={WarningLogo} style={this.imageSize} className={'align-items-center'} rounded/>
                 <Card className={'bg-transparent align-content-center justify-content-center align-self-center'}>
                     <Card.Header className={'bg-danger text-white'}>No Permission</Card.Header>
                     <Card.Body className={'bg-warning'}>

@@ -6,10 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Col, Container, Image, Row} from 'react-bootstrap';
 
 // TODO: Import Images
-// import SLIIT from './../../assets/images/Sponsored/sliit.png';
+import SLIIT from './../../assets/images/Sponsored/sliit.png';
 
 // TODO: Parcel Image Transform
-import SLIIT from 'url:../../assets/images/Sponsored/sliit.png?as=webp';
+// import SLIIT from 'url:../../assets/images/Sponsored/sliit.png?as=webp';
 
 export default class Organise extends Component {
 
