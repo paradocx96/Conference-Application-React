@@ -3,7 +3,12 @@
 import React from "react";
 import {Card, Container, Image} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import WarningLogo from 'url:../../assets/images/Dashboard/warning.png?as=webp&width=500&height=500';
+
+// TODO: Import Images
+import WarningLogo from '../../assets/images/Dashboard/warning.png';
+
+// TODO: Parcel Image Transform
+// import WarningLogo from 'url:../../assets/images/Dashboard/warning.png?as=webp&width=500&height=500';
 
 class AdminPermissionMessage extends React.Component{
     constructor(props) {

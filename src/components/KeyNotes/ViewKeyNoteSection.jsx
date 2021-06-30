@@ -4,9 +4,14 @@ import React, {Component} from "react";
 
 import {Image} from "react-bootstrap";
 import './../../assets/styles/Keynote.css';
-import UserPhoto from "url:../../assets/images/user.jpg?as=webp&width=250";
-
 import KeyNoteService from "../../services/KeyNoteService";
+
+// TODO: Import Images
+import UserPhoto from "../../assets/images/user.jpg";
+
+// TODO: Parcel Image Transform
+// import UserPhoto from "url:../../assets/images/user.jpg?as=webp&width=250";
+
 
 export default class ViewKeyNoteSection extends Component {
 
