@@ -25,7 +25,7 @@ class AdminPermissionMessage extends React.Component{
                         <Card.Title>Administrator Permission Required!</Card.Title>
                         <Card.Title>You currently do not have permission to view this resources. Please login with proper permissions.</Card.Title>
                         <Card.Text>If you think this is an error please contact the Administrator.</Card.Text>
-                        <Link className={'btn btn-primary'} to={'/'}>Home</Link>
+                        {/*<Link className={'btn btn-primary'} to={'/'}>Home</Link>*/}
                     </Card.Body>
                 </Card>
             </Container>
