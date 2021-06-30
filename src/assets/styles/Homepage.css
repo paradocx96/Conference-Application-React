@@ -62,8 +62,13 @@
 #news .singleNews {
     /*background: #bbdefb;  */
     /* fallback for old browsers */
-    background: linear-gradient(to bottom, #ccffff 0%, #66ffff 100%);
+    /*background: linear-gradient(to bottom, #f6f6f6 0%, #808080 100%);*/
+    /*background: rgb(101,101,101);*/
+    /*background: linear-gradient(0deg, rgba(101,101,101,1) 0%, rgba(255,255,255,1) 100%);*/
+    /*border: solid;*/
+    /*border-color: #5b84ff;*/
     border-radius: 15px;
+    background-image: linear-gradient( 135deg, #90F7EC 10%, #32CCBC 100%);
     /*background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);  */
     /* Chrome 10-25, Safari 5.1-6 */
     /*background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB); */
