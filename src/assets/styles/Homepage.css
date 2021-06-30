@@ -46,10 +46,14 @@
 }
 
 #about .about-container {
-    padding: 50px;
+    padding: 30px;
     background-color: white;
     text-align: center;
     /*overflow-x: hidden;*/
+    border: solid;
+    border-color: #555555;
+    border-radius: 15px;
+    margin: 50px;
 }
 
 #news .news-container {
