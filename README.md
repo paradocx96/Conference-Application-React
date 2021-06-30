@@ -1,8 +1,14 @@
 # ICAF - 2021  
 ## Application Frameworks Project - Frontend  
 
-## Git Guide  
+## Deployment
 
+**AWS Amplify** : _https://deploymentv2.dyz7y76o29wov.amplifyapp.com_
+
+## Git Guide  
+<details> 
+  <summary>💻</summary>
+  
 **Git Clone**  
 git clone https://github.com/paradocx96/Conference-Application-React.git  
 cd Conference-Application-Spring-Boot  
@@ -40,3 +46,4 @@ git status
 
 **Check Git Repository Details**  
 git remote show origin  
+</details>
