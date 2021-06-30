@@ -126,8 +126,8 @@ function App() {
                     <Route path={'/research/payment'} exact component={Payment}/>
 
                     {/*No permission*/}
-                    <Route path={'/no-permission'} component={NoPermissionMessage} />
-                    <Route path={'/no-permission-admin'} component={AdminPermissionMessage} />
+                    <Route path={'/no-permission'} component={NoPermissionMessage}/>
+                    <Route path={'/no-permission-admin'} component={AdminPermissionMessage}/>
 
                     {/* REGISTRATION */}
                     <Route path="/sign-up" component={Registration}/>
@@ -138,8 +138,8 @@ function App() {
                     <Route path="/dashboard-users" component={ViewAllUserDetails}/>
 
                 </Switch>
+                <FooterBar/>
             </Router>
-            <FooterBar/>
         </div>
     );
 }
