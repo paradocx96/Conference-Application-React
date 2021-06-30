@@ -142,7 +142,7 @@ export default class Login extends Component {
                         </div>
 
                         <p className="forgot-password text-right">
-                            Are you not register yet <Link to="/sign-up">sign up?</Link>
+                            Are you not register yet <a href="/sign-up">sign up?</a>
                         </p>
 
                         {this.state.message && (
