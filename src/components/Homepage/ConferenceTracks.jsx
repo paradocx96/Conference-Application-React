@@ -24,6 +24,7 @@ import JQueryImage from './../../assets/images/ConferenceTrack/JQuery-01.jpg';
 import LaravelImage from './../../assets/images/ConferenceTrack/Laravel-04.jpg';
 import MaterializeImage from './../../assets/images/ConferenceTrack/Materialize-CSS-01.jpg';
 import MicrosoftDotNetImage from './../../assets/images/ConferenceTrack/Microsoft-Dotnet-01.jpg';
+import MongodbImage from './../../assets/images/ConferenceTrack/Mongodb-03.jpg';
 import MySQLImage from './../../assets/images/ConferenceTrack/MySQL-01.jpg';
 import NextJsImage from './../../assets/images/ConferenceTrack/Nextjs-01.jpg';
 import NodeJsImage from './../../assets/images/ConferenceTrack/Node-JS-01.jpg';
@@ -55,6 +56,7 @@ import VueJsImage from './../../assets/images/ConferenceTrack/Vue-JS-01.jpg';
 // import LaravelImage from 'url:./../../assets/images/ConferenceTrack/Laravel-04.jpg';
 // import MaterializeImage from 'url:./../../assets/images/ConferenceTrack/Materialize-CSS-01.jpg';
 // import MicrosoftDotNetImage from 'url:./../../assets/images/ConferenceTrack/Microsoft-Dotnet-01.jpg';
+// import MongodbImage from 'url:./../../assets/images/ConferenceTrack/Mongodb-03.jpg';
 // import MySQLImage from 'url:./../../assets/images/ConferenceTrack/MySQL-01.jpg';
 // import NextJsImage from 'url:./../../assets/images/ConferenceTrack/Nextjs-01.jpg';
 // import NodeJsImage from 'url:./../../assets/images/ConferenceTrack/Node-JS-01.jpg';
@@ -122,7 +124,7 @@ export default class ConferenceTracks extends Component {
                         </Col>
                     </Row>
 
-                    <Row>
+                    <Row className={'pt-4'}>
                         <Col>
                             <Card>
                                 <Card.Body>
@@ -165,7 +167,7 @@ export default class ConferenceTracks extends Component {
                         </Col>
                     </Row>
 
-                    <Row>
+                    <Row className={'pt-4'}>
                         <Col>
                             <Card>
                                 <Card.Body>
@@ -208,7 +210,7 @@ export default class ConferenceTracks extends Component {
                         </Col>
                     </Row>
 
-                    <Row>
+                    <Row className={'pt-4'}>
                         <Col>
                             <Card>
                                 <Card.Body>
@@ -251,7 +253,7 @@ export default class ConferenceTracks extends Component {
                         </Col>
                     </Row>
 
-                    <Row>
+                    <Row className={'pt-4'}>
                         <Col>
                             <Card>
                                 <Card.Body>
@@ -295,7 +297,7 @@ export default class ConferenceTracks extends Component {
                     </Row>
 
 
-                    <Row>
+                    <Row className={'pt-4'}>
                         <Col>
                             <Card>
                                 <Card.Body>
@@ -329,7 +331,12 @@ export default class ConferenceTracks extends Component {
                             </Card>
                         </Col>
                         <Col>
-
+                            <Card>
+                                <Card.Body>
+                                    <Card.Img variant="top" src={MongodbImage}/>
+                                    <Card.Text>Mongodb</Card.Text>
+                                </Card.Body>
+                            </Card>
                         </Col>
                     </Row>
 
