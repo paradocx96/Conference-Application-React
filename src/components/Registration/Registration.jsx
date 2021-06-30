@@ -359,7 +359,7 @@ export default class Register extends Component {
                             </div>
                         )}
                         <p className="forgot-password text-right">
-                            Already registered <Link to="/sign-in">sign in?</Link>
+                            Already registered <a href="/sign-up">sign up?</a>
                         </p>
 
                         {this.state.message && (
